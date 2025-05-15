@@ -18,7 +18,7 @@ public sealed class D2IText<T> : ObjectModel
     /// </summary>
     public T Id
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
@@ -27,7 +27,7 @@ public sealed class D2IText<T> : ObjectModel
     /// </summary>
     public string Text
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
@@ -36,7 +36,7 @@ public sealed class D2IText<T> : ObjectModel
     /// </summary>
     public bool UseNotDiacriticalText
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
@@ -45,7 +45,7 @@ public sealed class D2IText<T> : ObjectModel
     /// </summary>
     public string NotDiacriticalText
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
