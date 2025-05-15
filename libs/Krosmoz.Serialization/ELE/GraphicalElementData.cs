@@ -11,13 +11,13 @@ public abstract class GraphicalElementData : ObjectModel
 {
     public int Id
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public GraphicalElementTypes Type
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 

@@ -10,7 +10,7 @@ public sealed class ParticlesGraphicalElementData : GraphicalElementData
 {
     public short ScriptId
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 

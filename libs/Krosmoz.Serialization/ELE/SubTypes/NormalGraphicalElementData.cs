@@ -11,31 +11,31 @@ public class NormalGraphicalElementData : GraphicalElementData
 {
     public int GfxId
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public sbyte Height
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public bool HorizontalSymmetry
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public Point Origin
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public Point Size
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 

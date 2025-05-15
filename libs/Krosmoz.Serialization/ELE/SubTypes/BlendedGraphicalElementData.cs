@@ -10,7 +10,7 @@ public sealed class BlendedGraphicalElementData : NormalGraphicalElementData
 {
     public string BlendMode
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 

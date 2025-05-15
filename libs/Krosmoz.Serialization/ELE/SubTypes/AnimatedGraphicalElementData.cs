@@ -10,13 +10,13 @@ public sealed class AnimatedGraphicalElementData : NormalGraphicalElementData
 {
     public int MinDelay
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public int MaxDelay
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 

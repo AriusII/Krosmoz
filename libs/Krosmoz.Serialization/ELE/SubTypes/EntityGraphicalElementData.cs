@@ -10,37 +10,37 @@ public sealed class EntityGraphicalElementData : GraphicalElementData
 {
     public string EntityLook
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public bool HorizontalSymmetry
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public bool PlayAnimation
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public bool PlayAnimStatic
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public int MinDelay
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public int MaxDelay
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
