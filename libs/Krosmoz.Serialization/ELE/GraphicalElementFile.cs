@@ -43,11 +43,6 @@ public sealed class GraphicalElementFile
     /// <exception cref="Exception">Thrown if the file header is invalid.</exception>
     public void Load(BigEndianReader reader)
     {
-        var header = reader.ReadInt8();
-
-        if (header is not 69)
-            throw new Exception("Invalid file header.");
-
         Version = reader.ReadInt8();
 
         var elementsCount = reader.ReadInt32();
