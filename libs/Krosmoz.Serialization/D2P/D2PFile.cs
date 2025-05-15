@@ -7,6 +7,9 @@ using Krosmoz.Core.IO.Binary;
 
 namespace Krosmoz.Serialization.D2P;
 
+/// <summary>
+/// Represents a D2P file.
+/// </summary>
 public sealed class D2PFile
 {
     private readonly Dictionary<string, D2PEntry> _entries;
@@ -15,30 +18,62 @@ public sealed class D2PFile
     private readonly Dictionary<string, D2PDirectory> _directories;
     private readonly BigEndianReader _reader;
 
+    /// <summary>
+    /// Gets a value indicating whether links to other D2P files should be registered.
+    /// </summary>
     public bool RegisterLinks { get; }
 
+    /// <summary>
+    /// Gets the index table of the D2P file.
+    /// </summary>
     public D2PIndexTable IndexTable { get; }
 
+    /// <summary>
+    /// Gets the file path of the D2P file.
+    /// </summary>
     public string FilePath { get; }
 
+    /// <summary>
+    /// Gets the file name of the D2P file.
+    /// </summary>
     public string FileName =>
         Path.GetFileName(FilePath);
 
+    /// <summary>
+    /// Gets the properties of the D2P file.
+    /// </summary>
     public IEnumerable<D2PProperty> Properties =>
         _properties;
 
+    /// <summary>
+    /// Gets the entries in the D2P file.
+    /// </summary>
     public IEnumerable<D2PEntry> Entries =>
         _entries.Values;
 
+    /// <summary>
+    /// Gets the linked D2P files.
+    /// </summary>
     public IEnumerable<D2PFile> Links =>
         _links;
 
+    /// <summary>
+    /// Gets the root directories in the D2P file.
+    /// </summary>
     public IEnumerable<D2PDirectory> RootDirectories =>
         _directories.Values;
 
+    /// <summary>
+    /// Gets a value indicating whether the file path is valid.
+    /// </summary>
     public bool HasFilePath =>
         !string.IsNullOrEmpty(FilePath);
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="D2PFile"/> class.
+    /// </summary>
+    /// <param name="filePath">The file path of the D2P file.</param>
+    /// <param name="registerLinks">Indicates whether links to other D2P files should be registered.</param>
     public D2PFile(string filePath, bool registerLinks = true)
     {
         RegisterLinks = registerLinks;
@@ -54,21 +89,40 @@ public sealed class D2PFile
         InternalOpen();
     }
 
+    /// <summary>
+    /// Gets the entries that belong only to this D2P file instance.
+    /// </summary>
+    /// <returns>An enumerable collection of entries.</returns>
     public IEnumerable<D2PEntry> GetEntriesOfInstanceOnly()
     {
         return _entries.Values.Where(entry => entry.Container == this);
     }
 
+    /// <summary>
+    /// Gets an entry by its file name.
+    /// </summary>
+    /// <param name="fileName">The file name of the entry.</param>
+    /// <returns>The entry with the specified file name.</returns>
     public D2PEntry GetEntry(string fileName)
     {
         return _entries[fileName];
     }
 
+    /// <summary>
+    /// Tries to get an entry by its file name.
+    /// </summary>
+    /// <param name="fileName">The file name of the entry.</param>
+    /// <param name="entry">When this method returns, contains the entry if found; otherwise, <c>null</c>.</param>
+    /// <returns><c>true</c> if the entry was found; otherwise, <c>false</c>.</returns>
     public bool TryGetEntry(string fileName, [NotNullWhen(true)] out D2PEntry? entry)
     {
         return _entries.TryGetValue(fileName, out entry);
     }
 
+    /// <summary>
+    /// Gets the latest linked D2P file in the chain of links.
+    /// </summary>
+    /// <returns>The latest linked D2P file.</returns>
     public D2PFile GetLatestLink()
     {
         var lastLink = this;
@@ -79,6 +133,9 @@ public sealed class D2PFile
         return lastLink;
     }
 
+    /// <summary>
+    /// Opens the D2P file and reads its contents.
+    /// </summary>
     private void InternalOpen()
     {
         if (_reader.ReadUInt8() is not 2 || _reader.ReadUInt8() is not 1)
@@ -89,6 +146,9 @@ public sealed class D2PFile
         ReadEntryDefinitions();
     }
 
+    /// <summary>
+    /// Reads the index table from the D2P file.
+    /// </summary>
     private void ReadTable()
     {
         _reader.Seek(D2PIndexTable.TableSeekOrigin, D2PIndexTable.TableOffset);
@@ -96,6 +156,9 @@ public sealed class D2PFile
         IndexTable.ReadTable(_reader);
     }
 
+    /// <summary>
+    /// Reads the properties from the D2P file.
+    /// </summary>
     private void ReadProperties()
     {
         _reader.Seek(SeekOrigin.Begin, (int)IndexTable.PropertiesOffset);
@@ -112,6 +175,9 @@ public sealed class D2PFile
         }
     }
 
+    /// <summary>
+    /// Reads the entry definitions from the D2P file.
+    /// </summary>
     private void ReadEntryDefinitions()
     {
         _reader.Seek(SeekOrigin.Begin, (int)IndexTable.EntriesDefinitionOffset);
@@ -124,6 +190,10 @@ public sealed class D2PFile
         }
     }
 
+    /// <summary>
+    /// Adds a link to another D2P file.
+    /// </summary>
+    /// <param name="linkFile">The file path of the linked D2P file.</param>
     private void InternalAddLink(string linkFile)
     {
         var path = GetLinkFileAbsolutePath(linkFile);
@@ -142,6 +212,11 @@ public sealed class D2PFile
         _links.Add(link);
     }
 
+    /// <summary>
+    /// Gets the absolute path of a linked file.
+    /// </summary>
+    /// <param name="linkFile">The relative or absolute path of the linked file.</param>
+    /// <returns>The absolute path of the linked file.</returns>
     private string GetLinkFileAbsolutePath(string linkFile)
     {
         if (File.Exists(linkFile) || !HasFilePath)
@@ -152,6 +227,10 @@ public sealed class D2PFile
         return File.Exists(absolutePath) ? absolutePath : linkFile;
     }
 
+    /// <summary>
+    /// Adds an entry to the D2P file.
+    /// </summary>
+    /// <param name="entry">The entry to add.</param>
     private void InternalAddEntry(D2PEntry entry)
     {
         if (TryGetEntry(entry.FullFileName, out var registerdEntry))
@@ -162,6 +241,10 @@ public sealed class D2PFile
         InternalAddDirectories(entry);
     }
 
+    /// <summary>
+    /// Adds directories for an entry to the D2P file.
+    /// </summary>
+    /// <param name="entry">The entry for which directories are added.</param>
     private void InternalAddDirectories(D2PEntry entry)
     {
         var directories = entry.GetDirectoryNames();
