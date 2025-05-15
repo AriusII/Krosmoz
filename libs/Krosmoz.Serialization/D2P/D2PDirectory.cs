@@ -2,11 +2,9 @@
 // Krosmoz licenses this file to you under the MIT license.
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
-using Krosmoz.Core.Cache;
-
 namespace Krosmoz.Serialization.D2P;
 
-public sealed class D2PDirectory : ObjectModel
+public sealed class D2PDirectory
 {
     public D2PFile Container { get; set; }
 
@@ -17,15 +15,10 @@ public sealed class D2PDirectory : ObjectModel
         {
             field = value;
             UpdateFullName();
-            SetPropertyChanged(ref field, value);
         }
     }
 
-    public string FullName
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public string FullName { get; set; }
 
     public D2PDirectory? Parent
     {
@@ -34,21 +27,12 @@ public sealed class D2PDirectory : ObjectModel
         {
             field = value;
             UpdateFullName();
-            SetPropertyChanged(ref field, value);
         }
     }
 
-    public List<D2PEntry> Entries
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public List<D2PEntry> Entries { get; set; }
 
-    public Dictionary<string, D2PDirectory> Directories
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public Dictionary<string, D2PDirectory> Directories { get; set; }
 
     public bool IsRoot =>
         Parent is null;

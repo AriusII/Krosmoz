@@ -2,53 +2,28 @@
 // Krosmoz licenses this file to you under the MIT license.
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
-using Krosmoz.Core.Cache;
 using Krosmoz.Core.IO.Binary;
 
 namespace Krosmoz.Serialization.D2P;
 
-public sealed class D2PIndexTable : ObjectModel
+public sealed class D2PIndexTable
 {
     public const int TableOffset = -24;
     public const SeekOrigin TableSeekOrigin = SeekOrigin.End;
 
     public D2PFile Container { get; }
 
-    public uint OffsetBase
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public uint OffsetBase { get; set; }
 
-    public uint Size
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public uint Size { get; set; }
 
-    public uint EntriesDefinitionOffset
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public uint EntriesDefinitionOffset { get; set; }
 
-    public uint EntriesCount
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public uint EntriesCount { get; set; }
 
-    public uint PropertiesOffset
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public uint PropertiesOffset { get; set; }
 
-    public uint PropertiesCount
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public uint PropertiesCount { get; set; }
 
     public D2PIndexTable(D2PFile container)
     {

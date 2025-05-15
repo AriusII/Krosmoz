@@ -3,12 +3,11 @@
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
 using System.Diagnostics.CodeAnalysis;
-using Krosmoz.Core.Cache;
 using Krosmoz.Core.IO.Binary;
 
 namespace Krosmoz.Serialization.D2P;
 
-public sealed class D2PFile : ObjectModel
+public sealed class D2PFile
 {
     private readonly Dictionary<string, D2PEntry> _entries;
     private readonly List<D2PFile> _links;
@@ -141,7 +140,6 @@ public sealed class D2PFile : ObjectModel
         }
 
         _links.Add(link);
-        OnPropertyChanged(nameof(Links));
     }
 
     private string GetLinkFileAbsolutePath(string linkFile)

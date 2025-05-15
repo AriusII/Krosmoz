@@ -2,26 +2,17 @@
 // Krosmoz licenses this file to you under the MIT license.
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
-using Krosmoz.Core.Cache;
 using Krosmoz.Core.IO.Binary;
 
 namespace Krosmoz.Serialization.D2P;
 
-public sealed class D2PEntry : ObjectModel
+public sealed class D2PEntry
 {
     private readonly byte[] _newData;
 
     public D2PFile Container { get; }
 
-    public string FullFileName
-    {
-        get;
-        set
-        {
-            SetPropertyChanged(ref field, value);
-            OnPropertyChanged(nameof(FileName));
-        }
-    }
+    public string FullFileName { get; set; }
 
     public string FileName
     {
@@ -29,29 +20,13 @@ public sealed class D2PEntry : ObjectModel
         set => FullFileName = Path.Combine(Path.GetDirectoryName(FullFileName)!, value);
     }
 
-    public D2PDirectory Directory
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public D2PDirectory Directory { get; set; }
 
-    public int Index
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int Index { get; set; }
 
-    public int Size
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int Size { get; set; }
 
-    public D2PEntryState State
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public D2PEntryState State { get; set; }
 
     public D2PEntry(D2PFile container)
     {
