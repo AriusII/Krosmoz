@@ -14,13 +14,13 @@ public sealed class DlmCell : ObjectModel
 
     public short CellId
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public DlmBasicElement[] Elements
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 

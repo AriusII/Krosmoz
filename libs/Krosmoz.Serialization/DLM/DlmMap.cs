@@ -17,151 +17,151 @@ public sealed class DlmMap : ObjectModel
 {
     public sbyte Version
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public uint Id
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public bool Encrypted
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public sbyte EncryptionVersion
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public uint RelativeId
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public DlmMapTypes Type
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public int SubAreaId
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public int TopNeighbourId
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public int BottomNeighbourId
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public int LeftNeighbourId
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public int RightNeighbourId
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public int ShadowBonusOnEntities
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public Color Background
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public double ZoomScale
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public Point ZoomOffset
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public bool UseLowPassFilter
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public bool UseReverb
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public int PresetId
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public DlmFixture[] BackgroundFixtures
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public DlmFixture[] ForegroundFixtures
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public int Signature
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public int GroundCrc
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public DlmLayer[] Layers
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public DlmCellData[] Cells
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public bool UsingNewMovementSystem
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 

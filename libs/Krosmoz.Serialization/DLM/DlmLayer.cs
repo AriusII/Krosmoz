@@ -13,13 +13,13 @@ public sealed class DlmLayer : ObjectModel
 
     public int LayerId
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public DlmCell[] Cells
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 

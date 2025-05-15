@@ -10,37 +10,37 @@ public sealed class DlmSoundElement : DlmBasicElement
 {
     public int SoundId
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public short MinDelayBetweenLoops
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public short MaxDelayBetweenLoops
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public short BaseVolume
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public int FullVolumeDistance
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public int NullVolumeDistance
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 

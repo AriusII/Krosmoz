@@ -20,25 +20,25 @@ public sealed class DlmCellData : ObjectModel
 
     public sbyte Speed
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public byte MapChangeData
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public byte MoveZone
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public byte LosMov
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 

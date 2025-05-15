@@ -12,49 +12,49 @@ public sealed class DlmGraphicalElement : DlmBasicElement
 {
     public uint ElementId
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public ColorMultiplicator Hue
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public ColorMultiplicator Shadow
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public ColorMultiplicator FinalTeint
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public Point Offset
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public Point PixelOffset
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public int Altitude
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public uint Identifier
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 

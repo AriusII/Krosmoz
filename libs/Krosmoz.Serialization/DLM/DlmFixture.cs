@@ -14,55 +14,55 @@ public sealed class DlmFixture : ObjectModel
 
     public int FixtureId
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public Point Offset
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public int Hue
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public byte RedMultiplier
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public byte GreenMultiplier
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public byte BlueMultiplier
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public byte Alpha
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public Point Scale
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 
     public short Rotation
     {
-        get => field;
+        get;
         set => SetPropertyChanged(ref field, value);
     }
 

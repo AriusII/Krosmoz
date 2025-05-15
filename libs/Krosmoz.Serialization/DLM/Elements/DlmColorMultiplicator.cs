@@ -14,7 +14,7 @@ public sealed class ColorMultiplicator : ObjectModel
 
     public bool IsOne
     {
-        get => field;
+        get;
         private set => SetPropertyChanged(ref field, value);
     }
 
