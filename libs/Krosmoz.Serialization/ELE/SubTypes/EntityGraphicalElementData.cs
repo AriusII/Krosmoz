@@ -8,41 +8,17 @@ namespace Krosmoz.Serialization.ELE.SubTypes;
 
 public sealed class EntityGraphicalElementData : GraphicalElementData
 {
-    public string EntityLook
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public string EntityLook { get; set; }
 
-    public bool HorizontalSymmetry
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public bool HorizontalSymmetry { get; set; }
 
-    public bool PlayAnimation
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public bool PlayAnimation { get; set; }
 
-    public bool PlayAnimStatic
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public bool PlayAnimStatic { get; set; }
 
-    public int MinDelay
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int MinDelay { get; set; }
 
-    public int MaxDelay
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int MaxDelay { get; set; }
 
     public EntityGraphicalElementData(int id, GraphicalElementTypes type) : base(id, type)
     {

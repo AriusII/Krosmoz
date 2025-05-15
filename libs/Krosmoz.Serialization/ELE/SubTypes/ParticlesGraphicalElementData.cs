@@ -8,11 +8,7 @@ namespace Krosmoz.Serialization.ELE.SubTypes;
 
 public sealed class ParticlesGraphicalElementData : GraphicalElementData
 {
-    public short ScriptId
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public short ScriptId { get; set; }
 
     public ParticlesGraphicalElementData(int id, GraphicalElementTypes type) : base(id, type)
     {

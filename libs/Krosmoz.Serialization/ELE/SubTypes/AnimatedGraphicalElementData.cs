@@ -8,17 +8,9 @@ namespace Krosmoz.Serialization.ELE.SubTypes;
 
 public sealed class AnimatedGraphicalElementData : NormalGraphicalElementData
 {
-    public int MinDelay
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int MinDelay { get; set; }
 
-    public int MaxDelay
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int MaxDelay { get; set; }
 
     public AnimatedGraphicalElementData(int id, GraphicalElementTypes type) : base(id, type)
     {

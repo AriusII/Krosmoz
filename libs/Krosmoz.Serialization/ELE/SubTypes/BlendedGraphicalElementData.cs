@@ -8,11 +8,7 @@ namespace Krosmoz.Serialization.ELE.SubTypes;
 
 public sealed class BlendedGraphicalElementData : NormalGraphicalElementData
 {
-    public string BlendMode
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public string BlendMode { get; set; }
 
     public BlendedGraphicalElementData(int id, GraphicalElementTypes type) : base(id, type)
     {

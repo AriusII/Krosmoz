@@ -9,35 +9,15 @@ namespace Krosmoz.Serialization.ELE.SubTypes;
 
 public class NormalGraphicalElementData : GraphicalElementData
 {
-    public int GfxId
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int GfxId { get; set; }
 
-    public sbyte Height
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public sbyte Height { get; set; }
 
-    public bool HorizontalSymmetry
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public bool HorizontalSymmetry { get; set; }
 
-    public Point Origin
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public Point Origin { get; set; }
 
-    public Point Size
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public Point Size { get; set; }
 
     public NormalGraphicalElementData(int id, GraphicalElementTypes type) : base(id, type)
     {
