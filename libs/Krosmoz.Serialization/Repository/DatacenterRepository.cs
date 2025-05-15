@@ -102,12 +102,12 @@ public sealed class DatacenterRepository : IDatacenterRepository
     /// <param name="id">The ID of the map to retrieve.</param>
     /// <returns>An instance of <see cref="DlmMap"/>.</returns>
     /// <exception cref="Exception">Thrown if the map with the specified ID is not found.</exception>
-    public DlmMap GetMap(D2PFile d2PFile, int id)
+    public DlmMap? GetMap(D2PFile d2PFile, int id)
     {
         if (d2PFile.TryGetEntry($"{id.ToString(CultureInfo.InvariantCulture).Last()}/{id}.dlm", out var entry))
             return DlmAdapter.Load(d2PFile.ReadFile(entry));
 
-        throw new Exception($"Map with Id {id} not found.");
+        return null;
     }
 
     /// <summary>

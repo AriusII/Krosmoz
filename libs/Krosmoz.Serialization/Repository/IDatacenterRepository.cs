@@ -62,7 +62,7 @@ public interface IDatacenterRepository
     /// <param name="d2PFile">The D2P file containing the map.</param>
     /// <param name="id">The ID of the map to retrieve.</param>
     /// <returns>An instance of <see cref="DlmMap"/>.</returns>
-    DlmMap GetMap(D2PFile d2PFile, int id);
+    DlmMap? GetMap(D2PFile d2PFile, int id);
 
     /// <summary>
     /// Retrieves a list of objects of the specified type from the datacenter.
