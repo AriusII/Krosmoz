@@ -60,6 +60,11 @@ public static class PathConstants
         public static readonly string MapsPath;
 
         /// <summary>
+        /// The path to the tiles directory.
+        /// </summary>
+        public static readonly string TilesPath;
+
+        /// <summary>
         /// The path to the audio directory.
         /// </summary>
         public static readonly string AudioPath;
@@ -78,6 +83,7 @@ public static class PathConstants
             CommonPath = Path.Combine(DataPath, "common");
             I18NPath = Path.Combine(DataPath, "i18n");
             MapsPath = Path.Combine(ContentPath, "maps");
+            TilesPath = Path.Combine(ContentPath, "gfx", "world");
             AudioPath = Path.Combine(RegPath, "content", "audio");
         }
     }
