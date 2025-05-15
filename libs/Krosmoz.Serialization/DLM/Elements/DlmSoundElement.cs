@@ -8,41 +8,17 @@ namespace Krosmoz.Serialization.DLM.Elements;
 
 public sealed class DlmSoundElement : DlmBasicElement
 {
-    public int SoundId
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int SoundId { get; set; }
 
-    public short MinDelayBetweenLoops
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public short MinDelayBetweenLoops { get; set; }
 
-    public short MaxDelayBetweenLoops
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public short MaxDelayBetweenLoops { get; set; }
 
-    public short BaseVolume
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public short BaseVolume { get; set; }
 
-    public int FullVolumeDistance
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int FullVolumeDistance { get; set; }
 
-    public int NullVolumeDistance
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int NullVolumeDistance { get; set; }
 
     public DlmSoundElement(DlmCell cell, DlmElementTypes type) : base(cell, type)
     {

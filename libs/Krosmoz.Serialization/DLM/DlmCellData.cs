@@ -2,12 +2,11 @@
 // Krosmoz licenses this file to you under the MIT license.
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
-using Krosmoz.Core.Cache;
 using Krosmoz.Core.IO.Binary;
 
 namespace Krosmoz.Serialization.DLM;
 
-public sealed class DlmCellData : ObjectModel
+public sealed class DlmCellData
 {
     private short? _floor;
     private sbyte _rawFloor;
@@ -18,35 +17,16 @@ public sealed class DlmCellData : ObjectModel
 
     public short Id { get; }
 
-    public sbyte Speed
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public sbyte Speed { get; set; }
 
-    public byte MapChangeData
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public byte MapChangeData { get; set; }
 
-    public byte MoveZone
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public byte MoveZone { get; set; }
 
-    public byte LosMov
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public byte LosMov { get; set; }
 
-    public short Arrow
-    {
-        get => _arrow ??= (short)(15 & _rawArrow);
-        set => SetPropertyChanged(ref field, value);
-    }
+    public short Arrow =>
+        _arrow ??= (short)(15 & _rawArrow);
 
     public bool Mov =>
         (LosMov & 1) is 1;

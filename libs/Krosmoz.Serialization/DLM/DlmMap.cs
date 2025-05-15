@@ -4,7 +4,6 @@
 
 using System.Drawing;
 using System.Text;
-using Krosmoz.Core.Cache;
 using Krosmoz.Core.IO.Binary;
 using Krosmoz.Serialization.Constants;
 using Krosmoz.Serialization.DLM.Elements;
@@ -13,157 +12,57 @@ using Krosmoz.Serialization.ELE.SubTypes;
 
 namespace Krosmoz.Serialization.DLM;
 
-public sealed class DlmMap : ObjectModel
+public sealed class DlmMap
 {
-    public sbyte Version
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public sbyte Version { get; set; }
 
-    public uint Id
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public uint Id { get; set; }
 
-    public bool Encrypted
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public bool Encrypted { get; set; }
 
-    public sbyte EncryptionVersion
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public sbyte EncryptionVersion { get; set; }
 
-    public uint RelativeId
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public uint RelativeId { get; set; }
 
-    public DlmMapTypes Type
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public DlmMapTypes Type { get; set; }
 
-    public int SubAreaId
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int SubAreaId { get; set; }
 
-    public int TopNeighbourId
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int TopNeighbourId { get; set; }
 
-    public int BottomNeighbourId
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int BottomNeighbourId { get; set; }
 
-    public int LeftNeighbourId
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int LeftNeighbourId { get; set; }
 
-    public int RightNeighbourId
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int RightNeighbourId { get; set; }
 
-    public int ShadowBonusOnEntities
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int ShadowBonusOnEntities { get; set; }
 
-    public Color Background
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public Color Background { get; set; }
 
-    public double ZoomScale
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public double ZoomScale { get; set; }
 
-    public Point ZoomOffset
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public Point ZoomOffset { get; set; }
 
-    public bool UseLowPassFilter
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public bool UseLowPassFilter { get; set; }
 
-    public bool UseReverb
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public bool UseReverb { get; set; }
 
-    public int PresetId
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int PresetId { get; set; }
 
-    public DlmFixture[] BackgroundFixtures
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public DlmFixture[] BackgroundFixtures { get; set; }
 
-    public DlmFixture[] ForegroundFixtures
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public DlmFixture[] ForegroundFixtures { get; set; }
 
-    public int Signature
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int Signature { get; set; }
 
-    public int GroundCrc
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int GroundCrc { get; set; }
 
-    public DlmLayer[] Layers
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public DlmLayer[] Layers { get; set; }
 
-    public DlmCellData[] Cells
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public DlmCellData[] Cells { get; set; }
 
-    public bool UsingNewMovementSystem
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public bool UsingNewMovementSystem { get; set; }
 
     public List<short> TopArrowCells { get; }
 

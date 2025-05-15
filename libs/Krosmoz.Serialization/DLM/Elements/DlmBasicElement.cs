@@ -2,12 +2,11 @@
 // Krosmoz licenses this file to you under the MIT license.
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
-using Krosmoz.Core.Cache;
 using Krosmoz.Core.IO.Binary;
 
 namespace Krosmoz.Serialization.DLM.Elements;
 
-public abstract class DlmBasicElement : ObjectModel
+public abstract class DlmBasicElement
 {
     public DlmCell Cell { get; }
 

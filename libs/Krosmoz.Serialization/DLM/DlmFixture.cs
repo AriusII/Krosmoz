@@ -3,68 +3,31 @@
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
 using System.Drawing;
-using Krosmoz.Core.Cache;
 using Krosmoz.Core.IO.Binary;
 
 namespace Krosmoz.Serialization.DLM;
 
-public sealed class DlmFixture : ObjectModel
+public sealed class DlmFixture
 {
     public DlmMap Map { get; }
 
-    public int FixtureId
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int FixtureId { get; set; }
 
-    public Point Offset
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public Point Offset { get; set; }
 
-    public int Hue
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int Hue { get; set; }
 
-    public byte RedMultiplier
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public byte RedMultiplier { get; set; }
 
-    public byte GreenMultiplier
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public byte GreenMultiplier { get; set; }
 
-    public byte BlueMultiplier
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public byte BlueMultiplier { get; set; }
 
-    public byte Alpha
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public byte Alpha { get; set; }
 
-    public Point Scale
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public Point Scale { get; set; }
 
-    public short Rotation
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public short Rotation { get; set; }
 
     public DlmFixture(DlmMap map)
     {

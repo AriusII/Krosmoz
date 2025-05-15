@@ -2,26 +2,17 @@
 // Krosmoz licenses this file to you under the MIT license.
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
-using Krosmoz.Core.Cache;
 using Krosmoz.Core.IO.Binary;
 
 namespace Krosmoz.Serialization.DLM;
 
-public sealed class DlmLayer : ObjectModel
+public sealed class DlmLayer
 {
     public DlmMap Map { get; }
 
-    public int LayerId
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int LayerId { get; set; }
 
-    public DlmCell[] Cells
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public DlmCell[] Cells { get; set; }
 
     public DlmLayer(DlmMap map)
     {

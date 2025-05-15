@@ -2,27 +2,18 @@
 // Krosmoz licenses this file to you under the MIT license.
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
-using Krosmoz.Core.Cache;
 using Krosmoz.Core.IO.Binary;
 using Krosmoz.Serialization.DLM.Elements;
 
 namespace Krosmoz.Serialization.DLM;
 
-public sealed class DlmCell : ObjectModel
+public sealed class DlmCell
 {
     public DlmLayer Layer { get; }
 
-    public short CellId
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public short CellId { get; set; }
 
-    public DlmBasicElement[] Elements
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public DlmBasicElement[] Elements { get; set; }
 
     public DlmCell(DlmLayer layer)
     {

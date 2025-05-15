@@ -10,53 +10,21 @@ namespace Krosmoz.Serialization.DLM.Elements;
 
 public sealed class DlmGraphicalElement : DlmBasicElement
 {
-    public uint ElementId
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public uint ElementId { get; set; }
 
-    public ColorMultiplicator Hue
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public ColorMultiplicator Hue { get; set; }
 
-    public ColorMultiplicator Shadow
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public ColorMultiplicator Shadow { get; set; }
 
-    public ColorMultiplicator FinalTeint
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public ColorMultiplicator FinalTeint { get; set; }
 
-    public Point Offset
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public Point Offset { get; set; }
 
-    public Point PixelOffset
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public Point PixelOffset { get; set; }
 
-    public int Altitude
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public int Altitude { get; set; }
 
-    public uint Identifier
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public uint Identifier { get; set; }
 
     public DlmGraphicalElement(DlmCell cell, DlmElementTypes type) : base(cell, type)
     {
