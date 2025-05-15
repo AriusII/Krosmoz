@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Definition>
+	<Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+		<Constant name="css" value="[config.ui.skin]css/" />
+		<Constant name="bitmap" value="[config.ui.skin]bitmap/" />	
+		
+	   <Constant name="months_path" value="[config.gfx.path]almanax/months/" />	   
+	   <Constant name="astro_path" value="[config.gfx.path]almanax/astros/" />
+	   <Constant name="merydes_path" value="[config.gfx.path]almanax/merydes/" />
+	   <Constant name="item_path" value="[config.gfx.path.item.vector]/" />
+	</Constants>
+	
+    <Import url="[config.mod.template.button]simpleButton.xml" />
+	
+	<Container name="mainCtr">
+		<Anchors>
+			<Anchor>
+				<AbsDimension x="-121" y="-35" />
+			</Anchor>
+		</Anchors>
+		
+		
+		<Texture>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="122" y="61" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="1096" y="70" />
+			</Size>
+			<uri>[local.assets]tx_titleBackground</uri>
+			<autoGrid>true</autoGrid>
+		</Texture>
+		
+
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="170" y="73" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="538" y="37" />
+			</Size>
+			<text>[ui.almanax.almanax]</text>
+			<css>[local.css]title.css</css>
+		</Label>
+		
+		<Texture>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="934" y="73" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="228" y="38" />
+			</Size>
+			<uri>[local.assets]tx_calendar_decoration</uri>
+			<autoGrid>false</autoGrid>
+		</Texture>
+
+
+		<!-- PARTIE DE GAUCHE -->
+		
+		<Container>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="135" y="140" />
+				</Anchor>
+			</Anchors>
+			
+			<Container>
+				<Texture>
+					<Size>
+						<AbsDimension x="285" y="622" />
+					</Size>
+					<uri>[local.assets]tx_blockBackground</uri>
+					<autoGrid>true</autoGrid>
+				</Texture>
+					
+				<Texture>
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="10" y="38" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="265" y="80" />
+					</Size>
+					<uri>[local.assets]tx_darkBg</uri>
+					<autoGrid>true</autoGrid>
+				</Texture>
+				
+				
+				<Label name="lbl_month">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="2" y="0" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="281" y="35" />
+					</Size>
+					<css>[local.css]title.css</css>
+					<cssClass>oppositecenter</cssClass>
+				</Label>
+		
+				<Texture name="tx_day">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="16" y="40" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="264" y="75" />
+					</Size>
+					<uri>[local.assets]tx_calendarCrapyNumbers</uri>
+				</Texture>			
+		
+				<Label name="lbl_year">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="2" y="120" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="281" y="35" />
+					</Size>
+					<css>[local.css]title.css</css>
+					<cssClass>oppositecenter</cssClass>
+				</Label>					
+			</Container>
+				
+			<Container>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="160" />
+					</Anchor>
+				</Anchors>
+				
+				<Texture>
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="10" y="10" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="130" y="130" />
+					</Size>
+					<uri>[local.assets]tx_darkBg</uri>
+					<autoGrid>true</autoGrid>
+				</Texture>
+				
+				<Texture name="tx_astro">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="13" y="13" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="124" y="124" />
+					</Size>
+					<uri>[local.assets]</uri>
+					<autoGrid>true</autoGrid>
+					<roundCornerRadius>14</roundCornerRadius>
+				</Texture>
+				
+				<Texture>
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="144" y="10" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="130" y="130" />
+					</Size>
+					<uri>[local.assets]tx_darkBg</uri>
+					<autoGrid>true</autoGrid>
+				</Texture>
+				
+				<Texture name="tx_monthGod">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="147" y="13" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="124" y="124" />
+					</Size>
+					<uri>[local.assets]</uri>
+					<autoGrid>true</autoGrid>
+					<roundCornerRadius>14</roundCornerRadius>
+				</Texture>			
+			</Container>
+			
+			
+			<Container>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="310" />
+					</Anchor>
+				</Anchors>
+				
+				<Container name="ctr_nameDayIllu">					
+					<Texture>
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="11" y="40" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="262" y="262" />
+						</Size>
+						<uri>[local.assets]tx_darkBg</uri>
+						<autoGrid>true</autoGrid>
+					</Texture>
+					
+					<Texture name="tx_nameDayIllu">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="12" y="41" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="260" y="260" />
+						</Size>
+						<uri>[local.assets]</uri>
+						<autoGrid>true</autoGrid>
+						<roundCornerRadius>14</roundCornerRadius>
+					</Texture>
+				</Container>
+		
+				<Label name="lbl_nameday">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="2" y="8" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="281" y="22" />
+					</Size>
+					<cssClass>center</cssClass>
+					<css>[local.css]normal.css</css>
+				</Label>			
+			</Container>
+						
+			
+			<simpleButton label="[ui.almanax.calendar]" name="btn_site" >
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="2" y="630" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="280" y="34" />
+				</Size>
+			</simpleButton>
+		
+		</Container>
+		
+		
+		
+		
+		
+		
+		<!--  PARTIE DE DROITE  -->
+		
+		<Container>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="430" y="140" />
+				</Anchor>
+			</Anchors>
+		
+		
+		
+			<!-- meryde -->
+			
+			<Container>
+				<Texture>
+					<Size>
+						<AbsDimension x="775" y="210" />
+					</Size>
+					<uri>[local.assets]tx_blockBackground</uri>
+					<autoGrid>true</autoGrid>
+				</Texture>
+				
+				<Label name="lbl_titlemeryde">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="17" y="14" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="588" y="22" />
+					</Size>
+					<css>[local.css]titleSmall.css</css>
+				</Label>
+				
+				<TextArea name="lbl_meryde">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="17" y="44" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="588" y="125" />
+					</Size>
+					<css>[local.css]normal.css</css>
+					<scrollCss>[local.css]scrollBar.css</scrollCss>
+					<hideScroll>true</hideScroll>
+					<useCustomFormat>true</useCustomFormat>
+				</TextArea>
+				
+				
+				<Label name="lbl_dayObjective">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="17" y="170" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="710" y="22" />
+					</Size>
+					<css>[local.css]normal.css</css>
+				</Label>
+	
+				<Texture name="tx_bgMeryde">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="620" y="15" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="140" y="140" />
+					</Size>
+					<uri>[local.assets]tx_darkBg</uri>
+					<autoGrid>true</autoGrid>
+				</Texture>
+				
+				
+				<EntityDisplayer name="ed_meryde">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="616" y="15" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="140" y="140" />
+					</Size>
+					<direction>3</direction>
+					<scale>1</scale>
+				</EntityDisplayer>
+				
+			</Container>
+			
+			
+			<!-- BONUS DU JOUR -->
+			<Container>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="220" />
+					</Anchor>
+				</Anchors>
+					
+				<Texture>
+					<Size>
+						<AbsDimension x="775" y="168" />
+					</Size>
+					<uri>[local.assets]tx_blockBackground</uri>
+					<autoGrid>true</autoGrid>
+				</Texture>
+						
+				<Texture>
+					<Size>
+						<AbsDimension x="775" y="168" />
+					</Size>
+					<uri>[local.assets]craft_tx_OrangeLine</uri>
+					<autoGrid>true</autoGrid>
+				</Texture>
+	
+				<Texture>
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="12" y="16" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="140" y="140" />
+					</Size>
+					<uri>[local.assets]tx_darkBg</uri>
+					<autoGrid>true</autoGrid>
+				</Texture>
+	
+				<Texture>
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="16" y="14" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="138" y="138" />
+					</Size>
+					<uri>[local.assets]tx_calendarBonus</uri>
+					<autoGrid>true</autoGrid>
+				</Texture>
+				
+				<Label name="lbl_titleBonus">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="165" y="14" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="588" y="30" />
+					</Size>
+					<css>[local.css]titleSmall.css</css>
+				</Label>
+				
+				<TextArea name="lbl_bonus">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="165" y="50" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="588" y="120" />
+					</Size>
+					<css>[local.css]normal.css</css>
+					<scrollCss>[local.css]scrollBar.css</scrollCss>
+					<hideScroll>true</hideScroll>
+					<useCustomFormat>true</useCustomFormat>
+				</TextArea>
+				
+			</Container>
+			
+			
+		
+			<!-- QUETE DU DOFUS -->
+			
+			<Container>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="400" />
+					</Anchor>
+				</Anchors>
+				
+				<Texture>
+					<Size>
+						<AbsDimension x="775" y="260" />
+					</Size>
+					<uri>[local.assets]tx_blockBackground</uri>
+					<autoGrid>true</autoGrid>
+				</Texture>
+				
+				<Label>
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="17" y="5" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="525" y="22" />
+					</Size>
+					<css>[local.css]titleSmall.css</css>
+					<text>[ui.almanax.dolmanaxQuest]</text>
+				</Label>
+				
+				<TextArea name="lbl_quest">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="17" y="40" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="588" y="125" />
+					</Size>
+					<css>[local.css]normal.css</css>
+					<scrollCss>[local.css]scrollBar.css</scrollCss>
+					<hideScroll>true</hideScroll>
+				</TextArea>
+								
+				<simpleButton label="[ui.almanax.localizeSanctuary]" name="btn_locTemple" >
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="110" y="155" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="350" y="30" />
+					</Size>
+				</simpleButton>
+	
+				<Texture>
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="616" y="33" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="140" y="140" />
+					</Size>
+					<uri>[local.assets]tx_darkBg</uri>
+					<autoGrid>true</autoGrid>
+				</Texture>
+					
+				<Texture name="tx_dolmanax">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="617" y="34" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="138" y="138" />
+					</Size>
+				</Texture>
+				
+				<Label name="lbl_questProgress">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="17" y="197" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="340" y="22" />
+					</Size>
+					<css>[local.css]titleSmall.css</css>
+				</Label>
+		
+				<Texture name="tx_progressBarBg">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="16" y="230" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="740" y="18" />
+					</Size>
+					<uri>[local.assets]tx_progressBarBackground</uri>
+					<autoGrid>true</autoGrid>
+				</Texture>				
+				<Texture name="tx_progressBar">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="18" y="232" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="736" y="14" />
+					</Size>
+					<uri>[local.assets]tx_progressBar</uri>
+					<autoGrid>true</autoGrid>
+				</Texture>
+				
+			</Container>
+		</Container>
+		
+	</Container>
+</Definition>

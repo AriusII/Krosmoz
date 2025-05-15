@@ -1,0 +1,70 @@
+<overrides>
+	<override target="ui.charcrea.breedNotAvailable.12">ui.asia.charcrea.breedNotAvailable.12</override>
+	<override target="ui.charcrea.breedNotAvailable.13">ui.asia.charcrea.breedNotAvailable.13</override>
+	<override target="ui.charcrea.breedNotAvailable.14">ui.asia.charcrea.breedNotAvailable.14</override>
+	<override target="ui.charcrea.charcrea.breedNotAvailableForFree">ui.asia.charcrea.charcrea.breedNotAvailableForFree</override>
+	<override target="ui.connection.loggedInMembers">ui.asia.connection.loggedInMembers</override>
+	<override target="ui.exchange.cantExchangeCharacterNotSuscriber">ui.asia.exchange.cantExchangeCharacterNotSuscriber</override>
+	<override target="ui.fight.MemberAccountNeeded">ui.asia.fight.MemberAccountNeeded</override>
+	<override target="ui.header.subscribe">ui.asia.header.subscribe</override>
+	<override target="ui.header.subscribeLeftTime">ui.asia.header.subscribeLeftTime</override>	
+	<override target="ui.item.characteristics">ui.asia.item.characteristics</override>
+	<override target="ui.link.betaReport">ui.asia.link.betaReport</override>
+	<override target="ui.link.checklink">ui.asia.link.checklink</override>
+	<override target="ui.link.createAccount">ui.asia.link.createAccount</override>
+	<override target="ui.link.findPassword">ui.asia.link.findPassword</override>
+	<override target="ui.link.howToReport">ui.asia.link.howToReport</override>
+	<override target="ui.link.members">ui.asia.link.members</override>
+	<override target="ui.link.ogrinePortal">ui.asia.link.ogrinePortal</override>
+	<override target="ui.link.ogrinePortalLocal">ui.asia.link.ogrinePortalLocal</override>
+	<override target="ui.link.phishing">ui.asia.link.phishing</override>
+	<override target="ui.link.subscribe">ui.asia.link.subscribe.withPremium</override>
+	<override target="ui.link.support">ui.asia.link.support</override>
+	<override target="ui.payzone.btn">ui.asia.payzone.btn</override>
+	<override target="ui.payzone.description">ui.asia.payzone.description</override>
+	<override target="ui.payzone.title">ui.asia.payzone.title</override>
+	<override target="ui.popup.accessDenied.banned">ui.asia.popup.accessDenied.banned</override>
+	<override target="ui.popup.accessDenied.bannedWithDuration">ui.asia.popup.accessDenied.bannedWithDuration</override>
+	<override target="ui.accessDenied.inMaintenance">ui.asia.accessDenied.inMaintenance</override>
+	<override target="ui.accessDenied.unknown">ui.asia.accessDenied.unknown</override>
+	<override target="ui.warningForbiddenLink">ui.asia.warningForbiddenLink</override>
+	<override target="ui.server.cantChoose.communityOrSubscribersRestricted">ui.asia.server.cantChoose.communityOrSubscribersRestricted</override>
+	<override target="ui.server.cantChoose.locationRestricted">ui.asia.server.cantChoose.locationRestricted</override>
+	<override target="ui.server.cantChoose.serverFull">ui.asia.server.cantChoose.serverFull</override>
+	<override target="ui.server.cantChoose.serverFull.over">ui.asia.server.cantChoose.serverFull.over</override>
+	<override target="ui.social.friend.addFailureListFull">ui.asia.social.friend.addFailureListFull</override>
+	<override target="ui.tooltip.dontBeSubscriber">ui.asia.tooltip.dontBeSubscriber</override>
+	<override target="ui.header.subscriptionEndDate">ui.asia.header.subscriptionEndDate</override>
+	
+	<override target="ui.link.ankaboxLastMessage">ui.asia.link.ankaboxLastMessage</override>
+    <override target="ui.link.ankaboxLastMessageLocal">ui.asia.link.ankaboxLastMessageLocal</override>
+    <override target="ui.link.ankaboxPortal">ui.asia.link.ankaboxPortal</override>
+    <override target="ui.link.ankaboxPortalLocal">ui.asia.link.ankaboxPortalLocal</override>
+    <override target="ui.link.ankaboxSend">ui.asia.link.ankaboxSend</override>
+    <override target="ui.link.ankaboxSendLocal">ui.asia.link.ankaboxSendLocal</override>
+	
+	
+	<!-- message.asia.8 to message.8.text-->
+	<override target="4652" type="i18n">78567</override>
+	<!-- message.asia.121 to message.121.text-->
+	<override target="5141" type="i18n">78568</override>
+	<!-- message.asia.186 to message.186.text-->
+	<override target="4796" type="i18n">78569</override>
+	<!-- message.asia.193 to message.193.text-->
+	<override target="5358" type="i18n">78570</override>
+	<!-- message.asia.240 to message.240.text-->
+	<override target="5299" type="i18n">78571</override>
+	<!-- message.asia.335 to message.335.text-->
+	<override target="4979" type="i18n">78572</override>
+	<!-- message.asia.502 to message.502.text-->
+	<override target="5063" type="i18n">78573</override>
+	<!-- message.asia.529 to message.529.text-->
+	<override target="5103" type="i18n">78574</override>
+	<!-- message.asia.552 to message.552.text-->
+	<override target="4724" type="i18n">78575</override>
+	<!-- message.asia.744 to message.744.text-->
+	<override target="4716" type="i18n">78576</override>
+	<!-- message.asia.748 to message.748.text-->
+	<override target="4726" type="i18n">78577</override>
+	
+</overrides>

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Definition SYSTEM "../dtd/ui.dtd">
+<Definition>
+	<Import url="[config.mod.template.button]simpleButton.xml" />
+	<Import url="[config.mod.template.button]iconButton.xml" />
+	
+	<Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+	   	<Constant name="css" value="[config.ui.skin]css/" />
+	</Constants>
+	
+	<Container>
+		<Anchors>
+			<Anchor point="CENTER" relativePoint="CENTER">
+				<AbsDimension x="0" y="-20" />
+			</Anchor>
+		</Anchors>
+		
+		<mouseEnabled>true</mouseEnabled>
+		
+		<Texture>
+			<Size>
+				<AbsDimension x="600" y="600" />
+			</Size>
+			<autoGrid>true</autoGrid>
+			<uri>[local.assets]tx_generalBackgroundWithTitle</uri>
+			<shadowColor>[colors.ui.shadow]</shadowColor>
+		</Texture>
+
+		<!-- Label lbl_title-->
+
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="25" y="15" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="500" y="27" />
+			</Size>
+			<text>[ui.common.koliseum]</text>
+			<css>[local.css]title.css</css>
+		</Label>
+		
+		<Texture>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="25" y="60" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="550" y="120" />
+			</Size>
+			<uri>[local.assets]tx_blockBackground</uri> 
+			<autoGrid>true</autoGrid>
+		</Texture>
+		
+		
+		<Label name="lbl_step">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="40" y="65" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="500" y="23" />
+			</Size>
+			<css>[local.css]titleSmall.css</css>
+		</Label>		
+		
+		<TextArea name="lbl_whatToDo">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="40" y="100" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="530" y="70" />
+			</Size>
+			<css>[local.css]normal.css</css>
+			<scrollCss>[local.css]scrollBar.css</scrollCss>
+			<hideScroll>true</hideScroll>
+			<verticalAlign>center</verticalAlign>
+		</TextArea>
+		
+		<Texture>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="27" y="190" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="550" y="180" />
+			</Size>
+			<uri>[local.assets]tx_blockBackground</uri> 
+			<autoGrid>true</autoGrid>
+		</Texture>
+		
+		
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="62" y="193" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="350" y="20" />
+			</Size>
+			<text>[ui.common.team]</text>
+			<css>[local.css]normal.css</css>
+		</Label>
+
+		<Grid name="gd_myTeam">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="28" y="220" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="546" y="123" />
+			</Size>
+			<rendererName>InlineXmlGridRender</rendererName>
+			<rendererArgs>updateFighterLine,[colors.grid.line]</rendererArgs>
+			<scrollDisplay>never</scrollDisplay>
+			<slotWidth>544</slotWidth>
+			<slotHeight>41</slotHeight>
+			
+			<!-- Container décrivant une ligne de la grille -->
+			<Container>
+				<Size>
+					<AbsDimension x="544" y="41" />
+				</Size>
+						
+				<Texture name="tx_leader">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="15" y="13" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="24" y="12" />
+					</Size>
+					<uri>[local.assets]Texture_tx_LeaderCrown</uri> 
+				</Texture>
+
+				<!-- Label contenant le nom du combattant -->
+				<Label name="lbl_fighterName">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="45" y="7" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="390" y="20" />
+					</Size>
+					<css>[local.css]normal.css</css>
+					<hyperlinkEnabled>true</hyperlinkEnabled>
+					<useStyleSheet>true</useStyleSheet>
+				</Label>
+						
+				<Texture name="tx_fighterState">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="450" y="7" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="50" y="30" />
+					</Size>
+					<uri>[local.assets]state_0</uri> 
+				</Texture>
+			</Container>
+		</Grid>
+		
+		<Texture>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="27" y="190" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="550" y="182" />
+			</Size>
+			<uri>[local.assets]tx_commonGrid</uri> 
+			<autoGrid>true</autoGrid>
+		</Texture>
+				
+		
+		
+		<Texture>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="25" y="385" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="550" y="150" />
+			</Size>
+			<uri>[local.assets]tx_blockBackground</uri> 
+			<autoGrid>true</autoGrid>
+		</Texture>
+		
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="40" y="395" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="500" y="20" />
+			</Size>
+			<text>[ui.common.myInformations]</text>
+			<css>[local.css]titleSmall.css</css>
+		</Label>
+		
+		<Label name="lbl_rank">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="40" y="425" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="450" y="20" />
+			</Size>
+			<css>[local.css]normal.css</css>
+		</Label>
+		<Label name="lbl_rankDay">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="40" y="450" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="450" y="20" />
+			</Size>
+			<css>[local.css]normal.css</css>
+		</Label>
+		<Label name="lbl_rankMax">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="40" y="475" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="450" y="20" />
+			</Size>
+			<css>[local.css]normal.css</css>
+		</Label>
+		
+		<Label name="lbl_fights">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="40" y="503" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="450" y="20" />
+			</Size>
+			<css>[local.css]normal.css</css>
+		</Label>
+		
+				
+		<!-- Bouton "Inscription" -->
+		<simpleButton label="[ui.common.accept]" name="btn_validate">
+			<Anchors>
+				<Anchor point="BOTTOM" relativePoint="BOTTOM">
+					<AbsDimension x="-130" y="-20" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="250" y="32" />
+			</Size>
+		</simpleButton>
+		
+		<simpleButton label="[ui.party.arenaQuit]" name="btn_quitArena">
+			<Anchors>
+				<Anchor point="BOTTOM" relativePoint="BOTTOM">
+					<AbsDimension x="130" y="-20" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="250" y="32" />
+			</Size>
+		</simpleButton>
+		
+		<iconButton name="btn_close">
+			<Anchors>
+				<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" />
+			</Anchors>
+			<Size>
+				<AbsDimension x="57" y="36" />
+			</Size>
+			<uri>[local.assets]btn_cornerCross</uri>
+		</iconButton>
+		
+	</Container>
+
+</Definition>

@@ -1,0 +1,100 @@
+package com.ankamagames.dofus.internalDatacenter.guild
+{
+   import com.ankamagames.dofus.kernel.Kernel;
+   import com.ankamagames.dofus.logic.game.common.frames.SocialFrame;
+   import com.ankamagames.dofus.network.types.game.character.CharacterMinimalPlusLookInformations;
+   import com.ankamagames.jerakine.interfaces.IDataCenter;
+   
+   public class SocialEntityInFightWrapper implements IDataCenter
+   {
+      private static const TYPE_TAX_COLLECTOR:int = 0;
+      
+      private static const TYPE_PRISM:int = 1;
+      
+      public var uniqueId:int;
+      
+      public var typeId:int;
+      
+      public var fightTime:int;
+      
+      public var allyCharactersInformations:Array;
+      
+      public var enemyCharactersInformations:Array;
+      
+      public var waitTimeForPlacement:Number;
+      
+      public function SocialEntityInFightWrapper()
+      {
+         super();
+      }
+      
+      public static function create(param1:int, param2:int, param3:Array = null, param4:Array = null, param5:int = 2147483647, param6:Number = 0) : SocialEntityInFightWrapper
+      {
+         var _loc7_:SocialEntityInFightWrapper = null;
+         var _loc8_:CharacterMinimalPlusLookInformations = null;
+         var _loc9_:CharacterMinimalPlusLookInformations = null;
+         _loc7_ = new SocialEntityInFightWrapper();
+         _loc7_.allyCharactersInformations = new Array();
+         _loc7_.enemyCharactersInformations = new Array();
+         _loc7_.typeId = param1;
+         _loc7_.uniqueId = param2;
+         _loc7_.fightTime = param5;
+         _loc7_.waitTimeForPlacement = param6;
+         for each(_loc8_ in param3)
+         {
+            _loc7_.allyCharactersInformations.push(SocialFightersWrapper.create(0,_loc8_));
+         }
+         for each(_loc9_ in param4)
+         {
+            _loc7_.enemyCharactersInformations.push(SocialFightersWrapper.create(1,_loc9_));
+         }
+         return _loc7_;
+      }
+      
+      public function update(param1:int, param2:int, param3:Array, param4:Array, param5:int = 2147483647, param6:Number = 0) : void
+      {
+         var _loc7_:CharacterMinimalPlusLookInformations = null;
+         var _loc8_:CharacterMinimalPlusLookInformations = null;
+         this.typeId = param1;
+         this.uniqueId = param2;
+         this.fightTime = param5;
+         this.waitTimeForPlacement = param6;
+         this.allyCharactersInformations = new Array();
+         this.enemyCharactersInformations = new Array();
+         for each(_loc7_ in param3)
+         {
+            this.allyCharactersInformations.push(SocialFightersWrapper.create(0,_loc7_));
+         }
+         for each(_loc8_ in param4)
+         {
+            this.enemyCharactersInformations.push(SocialFightersWrapper.create(1,_loc8_));
+         }
+      }
+      
+      public function addPonyFighter(param1:TaxCollectorWrapper) : void
+      {
+         var _loc2_:CharacterMinimalPlusLookInformations = null;
+         if(this.allyCharactersInformations == null)
+         {
+            this.allyCharactersInformations = new Array();
+         }
+         if(this.allyCharactersInformations.length == 0 || !this.allyCharactersInformations[0] || this.allyCharactersInformations[0].playerCharactersInformations.entityLook != param1.entityLook)
+         {
+            _loc2_ = new CharacterMinimalPlusLookInformations();
+            _loc2_.entityLook = param1.entityLook;
+            _loc2_.id = param1.uniqueId;
+            if(Kernel.getWorker().getFrame(SocialFrame) != null)
+            {
+               _loc2_.level = (Kernel.getWorker().getFrame(SocialFrame) as SocialFrame).guild.level;
+            }
+            else
+            {
+               _loc2_.level = 0;
+            }
+            _loc2_.name = param1.lastName + " " + param1.firstName;
+            this.allyCharactersInformations.splice(0,0,SocialFightersWrapper.create(0,_loc2_));
+         }
+      }
+   }
+}
+

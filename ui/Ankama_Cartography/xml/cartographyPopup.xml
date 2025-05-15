@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Definition>
+<Import url="[config.mod.template]button/iconButton.xml" />
+    
+	<Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+		<Constant name="css" value="[config.ui.skin]css/" />
+		<Constant name="maps_uri" value="[config.gfx.path.maps]" />
+		<Constant name="icons_uri" value="[config.content.path]gfx/icons" />
+	</Constants>
+	
+	<Container name="popCtr">
+		<Anchors>
+			<Anchor relativePoint="CENTER" point="CENTER" />
+		</Anchors>
+		
+		<mouseEnabled>true</mouseEnabled>
+		<shadowColor>[colors.ui.shadow]</shadowColor>	
+		
+		<Container>
+			<Size>
+				<RelDimension x="1" y="1"/>
+			</Size>
+			<Anchors>
+				<Anchor relativePoint="CENTER" point="CENTER" />
+			</Anchors>
+			
+			<Texture name="tx_background" strata="LOW">
+				<autoGrid>true</autoGrid>
+				<Size>
+					<RelDimension x="1" y="1"/>
+				</Size>
+				<uri>[local.assets]tx_generalBackgroundWithTitle</uri>
+			</Texture>
+			
+			<iconButton name="btn_close">
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" />
+				</Anchors>
+				<Size>
+					<AbsDimension x="57" y="36" />
+				</Size>
+				<uri>[local.assets]btn_cornerCross</uri>
+			</iconButton>
+			
+			<Label name="lbl_title">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="13" y="19" />
+					</Anchor>
+					<Anchor relativePoint="TOPRIGHT"/>
+				</Anchors>
+				<Size>
+					<AbsDimension y="25"/>
+				</Size>
+				<css>[local.css]title.css</css>		
+				<cssClass>center</cssClass>		
+				<verticalAlign>center</verticalAlign>
+			</Label>
+			
+			<Label name="lbl_subtitle">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="55" y="53" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension y="25" x="465"/>
+				</Size>
+				<cssClass>right</cssClass>	
+				<css>[local.css]normal.css</css>		
+			</Label>
+			
+			<iconButton name="btn_flag">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="25" y="55" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="25" y="25" />
+				</Size>
+				<uri>[local.assets]map_btn_drapeau</uri>
+				<autoGrid>false</autoGrid>
+				<radioMode>true</radioMode>
+				<radioGroup>mapMode</radioGroup>
+				<selected>false</selected>
+			</iconButton>
+			
+			<MapViewer name="mapViewer">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="25" y="85" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="500" y="400" />
+				</Size>
+				<mouseEnabled>true</mouseEnabled>
+				<roundCornerRadius>15</roundCornerRadius>
+			</MapViewer>
+			
+			<Container name="ctrSubAreaInfo">
+				<visible>false</visible>
+				<Container name="ctrSubAreaInfoBg">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="20" y="5" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="1" y="25" />
+					</Size>
+					<bgColor>[colors.tooltip.bg]</bgColor>
+					<alpha>[colors.tooltip.bg.alpha]</alpha>
+				</Container>
+				<Label name="lblSubAreaInfo">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="20" y="5" />
+						</Anchor>
+					</Anchors>
+					<fixedWidth>false</fixedWidth>
+					<css>[local.css]normal.css</css>
+				</Label>
+			</Container>
+			
+		</Container>
+	</Container>
+</Definition>

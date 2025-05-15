@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Definition>
+
+	<Import url="[config.mod.template]button/simpleButton.xml" />
+	<Import url="[config.mod.template]button/iconButton.xml" />
+	<Import url="[config.mod.template]button/horizontalTab.xml" />
+	<Import url="[config.mod.template]button/sortButton.xml" />
+   
+	<Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+		<Constant name="css" value="[config.ui.skin]css/" />
+		<Constant name="cssGridMenu" value="[config.ui.skin]css/normal.css" />
+		<Constant name="houses_uri" value="[config.content.path]gfx/houses/" />
+	</Constants>
+
+	<Container name="mainCtr">
+
+		<Anchors>
+			<Anchor>
+				<AbsDimension x="15" y="124" />
+			</Anchor>
+		</Anchors>
+
+		<!-- GRILLE MAISONS -->
+
+		<Label name="lbl_tabHouse">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="20" y="9" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="460" y="20" />
+			</Size>
+			<text>[ui.common.houseWord]</text>
+			<css>[local.cssGridMenu]</css>
+		</Label>
+
+		<sortButton name="btn_tabHouse">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="10" y="8" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="440" y="25" />
+			</Size>
+		</sortButton>
+
+		<Label name="lbl_tabCoord">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="550" y="9" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="85" y="20" />
+			</Size>
+			<text>[ui.common.coordinatesSmall]</text>
+			<css>[local.cssGridMenu]</css>
+			<cssClass>right</cssClass>
+		</Label>
+
+		<sortButton name="btn_tabCoord">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="550" y="8" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="85" y="25" />
+			</Size>
+		</sortButton>
+
+		<Label name="lbl_tabOwner">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="695" y="9" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="180" y="20" />
+			</Size>
+			<text>[ui.common.ownerWord]</text>
+			<css>[local.cssGridMenu]</css>
+			<cssClass>right</cssClass>
+		</Label>
+
+		<sortButton name="btn_tabOwner">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="695" y="8" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="180" y="25" />
+			</Size>
+		</sortButton>
+
+		<Grid name="grid_house">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="0" y="35" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="964" y="414" />
+			</Size>
+			<rendererName>InlineXmlGridRender</rendererName>
+			<rendererArgs>updateHouseLine,[colors.grid.line]</rendererArgs>
+			<slotWidth>935</slotWidth>
+			<slotHeight>41</slotHeight>
+			<verticalScrollbarCss>[local.css]scrollBar.css</verticalScrollbarCss>
+
+			<Container>
+				<Size>
+					<AbsDimension x="935" y="41" />
+				</Size>
+				<Button name="btn_house">
+					<Common>
+						<Size>
+							<AbsDimension x="935" y="41" />
+						</Size>
+						<radioMode>true</radioMode>						
+										
+						<Label name="lbl_house">	
+							<Anchors>
+								<Anchor>
+									<AbsDimension x="10" y="9" />
+								</Anchor>
+							</Anchors>
+							<Size>
+								<AbsDimension x="520" y="20" />
+							</Size>
+							<css>[local.css]normal.css</css>
+						</Label>
+						
+						<Label name="lbl_coord">	
+							<Anchors>
+								<Anchor>
+									<AbsDimension x="570" y="9" />
+								</Anchor>
+							</Anchors>
+							<Size>
+								<AbsDimension x="85" y="20" />
+							</Size>
+							<cssClass>right</cssClass>
+							<css>[local.css]normal.css</css>
+						</Label>
+		
+						<Label name="lbl_owner">	
+							<Anchors>
+								<Anchor>
+									<AbsDimension x="685" y="9" />
+								</Anchor>
+							</Anchors>
+							<Size>
+								<AbsDimension x="190" y="20" />
+							</Size>
+							<cssClass>right</cssClass>
+							<css>[local.css]normal.css</css>
+						</Label>
+					</Common>
+
+					<State type="OVER">
+						<SetProperties target="btn_house">
+							<bgColor>[colors.grid.over]</bgColor>
+						</SetProperties>
+					</State>
+		
+					<State type="SELECTED">
+						<SetProperties target="btn_house">
+							<bgColor>[colors.grid.selected]</bgColor>
+						</SetProperties>
+					</State>
+		
+					<State type="SELECTED_OVER">
+						<SetProperties target="btn_house">
+							<bgColor>[colors.grid.selected]</bgColor>
+						</SetProperties>
+					</State>
+				</Button>
+
+				<iconButton name="btn_info">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="895" y="6" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="30" y="30" />
+					</Size>
+					<uri>[local.assets]btn_Interrogation_square</uri>
+					<visible>false</visible>
+					<Hooks>
+						<onRelease />
+						<onRollOver />
+						<onRollOut />
+					</Hooks>
+				</iconButton>	
+			</Container>
+		</Grid>
+		
+		<Texture name="tx_gridHouse">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="0" y="5" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="979" y="474" />
+			</Size>
+			<uri>[local.assets]SocialGuildeMaisons_tx_grilleGauche</uri>
+			<autoGrid>true</autoGrid>
+		</Texture>
+					
+				
+		<simpleButton name="btn_join">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="790" y="490" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="200" y="33" />
+			</Size>
+			<label>[ui.common.join]</label>
+		</simpleButton>
+
+		
+		<!-- Conteneur infos -->
+		
+		<Container name="ctr_infos">
+			<Anchors>
+				<Anchor relativePoint="CENTER" point="CENTER">
+					<AbsDimension x="0" y="0" />
+				</Anchor>
+			</Anchors>
+		
+			<Texture>
+				<Size>
+					<AbsDimension x="520" y="462" />
+				</Size>
+				<uri>[local.assets]tx_generalBackgroundWithTitle</uri>
+				<autoGrid>true</autoGrid>
+				<mouseEnabled>true</mouseEnabled>
+			</Texture>
+			
+			<!-- Label lbl_title-->
+	
+			<Label name="lbl_title">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="22" y="16" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="461" y="35" />
+				</Size>
+				<css>[local.css]title.css</css>
+			</Label>
+				
+			<!-- TEXTURE BACKGROUND -->
+	
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="20" y="90" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="480" y="350" />
+				</Size>
+				<autoGrid>true</autoGrid>
+				<uri>[local.assets]tx_blockBackground_squaredCorner</uri>
+			</Texture>
+			
+			
+			<horizontalTab name="btn_rights">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="20" y="64" />
+					</Anchor>
+				</Anchors>
+				<text>[ui.social.guildHouseRights]</text>
+			</horizontalTab>		
+			<horizontalTab name="btn_skills">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="200" y="64" />
+					</Anchor>
+				</Anchors>
+				<text>[ui.common.abilities]</text>
+			</horizontalTab>		
+	
+					
+			<Grid name="grid_skill">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="28" y="105" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="465" y="330" />
+				</Size>
+				<rendererName>InlineXmlGridRender</rendererName>
+				<rendererArgs>updateSkillLine,[colors.grid.line]</rendererArgs>
+				<verticalScrollbarCss>[local.css]scrollBar.css</verticalScrollbarCss>
+				<slotWidth>445</slotWidth>
+				<slotHeight>33</slotHeight>
+	
+				<Container name="skillItemCtr">
+					<Size>
+						<AbsDimension x="445" y="33" />
+					</Size>
+	
+					<Label name="lbl_skill">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="10" y="5" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="430" y="21" />
+						</Size>
+						<css>[local.css]normal.css</css>
+					</Label>
+				</Container>
+			
+			</Grid>
+	
+			<iconButton name="btn_close">
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" />
+				</Anchors>
+				<Size>
+					<AbsDimension x="57" y="36" />
+				</Size>
+				<uri>[local.assets]btn_cornerCross</uri>
+	        </iconButton>
+	        	
+		</Container>
+
+	</Container>
+</Definition>
+

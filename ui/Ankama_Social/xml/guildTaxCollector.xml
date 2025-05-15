@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Definition>
+
+    <Import url="[config.mod.template]button/simpleButton.xml" />
+	<Import url="[config.mod.template]button/sortButton.xml" />
+    
+   	<Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+       	<Constant name="css" value="[config.ui.skin]css/" />
+   	</Constants>
+
+	<Container>
+		<Anchors>
+			<Anchor>
+				<AbsDimension x="15" y="135" />
+			</Anchor>
+		</Anchors>
+
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="58" y="5" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="300" y="20" />
+			</Size>
+			<text>[ui.common.name] / [ui.common.localisation]</text>
+			<css>[local.css]normal.css</css>
+		</Label>
+
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="530" y="5" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="358" y="20" />
+			</Size>
+			<text>[ui.common.defenders] / [ui.common.attackers]</text>
+			<css>[local.css]normal.css</css>
+		</Label>
+
+		<sortButton name="btn_tabState">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="4" y="4" />
+				</Anchor>
+			</Anchors>				
+			<Size>
+				<AbsDimension x="45" y="24" />
+			</Size>
+		</sortButton>
+
+		<sortButton name="btn_tabName">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="50" y="4" />
+				</Anchor>
+			</Anchors>				
+			<Size>
+				<AbsDimension x="360" y="24" />
+			</Size>
+		</sortButton>
+
+		<Grid name="gd_pony">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="4" y="28" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="971" y="408" />
+			</Size>
+			<rendererName>com.ankamagames.berilia.components.gridRenderer::XmlUiGridRenderer</rendererName>
+			<rendererArgs>Ankama_Social::ponyXmlItem,[colors.grid.line]</rendererArgs>
+			<verticalScrollbarCss>[local.css]scrollBar.css</verticalScrollbarCss>
+			<slotWidth>942</slotWidth>
+			<slotHeight>102</slotHeight>
+		</Grid>
+
+		<Texture>
+			<Size>
+				<AbsDimension x="987" y="467" />
+			</Size>
+			<uri>[local.assets]SocialGuildePercepteur_tx_BgGrid</uri>
+			<autoGrid>true</autoGrid>
+		</Texture>
+
+		<Label name="lbl_ponyCount">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="485" y="436" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="452" y="20" />
+			</Size>
+			<cssClass>right</cssClass>
+			<css>[local.css]normal.css</css>				
+		</Label>
+
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="353" y="474" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="633" y="40" />
+			</Size>
+			<cssClass>right</cssClass>
+			<css>[local.css]normal.css</css>
+			<text>[ui.social.guildHowDefendTax]</text>
+			<multiline>true</multiline>
+			<wordWrap>true</wordWrap>
+		</Label>
+	</Container>
+</Definition>

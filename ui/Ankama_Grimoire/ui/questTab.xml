@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Definition SYSTEM "../dtd/ui.dtd">
+<Definition>
+
+	<Import url="[config.mod.template.button]iconButton.xml" />
+	<Import url="[config.mod.template.button]simpleButton.xml" />
+	<Import url="[config.mod.template]button/sortButton.xml" />
+	<Import url="[config.mod.template]button/labelCheckBox.xml" />
+
+	<Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+		<Constant name="css" value="[config.ui.skin]css/" />
+		
+	   	<Constant name="itemIconPath" value="[config.gfx.path.item.bitmap]" />
+	   	<Constant name="jobIconPath" value="[config.gfx.path]jobs/" />
+	   	<Constant name="spellIconPath" value="[config.gfx.path]spells/" />
+	   	<Constant name="emoteIconPath" value="[config.gfx.path]emotes/" />
+		
+		<Constant name="css_uri" value="[local.css]normal.css" />
+		<Constant name="complete_uri" value="[local.assets]Quetes_tx_PetitPictoOK" />
+		<Constant name="active_uri" value="[local.assets]Quetes_tx_PictoSablier" />
+		<Constant name="flechebas_uri" value="[local.assets]sb_flechebas" />
+		<Constant name="flecheright_uri" value="[local.assets]btn_bigArrow_right" />
+		
+		<Constant name="dungeon_icon" value="[local.assets]Quetes_tx_PictoDonjon" />
+	</Constants>
+	
+	<Container>
+		<Anchors>
+			<Anchor>
+				<AbsDimension x="0" y="0" />
+			</Anchor>
+		</Anchors>
+		
+		<!-- Container pour la partie haute (bannière) de l'interface -->
+
+		<Container>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="0" y="26" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="1096" y="70" />
+			</Size>
+
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<RelDimension x="1" y="1" />
+				</Size>
+				<uri>[local.assets]tx_titleBackground</uri>
+				<autoGrid>false</autoGrid>
+			</Texture>
+
+			<Label>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="48" y="12" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="199" y="37" />
+				</Size>
+				<text>[ui.common.quests]</text>
+				<css>[local.css]title.css</css>
+			</Label>
+			
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="813" y="12" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="228" y="38" />
+				</Size>
+				<uri>[local.assets]Quetes_tx_PictoBandeauHaut</uri>
+				<autoGrid>false</autoGrid>
+			</Texture>			
+		</Container>
+		
+		<!-- Container pour la partie basse de l'interface -->
+
+		<Container>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="15" y="106" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="1067" y="656" />
+			</Size>
+			
+			<!-- PARTIE DE GAUCHE -->
+
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="-1" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="490" y="40" />
+				</Size>
+				<uri>[local.assets]tx_blockBackground</uri>
+				<autoGrid>true</autoGrid>
+			</Texture>
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="40" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="488" y="618" />
+				</Size>
+				<uri>[local.assets]tx_blockBackground</uri>
+				<autoGrid>true</autoGrid>
+			</Texture>
+			
+			<!-- Recherche -->
+			
+			<Container>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="6" y="6" />
+					</Anchor>
+				</Anchors>
+				
+				<Label>
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="0" y="-1" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="117" y="20" />
+					</Size>
+					<css>[local.css]normal.css</css>
+					<text>[ui.search.search]</text>
+				</Label>
+
+				<Texture name="tx_inputBg">
+					<Anchors> 
+						<Anchor>
+							<AbsDimension x="125" y="0" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="295" y="25" />
+					</Size>
+					<autoGrid>true</autoGrid>
+					<uri>[local.assets]tx_inputBackgroundDark</uri>
+				</Texture>
+
+				<Input name="inp_search">
+					<Anchors> 
+						<Anchor>
+							<AbsDimension x="130" y="0" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="285" y="20" />
+					</Size>
+					<css>[local.css]normal.css</css>
+				</Input>
+		         
+				<iconButton name="btn_resetSearch">
+		        	<Anchors> 
+		                <Anchor>
+		                    <AbsDimension x="424" y="1" />
+		                </Anchor>
+		            </Anchors>
+		            <Size>
+		            	<AbsDimension x="24" y="24" />
+		            </Size>
+		            <checkBox>true</checkBox>
+		        	<uri>[local.assets]btn_cross_square</uri>
+		        </iconButton>
+				
+				<iconButton name="btn_searchFilter">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="452" y="1" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="24" y="24" />
+					</Size>
+					<uri>[local.assets]btn_option_square</uri>
+		        </iconButton>
+			</Container>
+				
+
+			<Label name="lbl_nbQuests">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="45" y="40" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="400" y="22" />
+				</Size>
+				<css>[local.css]normal.css</css>
+				<cssClass>right</cssClass>
+			</Label>		
+						
+			<sortButton name="btn_tabComplete">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="40" />
+					</Anchor>
+				</Anchors>				
+				<Size>
+					<AbsDimension x="50" y="24" />
+				</Size>
+			</sortButton>
+
+			<sortButton name="btn_tabName">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="51" y="40" />
+					</Anchor>
+				</Anchors>				
+				<Size>
+					<AbsDimension x="400" y="24" />
+				</Size>
+			</sortButton>
+			
+					
+			<Label name="lbl_noQuest">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="10" y="270" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="430" y="80" />
+				</Size>
+				<cssClass>center</cssClass>
+				<css>[local.css]normal.css</css>
+				<text>[ui.grimoire.quest.noQuest]</text>
+				<visible>false</visible>
+				<multiline>true</multiline>
+				<wordWrap>true</wordWrap>
+			</Label>
+		
+			<Grid name="gd_quests">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="67" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="480" y="565" />
+				</Size>
+				<rendererName>InlineXmlGridRender</rendererName>
+				<rendererArgs>updateItem</rendererArgs>
+				<verticalScrollbarCss>[local.css]scrollBar.css</verticalScrollbarCss>
+				<autoSelectMode>0</autoSelectMode>
+				<slotWidth>451</slotWidth>
+				<slotHeight>40</slotHeight>
+				
+				<Container name="questCtr">
+					<Size>
+						<AbsDimension x="452" y="41" />
+					</Size>
+				
+					<Button name="btn_quest">
+						<Common>
+							<Size>
+								<AbsDimension x="452" y="41" />
+							</Size>
+							<radioMode>true</radioMode>
+			
+							<Texture name="tx_questComplete">
+								<Anchors>
+									<Anchor>
+										<AbsDimension x="-8" y="0" />
+									</Anchor>
+								</Anchors>
+								<Size>
+									<AbsDimension x="42" y="40" />
+								</Size>
+							</Texture>
+							
+							<Texture name="tx_dungeonQuest">
+								<Anchors>
+									<Anchor>
+										<AbsDimension x="25" y="4" />
+									</Anchor>
+								</Anchors>
+								<Size>
+									<AbsDimension x="35" y="33" />
+								</Size>
+								<Hooks>
+									<onRollOver />
+									<onRollOut />
+								</Hooks>
+							</Texture>
+			
+							<Label name="lbl_questName">
+								<Size>
+									<AbsDimension x="396" y="21" />
+								</Size>
+								<css>[local.css]normal.css</css>
+							</Label>
+							
+						</Common>
+					</Button>
+					
+				</Container>
+			</Grid>
+
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="-2" y="38" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="491" y="623" />
+				</Size>
+				<uri>[local.assets]tx_commonGridScrollbar</uri>
+				<autoGrid>true</autoGrid>
+			</Texture>
+			
+
+			<labelCheckBox name="btn_showCompletedQuests">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="18" y="632" />
+					</Anchor>
+				</Anchors>
+				<selected>false</selected>
+				<labelWidth>457</labelWidth>
+				<labelHeight>20</labelHeight>
+				<labelPosX>16</labelPosX>
+				<uri>[local.assets]tx_light_checkbox</uri>
+				<text>[ui.grimoire.displayFinishedQuests]</text>
+				<css>[local.css]normal.css</css>
+				<Hooks>
+					<onRelease />
+				</Hooks>
+			</labelCheckBox>
+			
+			
+			
+			
+			<!-- PARTIE DE DROITE -->
+
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="509" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="558" y="52" />
+				</Size>
+				<uri>[local.assets]tx_blockBackground</uri>
+				<autoGrid>true</autoGrid>
+			</Texture>
+						
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="509" y="51" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="558" y="605" />
+				</Size>
+				<uri>[local.assets]tx_blockBackground</uri>
+				<autoGrid>true</autoGrid>
+			</Texture>			
+
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="521" y="60" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="534" y="185" />
+				</Size>
+				<uri>[local.assets]tx_darkBg</uri>
+				<autoGrid>true</autoGrid>
+			</Texture>
+
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="525" y="69" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="105" y="90" />
+				</Size>
+				<uri>[local.assets]Quetes_tx_PictoLivre</uri>
+			</Texture>
+
+			
+			<Label name="lbl_stepName">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="540" y="10" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="360" y="22" />
+				</Size>
+				<css>[local.css]titleSmall.css</css>
+			</Label>
+
+			<Texture name="tx_dialog">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="1040" y="45" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="35" y="35" />
+				</Size>
+				<uri>[local.assets]tx_questDialog</uri>
+			</Texture>
+
+			<TextArea name="txa_description">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="642" y="70" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="402" y="165" />
+				</Size>
+				<css>[local.css]normal.css</css>
+				<useStyleSheet>true</useStyleSheet>
+				<hyperlinkEnabled>true</hyperlinkEnabled>
+				<scrollCss>[local.css]scrollBar.css</scrollCss>
+				<hideScroll>true</hideScroll>
+			</TextArea>
+
+			<Label>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="541" y="257" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="493" y="23" />
+				</Size>
+				<text>[ui.grimoire.quest.objectives]</text>
+				<css>[local.css]normal.css</css>
+			</Label>
+
+			<Grid name="gd_objectives">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="525" y="285" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="515" y="233" />
+				</Size>
+				
+				<rendererName>InlineXmlGridRender</rendererName>
+				<rendererArgs>updateObjectivesItem,[colors.grid.line]</rendererArgs>
+				
+				<verticalScrollbarCss>[local.css]scrollBar.css</verticalScrollbarCss>
+				<slotWidth>485</slotWidth>
+				<slotHeight>29</slotHeight>
+				
+				<Container name="questObjCtr">
+					<Size>
+						<AbsDimension x="485" y="29" />
+					</Size>
+	
+					<Texture name="tx_achieve">
+						<Size>
+							<AbsDimension x="30" y="29" />
+						</Size>
+						<uri>[local.complete_uri]</uri>
+						<visible>false</visible>
+					</Texture>
+						
+					<iconButton name="btn_loc">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="1" y="1" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="27" y="27" />
+						</Size>
+						<uri>[local.assets]zaap_btn_boussole</uri>
+						<visible>false</visible>
+			        </iconButton>
+			
+					<Label name="lbl_objective">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="30" y="2" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="427" y="26" />
+						</Size>
+						<css>[local.css]normal.css</css>
+						<hyperlinkEnabled>true</hyperlinkEnabled>
+			            <useStyleSheet>true</useStyleSheet>
+					</Label>
+					
+					<Texture name="tx_infos">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="460" y="2" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="24" y="24" />
+						</Size>
+						<uri>[local.assets]tx_questDialog</uri>
+						<visible>false</visible>
+					</Texture>
+				</Container>
+			</Grid>
+
+			<Label name="lbl_objectives">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="541" y="285" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="450" y="50" />
+				</Size>
+				<multiline>true</multiline>
+				<wordWrap>true</wordWrap>
+				<css>[local.css]normal.css</css>
+			</Label>
+			
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="522" y="255" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="533" y="291" />
+				</Size>
+				<uri>[local.assets]Quetes_tx_Grille</uri>
+			</Texture>
+			
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="522" y="555" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="533" y="95" />
+				</Size>
+				<uri>[local.assets]tx_commonGridLine</uri>
+				<autoGrid>true</autoGrid>
+			</Texture>		
+
+
+			<ComboBox name="cbx_steps">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="920" y="12" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="130" y="25" />
+				</Size>
+				<buttonTexture>[local.assets]btn_combobox</buttonTexture>
+				<listTexture>[local.assets]tx_combobox</listTexture>
+				<rendererArgs>[local.css]normal.css,,,[colors.grid.over],[colors.grid.selected]</rendererArgs>
+				<scrollBarCss>[local.css]scrollBar.css</scrollBarCss>				
+			</ComboBox>
+
+			<Label>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="541" y="560" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="461" y="23" />
+				</Size>
+				<text>[ui.grimoire.quest.rewards]</text>
+				<css>[local.css]normal.css</css>
+			</Label>
+
+
+			<Slot name="tx_reward_1">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="537" y="590" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="44" y="44" />
+				</Size>
+				<emptyTexture>[local.assets]tx_slot</emptyTexture>
+			</Slot>
+
+			<Slot name="tx_reward_2">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="588" y="590" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="44" y="44" />
+				</Size>
+				<emptyTexture>[local.assets]tx_slot</emptyTexture>
+			</Slot>
+
+			<Slot name="tx_reward_3">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="638" y="590" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="44" y="44" />
+				</Size>
+				<emptyTexture>[local.assets]tx_slot</emptyTexture>
+			</Slot>
+
+			<Slot name="tx_reward_4">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="689" y="590" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="44" y="44" />
+				</Size>
+				<emptyTexture>[local.assets]tx_slot</emptyTexture>
+			</Slot>
+
+			<Slot name="tx_reward_5">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="740" y="590" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="44" y="44" />
+				</Size>
+				<emptyTexture>[local.assets]tx_slot</emptyTexture>
+			</Slot>
+
+			<Slot name="tx_reward_6">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="790" y="590" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="44" y="44" />
+				</Size>
+				<emptyTexture>[local.assets]tx_slot</emptyTexture>
+			</Slot>
+
+			<Slot name="tx_reward_7">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="841" y="590" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="44" y="44" />
+				</Size>
+				<emptyTexture>[local.assets]tx_slot</emptyTexture>
+			</Slot>
+
+			<Slot name="tx_reward_8">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="891" y="590" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="44" y="44" />
+				</Size>
+				<emptyTexture>[local.assets]tx_slot</emptyTexture>
+			</Slot>
+
+			<Slot name="tx_reward_9">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="942" y="590" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="44" y="44" />
+				</Size>
+				<emptyTexture>[local.assets]tx_slot</emptyTexture>
+			</Slot>
+
+			<Slot name="tx_reward_10">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="993" y="590" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="44" y="44" />
+				</Size>
+				<emptyTexture>[local.assets]tx_slot</emptyTexture>
+			</Slot>
+
+			<Label name="lbl_rewardsXp">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="560" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="200" y="21" />
+				</Size>
+				<css>[local.css]normal.css</css>
+				<cssClass>right</cssClass>
+			</Label>
+			
+			<Texture name="tx_rewardsXp">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="562" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="25" y="23" />
+				</Size>
+				<uri>[local.assets]tx_XP</uri>
+				<visible>false</visible>
+			</Texture>
+			
+			<Label name="lbl_rewardsKama">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="560" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="200" y="21" />
+				</Size>
+				<css>[local.css]normal.css</css>
+				<cssClass>right</cssClass>
+			</Label>
+			
+			<Texture name="tx_rewardsKama">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="561" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="25" y="25" />
+				</Size>
+				<uri>[local.assets]tx_kama</uri>
+				<visible>false</visible>
+			</Texture>
+		</Container>
+		
+		<Container name="ctr_itemBlock">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="280" y="220" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="510" y="358" />
+			</Size>
+		
+			<Texture>
+				<Size>
+					<AbsDimension x="510" y="358" />
+				</Size>
+				<uri>[local.assets]tx_generalBackgroundWithTitle</uri>
+				<autoGrid>true</autoGrid>
+			</Texture>
+			
+			<Container name="ctr_item">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="23" y="22" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="462" y="315" />
+				</Size>				
+			</Container>
+			
+			<iconButton name="btn_close">
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" >
+						<AbsDimension x="0" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="50" y="30" />
+				</Size>
+				<uri>[local.assets]btn_cornerCross</uri>
+	        </iconButton>
+		</Container>
+		
+	</Container>
+</Definition>

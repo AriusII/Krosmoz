@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Definition SYSTEM "../dtd/ui.dtd">
+<Definition>
+
+    <Import url="[config.mod.template]button/simpleButton.xml" />
+	<Import url="[config.mod.template]button/labelCheckBox.xml" />
+	<Import url="[config.mod.template]button/sortButton.xml" />
+    <Import url="[config.mod.template]button/iconButton.xml" />
+    
+    <Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+        <Constant name="css" value="[config.ui.skin]css/" />
+        
+		<Constant name="heads" value="[config.content.path]gfx/heads/SmallHead_" />
+		<Constant name="dead_uri" value="[local.assets]Social_tx_deadState" />
+		<Constant name="offline_uri" value="[local.assets]Social_tx_offlineState" />
+		<Constant name="fight_uri" value="[local.assets]Social_tx_fightState" />		
+		<Constant name="alignment_uri" value="[config.content.path]gfx/alignments/wings.swf|tx_alignment" />
+		<Constant name="smilies_uri" value="[config.content.path]gfx/smilies/assets.swf|" />
+        <Constant name="icons_uri" value="[config.content.path]gfx/illusUi/statusIcons.swf" />
+	</Constants>
+    
+	<Container>
+		
+		<sortButton name="btn_tabBreed">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="46" y="130" />
+				</Anchor>
+			</Anchors>				
+			<Size>
+				<AbsDimension x="104" y="24" />
+			</Size>
+		</sortButton>		
+		<sortButton name="btn_tabName">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="150" y="130" />
+				</Anchor>
+			</Anchors>				
+			<Size>
+				<AbsDimension x="206" y="24" />
+			</Size>
+		</sortButton>		
+		<sortButton name="btn_tabRank">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="356" y="130" />
+				</Anchor>
+			</Anchors>				
+			<Size>
+				<AbsDimension x="168" y="24" />
+			</Size>
+		</sortButton>		
+		<sortButton name="btn_tabLevel">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="520" y="130" />
+				</Anchor>
+			</Anchors>				
+			<Size>
+				<AbsDimension x="60" y="24" />
+			</Size>
+		</sortButton>		
+		<sortButton name="btn_tabXPP">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="580" y="130" />
+				</Anchor>
+			</Anchors>				
+			<Size>
+				<AbsDimension x="60" y="24" />
+			</Size>
+		</sortButton>		
+		<sortButton name="btn_tabXP">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="650" y="130" />
+				</Anchor>
+			</Anchors>				
+			<Size>
+				<AbsDimension x="110" y="24" />
+			</Size>
+		</sortButton>		
+		<sortButton name="btn_tabAchievement">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="762" y="130" />
+				</Anchor>
+			</Anchors>				
+			<Size>
+				<AbsDimension x="80" y="24" />
+			</Size>
+		</sortButton>	
+		<sortButton name="btn_tabState">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="845" y="130" />
+				</Anchor>
+			</Anchors>				
+			<Size>
+				<AbsDimension x="55" y="24" />
+			</Size>
+		</sortButton>
+		
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="162" y="129" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="103" y="20" />
+			</Size>
+			<text>[ui.common.name]</text>
+			<css>[local.css]normal.css</css>
+		</Label>
+
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="364" y="129" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="103" y="20" />
+			</Size>
+			<text>[ui.social.guildRank]</text>
+			<css>[local.css]normal.css</css>
+		</Label>
+
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="524" y="129" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="50" y="20" />
+			</Size>
+			<text>[ui.common.short.level]</text>
+			<cssClass>center</cssClass>
+			<css>[local.css]normal.css</css>
+		</Label>
+
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="580" y="129" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="55" y="20" />
+			</Size>
+			<text>%[ui.common.xp]</text>
+			<cssClass>center</cssClass>
+			<css>[local.css]normal.css</css>
+		</Label>
+
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="673" y="129" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="75" y="20" />
+			</Size>
+			<text>[ui.common.xp]</text>
+			<cssClass>right</cssClass>
+			<css>[local.css]normal.css</css>
+		</Label>
+
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="762" y="129" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="75" y="20" />
+			</Size>
+			<text>[ui.achievement.achievement]</text>
+			<cssClass>right</cssClass>
+			<css>[local.css]normal.css</css>
+		</Label>
+		
+		
+
+		<Grid name="gd_list">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="18" y="155" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="972" y="420" />
+			</Size>
+			<rendererName>InlineXmlGridRender</rendererName>
+			<rendererArgs>updateGuildMemberLine,[colors.grid.line]</rendererArgs>
+			<verticalScrollbarCss>[local.css]scrollBar.css</verticalScrollbarCss>
+			<slotWidth>944</slotWidth>
+			<slotHeight>35</slotHeight>
+			
+			<Container>
+				<Size>
+					<AbsDimension x="944" y="35" />
+				</Size>
+				<!--
+				<mouseEnabled>true</mouseEnabled>
+		
+				<Texture>
+					<Size>
+						<AbsDimension x="842" y="35" />
+					</Size>
+					<bgColor>0</bgColor>
+					<bgAlpha>0</bgAlpha>
+				</Texture>
+				 -->
+		
+				<Texture name="tx_status">
+                    <Anchors>
+                        <Anchor>
+                            <AbsDimension x="15" y="12" />
+                        </Anchor>
+                    </Anchors>
+					<Size>
+						<AbsDimension x="16" y="16" />
+					</Size>
+                    <uri>[local.icons_uri]|available</uri>
+				</Texture>
+		
+				<Texture name="tx_alignment">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="40" y="0" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="80" y="35" />
+					</Size>
+				</Texture>
+		
+				<Texture name="tx_head">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="65" y="3" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="30" y="30" />
+					</Size>
+				</Texture>
+				
+				<Label name="lbl_playerName">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="138" y="6" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="186" y="20" />
+					</Size>
+					<hyperlinkEnabled>true</hyperlinkEnabled>
+					<useStyleSheet>true</useStyleSheet>
+					<css>[local.css]normal.css</css>
+				</Label>
+		
+				<Label name="lbl_rank">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="344" y="6" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="155" y="20" />
+					</Size>
+					<css>[local.css]normal.css</css>
+				</Label>
+		
+				<Label name="lbl_lvl">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="508" y="6" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="50" y="20" />
+					</Size>
+					<cssClass>center</cssClass>
+					<css>[local.css]normal.css</css>
+				</Label>
+		
+				<Label name="lbl_XPP">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="555" y="6" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="53" y="20" />
+					</Size>
+					<cssClass>right</cssClass>
+					<css>[local.css]normal.css</css>
+				</Label>
+		
+				<Label name="lbl_XP">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="620" y="6" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="113" y="20" />
+					</Size>
+					<cssClass>right</cssClass>
+					<css>[local.css]normal.css</css>
+				</Label>
+		
+				<Label name="lbl_achievement">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="747" y="6" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="68" y="20" />
+					</Size>
+					<cssClass>right</cssClass>
+					<css>[local.css]normal.css</css>
+				</Label>
+		
+				<Texture name="tx_state">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="828" y="0" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="57" y="35" />
+					</Size>
+				</Texture>
+		
+				<Texture name="tx_mood">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="834" y="0" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="35" y="35" />
+					</Size>
+				</Texture>
+		
+				<iconButton name="btn_rights">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="883" y="8" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="20" y="20" />
+					</Size>
+					<uri>[local.assets]btn_etc_square</uri>
+				</iconButton>
+		
+				<iconButton name ="btn_kick">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="909" y="8" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="20" y="20" />
+					</Size>
+					<uri>[local.assets]btn_cross_square</uri>
+				</iconButton>
+				
+			</Container>
+		</Grid>
+
+		<Texture name="tx_listForeground">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="16" y="126" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="987" y="480" />
+			</Size>
+			<uri>[local.assets]SocialGuildeMembres_tx_grille</uri>
+		</Texture>
+
+		<Label name="lbl_membersLevel">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="601" y="605" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="400" y="20" />
+			</Size>
+			<css>[local.css]normal.css</css>
+			<cssClass>right</cssClass>
+		</Label>
+		
+		<!-- CHECKBOX D'OPTIONS -->
+		
+		<labelCheckBox name="btn_showOfflineMembers">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="18" y="605" />
+				</Anchor>
+			</Anchors>			
+			<Size>
+				<AbsDimension x="15" y="15" />
+			</Size>
+			<labelWidth>800</labelWidth>
+			<labelHeight>19</labelHeight>
+			<labelPosX>16</labelPosX>
+			<uri>[local.assets]tx_light_checkbox</uri>
+			<text>[ui.social.displayOfflineGuildMembers]</text>
+			<css>[local.css]normal.css</css>
+			<border>true</border>
+		</labelCheckBox>
+
+
+		<labelCheckBox name="btn_warnWhenMemberIsOnline">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="18" y="628" />
+				</Anchor>
+			</Anchors>
+			<labelWidth>800</labelWidth>
+			<labelHeight>19</labelHeight>
+			<labelPosX>16</labelPosX>
+			<text>[ui.social.warnWhenGuildMembersComeOnline]</text>
+			<selected>false</selected>
+			<border>true</border>
+		</labelCheckBox>
+
+	</Container>
+</Definition>
+

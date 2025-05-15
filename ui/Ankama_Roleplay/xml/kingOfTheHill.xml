@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Definition>
+
+	<Import url="[config.mod.template]button/simpleButton.xml" />
+	<Import url="[config.mod.template]button/iconButton.xml" />
+	<Import url="[config.mod.template]button/sortButton.xml" />
+	
+   <Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+       <Constant name="css" value="[config.ui.skin]css/" />
+		<Constant name="bitmap" value="[config.ui.skin]bitmap/" />	
+		
+       	<Constant name="emblems_uri" value="[config.content.path]gfx/emblems/" /> 
+       	<Constant name="icons_uri" value="[config.content.path]gfx/icons/conquestIcon.swf|" /> 
+       	<Constant name="bar_width" value="474" type="int" /> 
+       	<Constant name="bar_height" value="20" type="int" /> 
+   </Constants>
+
+	<Container>
+		<Anchors>
+			<Anchor relativePoint="TOP" point="TOP">
+				<AbsDimension x="-27" y="0" />
+			</Anchor>
+		</Anchors>
+		<mouseEnabled>false</mouseEnabled>
+		
+		<Container>
+			<iconButton name="btn_smallView">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="27" y="31" />
+				</Size>
+				<uri>[local.assets]conquest_btn_smallArrow</uri>
+			</iconButton>
+			<iconButton name="btn_fullView">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="27" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="27" y="31" />
+				</Size>
+				<uri>[local.assets]conquest_btn_bigArrow</uri>
+			</iconButton>
+		</Container>
+		
+		<Container name="ctr_progressBar">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="54" y="0" />
+				</Anchor>
+			</Anchors>
+
+			<Texture name="tx_bg">
+				<Size>
+					<AbsDimension x="530" y="303" />
+				</Size>
+				<uri>[local.assets]conquest_tx_bg</uri>
+				<autoGrid>true</autoGrid>
+				<mouseEnabled>false</mouseEnabled>
+			</Texture>
+			
+			<Container name="ctr_bar">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="15" y="3" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="[local.bar_width]" y="[local.bar_height]" />
+				</Size>
+				<mouseEnabled>true</mouseEnabled>
+			</Container>		
+			
+			<Label name="lbl_empty">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="15" y="2" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="474" y="20" />
+				</Size>
+				<cssClass>center</cssClass>
+				<css>[local.css]normal.css</css>
+				<text>[ui.koh.emptyConquest]</text>
+				<mouseEnabled>true</mouseEnabled>
+			</Label>
+			
+			<Texture name="tx_swords">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="500" y="5" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="25" y="22" />
+				</Size>
+				<uri>[local.assets]conquest_tx_swords</uri>
+			</Texture>			
+		</Container>
+		
+		
+		
+		<Container name="ctr_details">
+			<mouseEnabled>true</mouseEnabled>
+			
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="64" y="32" />
+				</Anchor>
+			</Anchors>
+			
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="510" y="220" />
+				</Size>
+				<autoGrid>true</autoGrid>
+				<uri>[local.assets]tx_blockBackground</uri>
+			</Texture>
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="220" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="510" y="40" />
+				</Size>
+				<autoGrid>true</autoGrid>
+				<uri>[local.assets]tx_blockBackground</uri>
+			</Texture>
+			
+			<sortButton name="btn_whoswhoTab">	
+				<Size>
+					<AbsDimension x="32" y="30" />
+				</Size>
+			</sortButton>
+		
+			<sortButton name="btn_allianceTab">	
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="32" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="120" y="30" />
+				</Size>
+			</sortButton>										
+			<Label>	
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="32" y="3" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="120" y="20" />
+				</Size>
+				<cssClass>center</cssClass>
+				<css>[local.css]normal.css</css>
+				<text>[ui.common.alliance]</text>
+			</Label>
+		
+			<sortButton name="btn_playersTab">	
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="150" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="120" y="30" />
+				</Size>
+			</sortButton>										
+			<Label>	
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="149" y="3" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="120" y="20" />
+				</Size>
+				<cssClass>center</cssClass>
+				<css>[local.css]normal.css</css>
+				<text>[ui.short.characters]</text>
+			</Label>
+		
+			<sortButton name="btn_mapsTab">	
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="275" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="115" y="30" />
+				</Size>
+			</sortButton>										
+			<Label>	
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="272" y="3" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="115" y="20" />
+				</Size>
+				<cssClass>center</cssClass>
+				<css>[local.css]normal.css</css>
+				<text>[ui.common.maps]</text>
+			</Label>
+		
+			<sortButton name="btn_scoreTab">	
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="390" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="80" y="30" />
+				</Size>
+			</sortButton>										
+			<Label>	
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="387" y="2" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="80" y="20" />
+				</Size>
+				<cssClass>center</cssClass>
+				<css>[local.css]normal.css</css>
+				<text>[ui.common.time]</text>
+			</Label>
+			
+			
+			<Grid name="gd_alliances">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="30" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="496" y="160" />
+				</Size>
+				<rendererName>InlineXmlGridRender</rendererName>
+				<rendererArgs>updateAllianceLine,[colors.grid.line]</rendererArgs>
+				<slotWidth>470</slotWidth>
+				<slotHeight>40</slotHeight>
+				<verticalScrollbarCss>[local.css]scrollBar.css</verticalScrollbarCss>
+	
+				<Container>
+					<Size>
+						<AbsDimension x="470" y="40" />
+					</Size>					
+					
+					<Texture name="tx_type">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="18" y="30" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+					</Texture>
+
+					<Container>
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="34" y="2" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="36" y="36" />
+						</Size>
+						<Texture name="tx_emblemBack">
+							<Size>
+								<AbsDimension x="36" y="36" />
+							</Size>
+						</Texture>
+						<Texture name="tx_emblemUp">
+							<Anchors>
+								<Anchor>
+									<AbsDimension x="7" y="7" />
+								</Anchor>
+							</Anchors>
+							<Size>
+								<AbsDimension x="22" y="22" />
+							</Size>
+						</Texture>
+					</Container>
+					
+					<Label name="lbl_tag">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="78" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="65" y="20" />
+						</Size>
+						<hyperlinkEnabled>true</hyperlinkEnabled>
+						<useStyleSheet>true</useStyleSheet>
+						<css>[local.css]normal.css</css>
+					</Label>
+			
+					<Label name="lbl_players">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="149" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="120" y="20" />
+						</Size>
+						<cssClass>center</cssClass>
+						<css>[local.css]normal.css</css>
+					</Label>
+			
+					<Label name="lbl_points">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="272" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="117" y="20" />
+						</Size>
+						<cssClass>center</cssClass>
+						<css>[local.css]normal.css</css>
+					</Label>
+			
+					<Label name="lbl_score">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="390" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="77" y="20" />
+						</Size>
+						<cssClass>center</cssClass>
+						<css>[local.css]normal.css</css>
+					</Label>
+					
+				</Container>
+			</Grid>
+			
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="510" y="220" />
+				</Size>
+				<uri>[local.assets]conquest_tx_grid</uri>
+				<autoGrid>true</autoGrid>
+			</Texture>
+			
+
+			<Label name="lbl_remainingTime">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="8" y="190" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="302" y="19" />
+				</Size>
+				<cssClass>center</cssClass>
+				<css>[local.css]normal.css</css>
+			</Label>
+			
+			<Container name="ctr_prequalified">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="360" y="190" />
+					</Anchor>
+				</Anchors>
+					
+				<Texture>
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="0" y="4" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="20" y="20" />
+					</Size>
+					<uri>[local.assets]tx_clockIcon</uri>
+				</Texture>				
+	
+				<Label name="lbl_prequalifiedTime">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="30" y="0" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="110" y="20" />
+					</Size>
+					<css>[local.css]normal.css</css>
+				</Label>
+			</Container>
+			
+			
+			<Label name="lbl_mapConquest">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="10" y="229" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="340" y="20" />
+				</Size>
+				<hyperlinkEnabled>true</hyperlinkEnabled>
+				<useStyleSheet>true</useStyleSheet>
+				<css>[local.css]normal.css</css>
+			</Label>
+			
+			<Label name="lbl_mapConquestMyPov">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="350" y="229" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="150" y="20" />
+				</Size>
+				<cssClass>right</cssClass>
+				<hyperlinkEnabled>true</hyperlinkEnabled>
+				<useStyleSheet>true</useStyleSheet>
+				<css>[local.css]normal.css</css>
+			</Label>
+		
+		</Container>
+	</Container>
+</Definition>

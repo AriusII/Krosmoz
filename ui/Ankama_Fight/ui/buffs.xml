@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Definition SYSTEM "../dtd/ui.dtd">
+<Definition usePropertiesCache="false">
+
+	<Import url="[config.mod.template]button/iconButton.xml" />
+
+	<Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+		<Constant name="css" value="[config.ui.skin]css/" />
+		<Constant name="spells" value="[config.gfx.path]spells/" />
+		
+		<Constant name="spell_offset_horizontal" value="6" type="int" />
+		
+		<Constant name="spell_size" value="38" type="int" />
+		<Constant name="css_uri" value="[local.css]normal.css" />
+	</Constants>
+	
+	
+	<Container name="anchorCtr">
+	</Container>
+
+	<ScrollContainer name="expandedCtr">
+		<Anchors>
+			<Anchor>
+				<AbsDimension x="0" y="0" />
+			</Anchor>
+		</Anchors>
+		<Size>
+			<AbsDimension x="0" y="0" />
+		</Size>
+		<scrollbarCss>[local.css]scrollBar.css</scrollbarCss>
+		<useHorizontalScroll>false</useHorizontalScroll>
+	</ScrollContainer>
+	
+	<Container name="buffsCtr">
+		<mouseEnabled>true</mouseEnabled>
+		<!-- Texture tx_background-->
+
+		<Texture name="tx_background">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="0" y="3" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="17" y="44" />
+			</Size>
+			<autoGrid>true</autoGrid>
+			<uri>[local.assets]Effets_tx_Background</uri>
+		</Texture>
+
+		<!-- Container buffListCtr -->
+		
+		<Container name="buffListCtr">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="6" y="6" />
+				</Anchor>
+			</Anchors>
+		</Container>
+		
+		<!-- iconButton btn_decoRight-->
+		<iconButton name="btn_decoRight">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="1" y="0" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="17" y="50" />
+			</Size>
+			<checkBox>true</checkBox>
+			<uri>[local.assets]Effets_tx_PointExclamation</uri>
+			<!-- <uri>[local.assets]Effets_btn_PlusMoins</uri> -->
+        	<Hooks>
+        		<onRelease />
+        		<onRollOver />
+        		<onRollOut />
+        	</Hooks>
+		</iconButton>
+
+		<!-- Button btn_rightArrow->
+
+		<Button name="btn_rightArrow">
+			<Common>
+				<Anchors>
+					<Anchor relativePoint="BOTTOMRIGHT" point="BOTTOMRIGHT">
+						<AbsDimension x="-23" y="-37" />
+					</Anchor>
+				</Anchors>
+
+				<Texture name="btn_rightArrow_tx">
+					<Size>
+						<AbsDimension x="10" y="18" />
+					</Size>
+					<uri>[local.assets]TimeLine_btn_PetiteFleche_droite</uri>
+				</Texture>
+				<Hooks>
+					<onRelease />
+				</Hooks>
+			</Common>
+			<State type="OVER">
+				<SetProperties target="btn_rightArrow_tx">
+					<gotoAndStop>over</gotoAndStop>
+				</SetProperties>
+			</State>
+			<State type="PRESSED">
+				<SetProperties target="btn_rightArrow_tx">
+					<gotoAndStop>pressed</gotoAndStop>
+				</SetProperties>
+			</State>
+		</Button-->
+
+		<!-- Button btn_leftArrow->
+
+		<Button name="btn_leftArrow">
+			<Common>
+				<Anchors>
+					<Anchor relativePoint="BOTTOMRIGHT" point="BOTTOMRIGHT">
+						<AbsDimension x="-107" y="-37" />
+					</Anchor>
+				</Anchors>
+
+				<Texture name="btn_leftArrow_tx">
+					<Size>
+						<AbsDimension x="10" y="18" />
+					</Size>
+					<uri>[local.assets]TimeLine_btn_PetiteFleche_gauche</uri>
+				</Texture>
+				<Hooks>
+					<onRelease />
+				</Hooks>
+			</Common>
+			<State type="OVER">
+				<SetProperties target="btn_leftArrow_tx">
+					<gotoAndStop>over</gotoAndStop>
+				</SetProperties>
+			</State>
+			<State type="PRESSED">
+				<SetProperties target="btn_leftArrow_tx">
+					<gotoAndStop>pressed</gotoAndStop>
+				</SetProperties>
+			</State>
+		</Button-->
+		
+	</Container>
+</Definition>

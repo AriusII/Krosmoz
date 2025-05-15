@@ -1,0 +1,30 @@
+p {
+	font-family: Tahoma;
+	font-size: 25px;
+	color: #ffffff;
+	text-align: left;
+}
+right {
+	font-family: Tahoma;
+	font-size: 25px;
+	color: #ffffff;
+	text-align: right;
+}
+center {
+	font-family: Tahoma;
+	font-size: 25px;
+	color: #ffffff;
+	text-align: center;
+}
+darkcenterbig {
+	font-family: Tahoma;
+	font-size: 25px;
+	color: #4E280A;
+	text-align: center;
+}
+oppositecenter {
+	font-family: Tahoma;
+	font-size: 25px;
+	color: #4E280A;
+	text-align:center;
+}

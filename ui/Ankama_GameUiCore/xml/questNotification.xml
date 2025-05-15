@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Definition>
+	<Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+       	<Constant name="css" value="[config.ui.skin]css/" />
+   </Constants>
+
+    <Import url="[config.mod.template.button]iconButton.xml" />	
+
+	<Container name="ctr_extNotif">
+		<!-- background -->
+		<Texture name="bg">
+			<Size>
+                <AbsDimension x="265" y="62" />
+            </Size>
+            <uri>[local.assets]Notifications_tx_questBG</uri>
+		</Texture>
+		<!-- bouton pour fermer la notification -->
+		<iconButton name="btn_close">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="249" y="2"/>
+				</Anchor>
+			</Anchors>
+            <Size>
+                <AbsDimension x="15" y="15" />
+            </Size>
+            <uri>[local.assets]Notifications_btn_close</uri>
+        </iconButton>
+		<!-- icone -->
+		<Texture name="tx_icon">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="8" y="7"/>
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="48" y="48"/>
+			</Size>
+		</Texture>
+		<!-- message -->
+		<Label name="lbl_notif">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="63" y="5"/>
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="180" y="51"/>
+			</Size>
+			<multiline>true</multiline>
+			<wordWrap>true</wordWrap>
+			<css>[local.css]normal.css</css>
+		</Label>
+	</Container>
+</Definition>

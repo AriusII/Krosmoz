@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Definition>
+
+	<Import url="[config.mod.template]button/simpleButton.xml" />
+	<Import url="[config.mod.template]button/iconButton.xml" />
+	<Import url="[config.mod.template]button/labelCheckBox.xml" />
+	
+   	<Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+		<Constant name="css" value="[config.ui.skin]css/" />
+   	</Constants>
+
+	<Container>	
+		<Anchors>
+			<Anchor relativePoint="CENTER" point="CENTER" />
+		</Anchors>
+		<mouseEnabled>true</mouseEnabled>		
+		<shadowColor>[colors.ui.shadow]</shadowColor>
+
+		<Texture>
+			<Size>
+				<AbsDimension x="600" y="623" />
+			</Size>
+			<autoGrid>true</autoGrid>
+			<uri>[local.assets]tx_generalBackgroundWithTitle</uri>
+		</Texture>	
+
+		<Label name="lbl_title">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="33" y="15" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="496" y="35" />
+			</Size>
+			<text>[ui.common.guild]</text>
+			<css>[local.css]title.css</css>
+		</Label>
+
+		<Texture>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="23" y="68" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="554" y="42" />
+			</Size>
+			<autoGrid>true</autoGrid>
+			<uri>[local.assets]tx_blockBackground</uri>
+		</Texture>			
+		
+		<Label name="lbl_name">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="40" y="75" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="490" y="22" />
+			</Size>
+            <css>[local.css]titleSmall.css</css>
+		</Label>
+		
+		<Texture name="tx_disabled">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="545" y="79" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="20" y="20" />
+			</Size>
+			<uri>[local.assets]tx_socialGroupDisabled</uri>
+			<visible>false</visible>
+		</Texture>
+
+		<Texture>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="23" y="110" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="554" y="493" />
+			</Size>
+			<autoGrid>true</autoGrid>
+			<uri>[local.assets]tx_blockBackground</uri>
+		</Texture>	
+		
+		<Texture name="tx_emblemBack">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="40" y="125" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="118" y="118" />
+			</Size>
+		</Texture>
+		<Texture name="tx_emblemUp">
+			<Anchors>
+				<Anchor relativeTo="tx_emblemBack" relativePoint="CENTER">
+					<AbsDimension x="-35" y="-35" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="70" y="70" />
+			</Size>
+		</Texture>
+
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="180" y="125" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="220" y="20" />
+			</Size>
+			<css>[local.css]normal.css</css>
+			<text>[ui.common.level][ui.common.colon]</text>
+		</Label>
+
+		<Label name="lbl_level">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="400" y="125" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="160" y="20" />
+			</Size>
+			<cssClass>right</cssClass>
+			<css>[local.css]normal.css</css>
+		</Label>
+
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="180" y="150" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="220" y="20" />
+			</Size>
+			<css>[local.css]normal.css</css>
+			<text>[ui.guild.right.leader][ui.common.colon]</text>
+		</Label>
+
+		<Label name="lbl_leader">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="400" y="150" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="160" y="20" />
+			</Size>
+			<hyperlinkEnabled>true</hyperlinkEnabled>
+			<useStyleSheet>true</useStyleSheet>
+			<cssClass>right</cssClass>
+			<css>[local.css]normal.css</css>
+		</Label>
+
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="180" y="175" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="220" y="20" />
+			</Size>
+			<css>[local.css]normal.css</css>
+			<text>[ui.social.guildMembers][ui.common.colon]</text>
+		</Label>
+
+		<Label name="lbl_members">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="400" y="175" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="160" y="20" />
+			</Size>
+			<cssClass>right</cssClass>
+			<css>[local.css]normal.css</css>
+		</Label>
+
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="180" y="200" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="220" y="20" />
+			</Size>
+			<css>[local.css]normal.css</css>
+			<text>[ui.common.creationDate][ui.common.colon]</text>
+		</Label>
+
+		<Label name="lbl_creationDate">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="380" y="200" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="180" y="20" />
+			</Size>
+			<cssClass>right</cssClass>
+			<css>[local.css]normal.css</css>
+		</Label>
+
+		<Label name="lbl_taxcollectors">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="40" y="245" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="520" y="20" />
+			</Size>
+			<css>[local.css]normal.css</css>
+		</Label>
+		
+		
+		
+		<Container>	
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="70" y="283" />
+				</Anchor>
+			</Anchors>
+			<Label>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="200" y="20" />
+				</Size>
+				<text>[ui.common.name]</text>
+				<css>[local.css]normal.css</css>
+			</Label>	
+			<Label>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="317" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="100" y="20" />
+				</Size>
+				<text>[ui.common.level]</text>
+				<cssClass>right</cssClass>
+				<css>[local.css]normal.css</css>
+			</Label>
+		</Container>
+		
+		<Grid name="gd_members">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="40" y="310" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="512" y="216" />
+			</Size>
+			<rendererName>InlineXmlGridRender</rendererName>
+			<rendererArgs>updateMemberLine,[colors.grid.line]</rendererArgs>
+			<verticalScrollbarCss>[local.css]scrollBar.css</verticalScrollbarCss>
+			<slotWidth>487</slotWidth>
+			<slotHeight>36</slotHeight>
+			
+			<Container>
+				<Size>
+					<AbsDimension x="487" y="36" />
+				</Size>
+				
+				<Label name="lbl_memberName">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="30" y="4" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="300" y="20" />
+					</Size>
+					<hyperlinkEnabled>true</hyperlinkEnabled>
+					<useStyleSheet>true</useStyleSheet>
+					<css>[local.css]normal.css</css>
+				</Label>
+		
+				<Label name="lbl_memberLvl">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="350" y="4" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="90" y="20" />
+					</Size>
+					<cssClass>right</cssClass>
+					<css>[local.css]normal.css</css>
+				</Label>
+				
+			</Container>
+		</Grid>
+
+		<Texture>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="39" y="280" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="525" y="274" />
+			</Size>
+			<uri>[local.assets]tx_commonGridScrollbar</uri>
+		</Texture>
+		
+		<Label name="lbl_alliance">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="40" y="570" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="490" y="20" />
+			</Size>
+			<hyperlinkEnabled>true</hyperlinkEnabled>
+			<useStyleSheet>true</useStyleSheet>
+            <css>[local.css]normal.css</css>
+		</Label>
+		
+		<iconButton name="btn_inviteInAlliance">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="540" y="571" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="20" y="20" />
+			</Size>
+			<uri>[local.assets]btn_etc_square</uri>
+			<visible>false</visible>
+		</iconButton>
+
+		<iconButton name="btn_close">
+			<Anchors>
+				<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" />
+			</Anchors>
+			<Size>
+				<AbsDimension x="57" y="36" />
+			</Size>
+			<uri>[local.assets]btn_cornerCross</uri>
+        </iconButton>
+		
+	</Container>
+</Definition>
+

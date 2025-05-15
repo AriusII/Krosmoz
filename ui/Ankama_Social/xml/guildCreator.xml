@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Definition>
+   <Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+       <Constant name="css" value="[config.ui.skin]css/" />
+		<Constant name="bitmap" value="[config.ui.skin]bitmap/" />	
+       
+       <Constant name="picto_uri" value="[config.content.path]gfx/emblems/" />       
+   </Constants>
+
+    <Import url="[config.mod.template.button]simpleButton.xml" />
+    <Import url="[config.mod.template.button]iconButton.xml" />
+    <Import url="[config.mod.template]button/horizontalTab.xml" />
+
+	<Container name="mainCtr">
+		<mouseEnabled>true</mouseEnabled>
+        <Size>
+            <AbsDimension x="825" y="539" />
+        </Size>
+		<Anchors>
+			<Anchor point="CENTER" relativePoint="CENTER" />
+		</Anchors>
+		
+		
+		<Texture name="tx_background">
+			<Size>
+				<RelDimension x="1" y="1" />
+			</Size>
+			<uri>[local.assets]tx_generalBackgroundWithTitle</uri>
+			<autoGrid>true</autoGrid>
+		</Texture>
+
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="32" y="15" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="765" y="35" />
+			</Size>
+			<text>[ui.social.guildCreation]</text>
+			<css>[local.css]title.css</css>
+		</Label>
+		
+		
+		<Texture>
+			<Anchors>
+				<Anchor relativeTo="tx_background" relativePoint="BOTTOM" point="BOTTOM">
+					<AbsDimension x="0" y="38" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="432" y="47" />
+			</Size>
+			<uri>[local.assets]tx_buttonBackground</uri>
+		</Texture>
+		
+		<!-- iconButton btn_close-->
+
+		<iconButton name="btn_close">
+			<Anchors>
+				<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" />
+			</Anchors>
+			<Size>
+				<AbsDimension x="57" y="36" />
+			</Size>
+			<uri>[local.assets]btn_cornerCross</uri>
+        </iconButton>
+        
+		        
+		<!-- Button btn_valid-->
+
+		<simpleButton label="[ui.common.validation]" name="btn_create"   >
+			<Size>
+				<AbsDimension x="236" y="35" />
+			</Size>
+			<Anchors>
+				<Anchor relativeTo="tx_background" relativePoint="BOTTOM" point="BOTTOM">
+					<AbsDimension x="0" y="30" />
+				</Anchor>
+			</Anchors>
+			<css>[local.css]button.css</css>
+			<Hooks>
+				<onRelease />
+			</Hooks>
+		</simpleButton>		
+		
+
+		<!-- Texture tx_emblem-->
+
+		<Texture name="tx_emblem">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="648" y="65" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="139" y="138" />
+			</Size>
+			<uri>[local.assets]CreationGuilde_tx_emblem</uri>
+			<autoGrid>false</autoGrid>
+		</Texture>
+
+		<!-- Texture tx_icon-->
+
+		<Texture name="tx_icon">
+			<Anchors>
+				<Anchor relativeTo="tx_emblem" point="CENTER" relativePoint="CENTER" />
+			</Anchors>
+			<Size>
+				<AbsDimension x="80" y="80" />
+			</Size>
+			<uri>[local.assets]CreationGuilde_tx_emblem</uri>
+			<autoGrid>false</autoGrid>
+		</Texture>
+		
+		<Container name="guildNameCtr">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="32" y="70" />
+				</Anchor>
+			</Anchors>
+				
+			<Label>
+				<Size>
+					<AbsDimension x="540" y="22" />
+				</Size>
+				<text>[ui.social.guildName][ui.common.colon]</text>
+				<css>[local.css]titleSmall.css</css>
+			</Label>
+			<Texture name="tx_nameRules">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="547" y="10" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<uri>[local.assets]tx_questionMark</uri>
+			</Texture>
+			
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="36" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="571" y="24" />
+				</Size>
+				<uri>[local.assets]tx_inputBackground</uri>
+				<autoGrid>true</autoGrid>
+			</Texture>
+	
+			<Input name="inp_guildname">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="8" y="34" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="560" y="21" />
+				</Size>
+				<css>[local.css]normal.css</css>
+			</Input>
+
+        </Container>
+
+        <Container name="emblemCreatorCtr">
+            <Anchors>
+                <Anchor>
+                    <AbsDimension x="32" y="158" />
+                </Anchor>
+            </Anchors>
+        
+	        <Texture>
+                <Anchors>
+                    <Anchor>
+                        <AbsDimension x="4" y="59" />
+                    </Anchor>
+                </Anchors>
+                <Size>
+                    <AbsDimension x="751" y="294" />
+                </Size>
+                <autoGrid>true</autoGrid>
+                <uri>[local.assets]tx_blockBackground_squaredCorner</uri>
+            </Texture>
+            
+	        <Label>
+	            <Size>
+	                <AbsDimension x="570" y="22" />
+	            </Size>
+	            <text>[ui.social.createEmblem][ui.common.colon]</text>
+	            <css>[local.css]titleSmall.css</css>
+	        </Label>
+        
+			<!-- Grid gd_emblem-->
+	        
+			<Grid name="gd_emblemBack">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="23" y="72" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="365" y="270" />
+				</Size>
+				<slotWidth>52</slotWidth>
+				<slotHeight>52</slotHeight>
+	
+				<scrollDisplay>always</scrollDisplay>
+				<verticalScrollbarCss>[local.css]scrollBar.css</verticalScrollbarCss>
+	
+				<rendererName>SlotGridRenderer</rendererName>
+				<rendererArgs>[local.assets]tx_slot,[local.bitmap]over.png,[local.bitmap]selected.png,,,,,false</rendererArgs>
+			</Grid>
+			
+			<Grid name="gd_emblemFront">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="23" y="126" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="365" y="216" />
+				</Size>
+				<slotWidth>52</slotWidth>
+				<slotHeight>52</slotHeight>
+	
+				<scrollDisplay>always</scrollDisplay>
+				<verticalScrollbarCss>[local.css]scrollBar.css</verticalScrollbarCss>
+	
+				<rendererName>SlotGridRenderer</rendererName>
+				<rendererArgs>[local.assets]tx_slot,[local.bitmap]over.png,[local.bitmap]selected.png,,,,,false</rendererArgs>
+			</Grid>
+
+			<ComboBox name="cbb_emblemCategory">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="23" y="80" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="365" y="25" />
+				</Size>
+				<autoSelectMode>0</autoSelectMode>
+				<buttonTexture>[local.assets]btn_combobox</buttonTexture>
+				<listTexture>[local.assets]tx_combobox</listTexture>
+				<rendererArgs>[local.css]normal.css,,,[colors.grid.over],[colors.grid.selected]</rendererArgs>;
+				<scrollBarCss>[local.css]scrollBar.css</scrollBarCss>
+				<Hooks>
+					<onSelectItem />
+				</Hooks>
+			</ComboBox>
+	
+			<!-- Container cp_colorPk-->
+	
+			<ColorPicker name="cp_colorPk">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="423" y="72" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="322" y="270" />
+				</Size>
+				<sliderTexture>[local.bitmap]cursorSlider.png</sliderTexture>
+				<gradientTexture>[local.bitmap]cursorGradient.png</gradientTexture>
+			</ColorPicker>
+	
+			<horizontalTab name="btn_background">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="4" y="33" />
+					</Anchor>
+				</Anchors>
+				<text>[ui.social.emblemBack]</text>
+			</horizontalTab>		
+			<horizontalTab name="btn_icon">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="184" y="33" />
+					</Anchor>
+				</Anchors>
+				<text>[ui.social.emblemUp]</text>
+			</horizontalTab>
+		</Container>
+		
+		
+	</Container>
+</Definition>
+

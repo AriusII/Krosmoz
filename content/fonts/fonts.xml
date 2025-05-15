@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+L'attribut embedAsCff permet de determiner le mode d'anti alias a utiliser. Si true => renderingmode.cff
+Pour faire plus simple : si true alors AntialiasMode.Advanced. A n'utiliser QUE dans le chat (ou avec le TLF), sinon ca ne fonctionnera pas
+ -->
+<FontsList>
+	<Fonts  lang="">
+		<font name="Eras" realName="Eras" classname="Eras" sizemultiplicator="1" embedAsCff="false">[config.ui.common.fonts]Eras.swl</font>
+		<font name="Tahoma" realName="Tahoma" classname="Tahoma" sizemultiplicator="1" embedAsCff="false">[config.ui.common.fonts]Tahoma.swl</font>
+		<font name="Verdana" realName="Verdana" classname="Verdana" sizemultiplicator="1" embedAsCff="false">[config.ui.common.fonts]Verdana.swl</font>
+		<font name="TahomaChat" realName="TahomaChat" classname="TahomaChat" sizemultiplicator="1" embedAsCff="true">[config.ui.common.fonts]TahomaChat.swl</font>
+	</Fonts>
+	<Fonts  lang="ru">
+		<font name="Eras" realName="Verdana" classname="Verdana" sizemultiplicator="1" embedAsCff="false">[config.ui.common.fonts]Verdana.swl</font>
+		<font name="Tahoma" realName="Tahoma" classname="Tahoma" sizemultiplicator="1" embedAsCff="false">[config.ui.common.fonts]Tahoma.swl</font>
+		<font name="Verdana" realName="Verdana" classname="Verdana" sizemultiplicator="1" embedAsCff="false">[config.ui.common.fonts]Verdana.swl</font>
+		<font name="TahomaChat" realName="Tahoma" classname="Tahoma" sizemultiplicator="1" embedAsCff="false">[config.ui.common.fonts]Tahoma.swl</font>
+	</Fonts>
+	<Fonts lang="ja">
+		<font name="Eras" realName="Arial Unicode MS" classname="Arialuni" sizemultiplicator="1" embedAsCff="false">[config.ui.common.fonts]Arialuni.swl</font>
+		<font name="Tahoma" realName="Arial Unicode MS" classname="Arialuni" sizemultiplicator="1" embedAsCff="false">[config.ui.common.fonts]Arialuni.swl</font>
+		<font name="Verdana" realName="Arial Unicode MS" classname="Arialuni" sizemultiplicator="1" embedAsCff="false">[config.ui.common.fonts]Arialuni.swl</font>
+		<font name="TahomaChat" realName="Arial Unicode MS" classname="Arialuni" sizemultiplicator="1" embedAsCff="false">[config.ui.common.fonts]Arialuni.swl</font>
+	</Fonts>
+</FontsList>

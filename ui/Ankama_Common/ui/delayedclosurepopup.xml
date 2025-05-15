@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Definition SYSTEM "../dtd/ui.dtd">
+<Definition>
+
+	<Constants>
+		<Constant name="css" value="[config.ui.skin]css/" />
+	</Constants>
+
+	<Container name="popCtr">
+		<Anchors>
+			<Anchor relativePoint="CENTER" point="CENTER" />
+		</Anchors>
+
+		<Size>
+			<AbsDimension x="550" />
+		</Size>
+
+		<mouseEnabled>true</mouseEnabled>
+		<shadowColor>[colors.ui.shadow]</shadowColor>
+
+		<Container name="labelCtr">
+			<Size>
+				<RelDimension x="1" y="1" />
+			</Size>
+			<Anchors>
+				<Anchor relativePoint="CENTER" point="CENTER" />
+			</Anchors>
+
+			<Label name="lbl_content">
+				<Size>
+					<AbsDimension x="550" />
+				</Size>
+				<css>[local.css]special.css</css>
+				<cssClass>zone</cssClass>
+			</Label>
+
+		</Container>
+	</Container>
+</Definition>

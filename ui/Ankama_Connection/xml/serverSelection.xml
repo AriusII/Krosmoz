@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Definition SYSTEM "../dtd/ui.dtd">
+<Definition>
+
+	<Import url="[config.mod.template]button/greyButton.xml" />
+	<Import url="[config.mod.template]button/simpleButton.xml" />
+	<Import url="[config.mod.template]button/iconButton.xml" />
+	
+	<Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+		<Constant name="css" value="[config.ui.skin]css/" />
+	</Constants>
+	
+	<Container>
+		<Anchors>
+			<Anchor point="TOP" relativePoint="TOP" >
+				<AbsDimension x="0" y="217" />
+			</Anchor>
+		</Anchors>
+
+		<!-- Texture tx_background-->
+
+		<Texture>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="0" y="-7" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="1142" y="578" />
+			</Size>
+			<uri>[local.assets]tx_serverchoice2_bg</uri>
+		</Texture>
+
+
+
+		<!-- Label lbl_title-->
+
+		<Label>
+			<Anchors>
+				<Anchor point="TOP" relativePoint="TOP" >
+					<AbsDimension x="0" y="-5" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="1134" y="30" />
+			</Size>
+			<text>[ui.sersel.choseServer]</text>
+			<css>[local.css]title.css</css>
+			<cssClass>center</cssClass>
+		</Label>
+
+
+		
+
+
+
+		
+		<!-- Grid gd_listServer -->
+		
+		<Grid name="gd_listServer">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="67" y="65" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="1024" y="424" />
+			</Size>
+			<rendererName>com.ankamagames.berilia.components.gridRenderer::XmlUiGridRenderer</rendererName>
+			<rendererArgs>Ankama_Connection::serverImgXmlItem</rendererArgs>
+			<slotWidth>186</slotWidth>
+			<slotHeight>424</slotHeight>
+			<Hooks>
+				<onSelectItem />
+			</Hooks>
+		</Grid>
+		
+		
+		<!-- Button btn_grosseflechegauche-->
+
+		<iconButton name="btn_arrowLeft">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="17" y="255" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="40" y="62" />
+			</Size>
+			<uri>[local.assets]btn_bigArrow_left</uri>
+		</iconButton>
+
+		<!-- Button btn_grosseflechedroite-->
+
+		<iconButton name="btn_arrowRight">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="1083" y="255" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="40" y="62" />
+			</Size>
+			<uri>[local.assets]btn_bigArrow_right</uri>
+		</iconButton>
+
+
+		<!-- Button btn_create -->		
+
+		<greyButton label="[ui.charsel.createCharacter]" name="btn_create" width="241" height="35">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="875" y="527" />
+				</Anchor>
+			</Anchors>
+			<css>[local.css]button.css</css>
+			<cssClass>small</cssClass>
+			<Hooks>
+				<onRelease />
+			</Hooks>
+		</greyButton>
+
+		<!-- Button btn_validate -->		
+
+		<simpleButton label="[ui.common.select]" name="btn_validate">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="455" y="517" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="229" y="39" />
+			</Size>
+		</simpleButton>
+
+
+		<!-- ComboBox cb_servers-->
+
+		<ComboBox name="cb_servers">
+			<Anchors>
+				<Anchor point="TOP" relativePoint="TOP" >
+					<AbsDimension x="430" y="5" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="250" y="25" />
+			</Size>
+			<autoSelectMode>0</autoSelectMode>
+			<buttonTexture>[local.assets]btn_combobox</buttonTexture>
+			<listTexture>[local.assets]tx_combobox</listTexture>
+			<rendererArgs>[local.css]normal.css,,,[colors.grid.over],[colors.grid.selected]</rendererArgs>;
+			<scrollBarCss>[local.css]scrollBar.css</scrollBarCss>
+			<Hooks>
+				<onSelectItem />
+			</Hooks>
+		</ComboBox>		
+
+
+		
+	</Container>
+	
+	<Shortcuts>
+		<validUi />
+	</Shortcuts>
+</Definition>

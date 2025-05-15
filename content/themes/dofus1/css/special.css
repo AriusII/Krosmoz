@@ -1,0 +1,61 @@
+successpoints {
+	font-family: Tahoma;
+	font-size: 42px;
+	color: #512809;
+	font-weight: bold;
+	text-align: right;
+}
+
+
+papm {
+	font-family: Eras;
+	font-size: 16px;
+	color: #ffffff;
+	text-align: center;
+	shadow-size: 3;
+}
+papmdisabled {
+	font-family: Eras;
+	font-size: 16px;
+	text-align: center;
+	color: #555555;
+}
+
+pdvsmall {
+	font-family: Eras;
+	font-size: 20px;
+	color: #FFFFFF;
+	text-align: center;
+	shadow-size: 5;
+}
+pdv {
+	font-family: Eras;
+	font-size: 23px;
+	color: #FFFFFF;
+	text-align: center;
+	shadow-size: 5;
+}
+
+countdown {
+	font-family: Eras;
+	font-size: 50px;
+	color: #c96217;
+	text-align: center;
+}
+
+coord {
+	font-family: Verdana;
+	font-size: 20px;
+	color: #ffffff;
+	font-weight: bold;
+	shadow-size: 6;
+}
+
+zone {
+	font-family: Verdana;
+	font-size: 27px;
+	color: #ffffff;
+	font-weight: bold;
+	shadow-size: 6;
+	text-align: center;
+}

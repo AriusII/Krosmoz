@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Definition>
+
+	<Import url="[config.mod.template]button/simpleButton.xml" />
+	<Import url="[config.mod.template]button/iconButton.xml" />
+	<Import url="[config.mod.template]button/horizontalTab.xml" />
+	<Import url="[config.mod.template]button/sortButton.xml" />
+   
+	<Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+		<Constant name="css" value="[config.ui.skin]css/" />
+	</Constants>
+
+	<Container name="mainCtr">
+		<Anchors>
+			<Anchor>
+				<AbsDimension x="15" y="124" />
+			</Anchor>
+		</Anchors>
+
+		<Label name="lbl_conquestInfo">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="0" y="9" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="980" y="20" />
+			</Size>
+			<css>[local.css]normal.css</css>
+		</Label>
+
+
+		<!-- GRILLE DES PRISMES -->
+		<Container>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="0" y="40" />
+				</Anchor>
+			</Anchors>
+	
+			<sortButton name="btn_tabType">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="5" y="10" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="25" y="25" />
+				</Size>
+			</sortButton>
+							
+			<sortButton name="btn_tabSubArea">	
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="30" y="9" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="400" y="25" />
+				</Size>
+			</sortButton>
+			
+			<sortButton name="btn_tabCoord">	
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="430" y="9" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="90" y="25" />
+				</Size>
+			</sortButton>
+
+			<sortButton name="btn_tabDate">	
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="530" y="9" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="125" y="25" />
+				</Size>
+			</sortButton>
+
+			<sortButton name="btn_tabState">	
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="660" y="9" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="140" y="25" />
+				</Size>
+			</sortButton>
+
+			<sortButton name="btn_tabVulneHour">	
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="800" y="9" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="140" y="25" />
+				</Size>
+			</sortButton>
+										
+			<Label>	
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="30" y="9" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="400" y="20" />
+				</Size>
+				<css>[local.css]normal.css</css>
+				<text>[ui.map.subarea]</text>
+			</Label>
+			
+			<Label>	
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="430" y="9" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="90" y="20" />
+				</Size>
+				<cssClass>center</cssClass>
+				<css>[local.css]normal.css</css>
+				<text>[ui.common.coordinatesSmall]</text>
+			</Label>
+
+			<Label>	
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="540" y="9" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="120" y="20" />
+				</Size>
+				<cssClass>center</cssClass>
+				<css>[local.css]normal.css</css>
+				<text>[ui.social.guild.taxStartDate]</text>
+			</Label>
+
+			<Label>	
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="670" y="9" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="140" y="20" />
+				</Size>
+				<cssClass>center</cssClass>
+				<css>[local.css]normal.css</css>
+				<text>[ui.common.state]</text>
+			</Label>
+
+			<Label>	
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="810" y="9" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="135" y="20" />
+				</Size>
+				<cssClass>right</cssClass>
+				<css>[local.css]normal.css</css>
+				<text>[ui.prism.startVulnerability]</text>
+			</Label>
+	
+			<Grid name="gd_subAreas">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="36" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="973" y="414" />
+				</Size>
+				<rendererName>InlineXmlGridRender</rendererName>
+				<rendererArgs>updateSubAreaLine,[colors.grid.line]</rendererArgs>
+				<slotWidth>948</slotWidth>
+				<slotHeight>41</slotHeight>
+				<verticalScrollbarCss>[local.css]scrollBar.css</verticalScrollbarCss>
+	
+				<Container name="ctr_line">
+					<Size>
+						<AbsDimension x="948" y="41" />
+					</Size>					
+					
+					<Texture name="tx_type">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="5" y="10" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<uri>[local.assets]tx_prismIcon</uri>
+					</Texture>
+									
+					<Label name="lbl_subArea">	
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="30" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="400" y="20" />
+						</Size>
+						<css>[local.css]normal.css</css>
+					</Label>
+					
+					<Label name="lbl_coord">	
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="430" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="90" y="20" />
+						</Size>
+						<cssClass>center</cssClass>
+						<css>[local.css]normal.css</css>
+					</Label>
+	
+					<Label name="lbl_date">	
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="525" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="120" y="20" />
+						</Size>
+						<cssClass>right</cssClass>
+						<css>[local.css]normal.css</css>
+					</Label>
+	
+					<Label name="lbl_state">	
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="650" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="130" y="20" />
+						</Size>
+						<cssClass>right</cssClass>
+						<css>[local.css]normal.css</css>
+					</Label>
+	
+					<Label name="lbl_vulneHour">	
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="810" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="100" y="20" />
+						</Size>
+						<cssClass>right</cssClass>
+						<css>[local.css]normal.css</css>
+					</Label>
+					
+					<iconButton name="btn_setHour">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="923" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<uri>[local.assets]btn_etc_square</uri>
+						<visible>false</visible>
+					</iconButton>	
+					
+				</Container>
+			</Grid>
+			
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="5" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="985" y="474" />
+				</Size>
+				<uri>[local.assets]tx_commonGridScrollbar</uri>
+				<autoGrid>true</autoGrid>
+			</Texture>
+		</Container>
+		
+		
+		<Container name="ctr_setHour">
+			<Anchors>
+				<Anchor relativePoint="CENTER" point="CENTER">
+					<AbsDimension x="0" y="0" />
+				</Anchor>
+			</Anchors>
+			<visible>false</visible>
+		
+			<Texture>
+				<Size>
+					<AbsDimension x="520" y="347" />
+				</Size>
+				<uri>[local.assets]tx_generalBackgroundWithTitle</uri>
+				<autoGrid>true</autoGrid>
+				<mouseEnabled>true</mouseEnabled>
+			</Texture>
+	
+			<Label>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="22" y="16" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="461" y="35" />
+				</Size>
+				<css>[local.css]title.css</css>
+				<text>[ui.zaap.prism]</text>
+			</Label>
+	
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="20" y="60" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="480" y="268" />
+				</Size>
+				<autoGrid>true</autoGrid>
+				<uri>[local.assets]tx_blockBackground</uri>
+			</Texture>
+			
+			<Label name="lbl_prismArea">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="30" y="67" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="460" y="20" />
+				</Size>
+				<css>[local.css]normal.css</css>
+			</Label>
+			
+			<Label name="lbl_explanationHour">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="30" y="100" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="460" y="120" />
+				</Size>
+				<css>[local.css]normal.css</css>
+				<multiline>true</multiline>
+				<wordWrap>true</wordWrap>
+			</Label>
+			
+			<simpleButton name="btn_save">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="75" y="288" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="180" y="30" />
+				</Size>
+				<label>[ui.common.save]</label>
+			</simpleButton>
+			
+			<simpleButton name="btn_undo">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="265" y="288" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="180" y="30" />
+				</Size>
+				<label>[ui.common.cancel]</label>
+			</simpleButton>
+			
+			<ComboBox name="cb_hours">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="195" y="250" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="60" y="25" />
+				</Size>
+				<buttonTexture>[local.assets]btn_combobox</buttonTexture>
+				<listTexture>[local.assets]tx_combobox</listTexture>
+				<rendererArgs>[local.css]normal.css,,,[colors.grid.over],[colors.grid.selected]</rendererArgs>
+				<scrollBarCss>[local.css]scrollBar.css</scrollBarCss>
+			</ComboBox>			
+			
+			<ComboBox name="cb_minutes">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="265" y="250" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="60" y="25" />
+				</Size>
+				<buttonTexture>[local.assets]btn_combobox</buttonTexture>
+				<listTexture>[local.assets]tx_combobox</listTexture>
+				<rendererArgs>[local.css]normal.css,,,[colors.grid.over],[colors.grid.selected]</rendererArgs>
+				<scrollBarCss>[local.css]scrollBar.css</scrollBarCss>
+			</ComboBox>	
+	
+			<iconButton name="btn_close">
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" />
+				</Anchors>
+				<Size>
+					<AbsDimension x="57" y="36" />
+				</Size>
+				<uri>[local.assets]btn_cornerCross</uri>
+	        </iconButton>
+	        	
+		</Container>
+		
+
+	</Container>
+</Definition>
+

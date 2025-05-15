@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Definition SYSTEM "../dtd/ui.dtd">
+<Definition>
+
+	<Import url="[config.mod.template.button]simpleButton.xml" />
+    <Import url="[config.mod.template]button/horizontalTab.xml" />
+	<Import url="[config.mod.template.button]iconButton.xml" />
+	<Import url="[config.mod.template]button/labelCheckBox.xml" />
+
+	<Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+		<Constant name="css" value="[config.ui.skin]css/" />
+		<Constant name="ornamentIconPath" value="[config.gfx.path]ornaments/" />
+		<Constant name="illus" value="[config.gfx.path]illusUi/" />
+	</Constants>
+	
+	<Container name="mainCtr">
+		
+		<!-- Container pour la partie haute (bannière) de l'interface -->
+
+		<Container>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="0" y="26" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="1096" y="70" />
+			</Size>
+			
+			<Texture>
+				<Size>
+					<RelDimension x="1" y="1" />
+				</Size>
+				<uri>[local.assets]tx_titleBackground</uri>
+			</Texture>
+
+			<Label>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="48" y="12" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="499" y="37" />
+				</Size>
+				<text>[ui.common.titles]</text>
+				<css>[local.css]title.css</css>
+			</Label>
+			
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="813" y="12" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="228" y="38" />
+				</Size>
+				<uri>[local.assets]tx_title_decoration</uri>
+			</Texture>			
+		</Container>
+		
+		<!-- Container pour la partie basse de l'interface -->
+
+		<Container>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="15" y="106" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="1067" y="656" />
+			</Size>
+			
+			
+			
+			<!-- PARTIE DE GAUCHE -->
+
+
+			
+			<Container>	
+		
+				<horizontalTab name="btn_title">
+					<text>[ui.ornament.titles]</text>
+				</horizontalTab>		
+				<horizontalTab name="btn_ornament">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="180" y="0" />
+						</Anchor>
+					</Anchors>
+					<text>[ui.ornament.ornaments]</text>
+				</horizontalTab>
+				
+				<Texture>
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="0" y="25" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="500" y="612" />
+					</Size>
+					<uri>[local.assets]tx_blockBackground_squaredCorner</uri>
+					<autoGrid>true</autoGrid>
+				</Texture>
+				
+				<Grid name="gd_titles">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="21" y="105" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="447" y="490" />
+					</Size>
+					<rendererName>InlineXmlGridRender</rendererName>
+					<rendererArgs>updateTitle,[colors.grid.line]</rendererArgs>
+					<verticalScrollbarCss>[local.css]scrollBar.css</verticalScrollbarCss>
+					<autoSelectMode>0</autoSelectMode>
+					<slotWidth>421</slotWidth>
+					<slotHeight>35</slotHeight>
+					
+					<Container>
+						<Size>
+							<AbsDimension x="423" y="35" />
+						</Size>
+					
+						<Button name="btn_title">
+							<Common>
+								<Size>
+									<AbsDimension x="423" y="35" />
+								</Size>
+								<radioMode>true</radioMode>
+								
+								<Container>
+									<Size>
+										<AbsDimension x="423" y="35" />
+									</Size>
+									<bgColor>0</bgColor>
+									<bgAlpha>0</bgAlpha>
+								</Container>	
+				
+								<Label name="lbl_name">
+									<Anchors>
+										<Anchor>
+											<AbsDimension x="15" y="4" />
+										</Anchor>
+									</Anchors>
+									<Size>
+										<AbsDimension x="400" y="21" />
+									</Size>
+									<css>[local.css]normal.css</css>
+								</Label>
+								
+							</Common>
+
+							<State type="OVER">
+								<SetProperties target="btn_title">
+									<bgColor>[colors.grid.over]</bgColor>
+								</SetProperties>
+							</State>
+	
+							<State type="SELECTED">
+								<SetProperties target="btn_title">
+									<bgColor>[colors.grid.selected]</bgColor>
+								</SetProperties>
+							</State>
+	
+							<State type="SELECTED_OVER">
+								<SetProperties target="btn_title">
+									<bgColor>[colors.grid.selected]</bgColor>
+								</SetProperties>
+							</State>
+						</Button>
+						
+					</Container>
+				</Grid>
+				
+				<Grid name="gd_orns">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="21" y="104" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="447" y="490" />
+					</Size>
+					<rendererName>InlineXmlGridRender</rendererName>
+					<rendererArgs>updateOrnament,[colors.grid.line]</rendererArgs>
+					<verticalScrollbarCss>[local.css]scrollBar.css</verticalScrollbarCss>
+					<autoSelectMode>0</autoSelectMode>
+					<slotWidth>421</slotWidth>
+					<slotHeight>49</slotHeight>
+					<visible>false</visible>
+					
+					<Container>
+						<Size>
+							<AbsDimension x="423" y="49" />
+						</Size>
+					
+						<Button name="btn_orn">
+							<Common>
+								<Size>
+									<AbsDimension x="423" y="49" />
+								</Size>
+								<radioMode>true</radioMode>
+								
+								<Container>
+									<Size>
+										<AbsDimension x="423" y="49" />
+									</Size>
+									<bgColor>0</bgColor>
+									<bgAlpha>0</bgAlpha>
+								</Container>	
+								
+								<Texture name="tx_slot">
+									<Anchors>
+										<Anchor>
+											<AbsDimension x="5" y="1" />
+										</Anchor>
+									</Anchors>
+									<Size>
+										<AbsDimension x="46" y="46" />
+									</Size>
+									<uri>[local.assets]tx_slot</uri>
+								</Texture>	
+								<Texture name="tx_picto">
+									<Anchors>
+										<Anchor>
+											<AbsDimension x="6" y="2" />
+										</Anchor>
+									</Anchors>
+									<Size>
+										<AbsDimension x="44" y="44" />
+									</Size>
+								</Texture>	
+				
+								<Label name="lbl_name">
+									<Anchors>
+										<Anchor>
+											<AbsDimension x="75" y="10" />
+										</Anchor>
+									</Anchors>
+									<Size>
+										<AbsDimension x="340" y="21" />
+									</Size>
+									<css>[local.css]normal.css</css>
+								</Label>
+								
+							</Common>
+
+							<State type="OVER">
+								<SetProperties target="btn_orn">
+									<bgColor>[colors.grid.over]</bgColor>
+								</SetProperties>
+							</State>
+	
+							<State type="SELECTED">
+								<SetProperties target="btn_orn">
+									<bgColor>[colors.grid.selected]</bgColor>
+								</SetProperties>
+							</State>
+	
+							<State type="SELECTED_OVER">
+								<SetProperties target="btn_orn">
+									<bgColor>[colors.grid.selected]</bgColor>
+								</SetProperties>
+							</State>
+						</Button>
+						
+					</Container>
+				</Grid>
+	
+				<Texture>
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="20" y="75" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="460" y="550" />
+					</Size>
+					<uri>[local.assets]tx_commonGridScrollbar</uri>
+					<autoGrid>true</autoGrid>
+				</Texture>					
+	         
+		        <Container name="ctr_search">
+		        	<visible>false</visible>
+		        	<Anchors> 
+		                <Anchor>
+		                    <AbsDimension x="20" y="40" />
+		                </Anchor>
+		            </Anchors>
+		            
+		            <Texture>
+						<Size>
+							<AbsDimension x="430" y="25" />
+						</Size>
+						<autoGrid>true</autoGrid>
+						<uri>[local.assets]tx_inputBackgroundDark</uri>
+					</Texture>
+		            
+		            <Input name="inp_search">
+			        	<Anchors> 
+			                <Anchor>
+			                    <AbsDimension x="5" y="-1" />
+			                </Anchor>
+			            </Anchors>
+		            	<Size>
+							<AbsDimension x="420" y="20" />
+						</Size>
+		            	<css>[local.css]normal.css</css>
+		            </Input>
+		        </Container>
+		         
+				<!-- iconButton name="btn_search">
+		        	<Anchors> 
+		                <Anchor>
+		                    <AbsDimension x="455" y="40" />
+		                </Anchor>
+		            </Anchors>
+		            <Size>
+		            	<AbsDimension x="25" y="25" />
+		            </Size>
+		            <checkBox>true</checkBox>
+		        	<uri>[local.assets]btn_recherche</uri>
+		        </iconButton -->
+			         
+				<iconButton name="btn_resetSearch">
+		        	<Anchors> 
+		                <Anchor>
+		                    <AbsDimension x="455" y="40" />
+		                </Anchor>
+		            </Anchors>
+		            <Size>
+		            	<AbsDimension x="25" y="25" />
+		            </Size>
+		            <checkBox>true</checkBox>
+		        	<uri>[local.assets]btn_cross_square</uri>
+		        </iconButton>
+				
+
+				<!-- Combobox de sélection de type -->
+	
+				<!-- ComboBox name="cb_typeSelection">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="20" y="40" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="430" y="25" />
+					</Size>
+					<buttonTexture>[local.assets]btn_combobox</buttonTexture>
+					<listTexture>[local.assets]tx_combobox</listTexture>
+					<rendererArgs>[local.css]normal.css,,,[colors.grid.over],[colors.grid.selected]</rendererArgs>
+					<scrollBarCss>[local.css]scrollBar.css</scrollBarCss>
+					<Hooks>
+						<onSelectItem />
+					</Hooks>
+				</ComboBox -->
+					
+
+				<labelCheckBox name="btn_showAll">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="5" y="641" />
+						</Anchor>
+					</Anchors>
+					<labelWidth>480</labelWidth>
+					<labelHeight>20</labelHeight>
+					<labelPosX>16</labelPosX>
+					<text>[ui.ornament.displayAll]</text>
+					<Hooks>
+						<onRelease/>
+					</Hooks>
+				</labelCheckBox>
+				
+			</Container>
+			
+			
+			
+			
+			<!-- PARTIE DE DROITE -->
+			
+			<Container>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="529" y="0" />
+					</Anchor>
+				</Anchors>
+							
+				<Texture>
+					<Size>
+						<AbsDimension x="538" y="660" />
+					</Size>
+					<uri>[local.assets]tx_blockBackground</uri>
+					<autoGrid>true</autoGrid>
+				</Texture>
+				
+				<Texture>
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="6" y="6" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="526" y="604" />
+					</Size>
+					<uri>[local.illus]tx_bgTitleOrnament.png</uri>
+				</Texture>
+								
+				<Container name="ctr_warning">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="8" y="30" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="522" y="80" />
+					</Size>
+					<bgColor>0xffffff</bgColor>
+					<bgAlpha>0.5</bgAlpha>
+					<Label>
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="9" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="508" y="60" />
+						</Size>
+						<multiline>true</multiline>
+						<wordWrap>true</wordWrap>
+						<text>[ui.ornament.warningWings]</text>
+						<cssClass>p3</cssClass>
+						<css>[local.css]normal.css</css>
+						<verticalAlign>center</verticalAlign>
+					</Label>
+				</Container>
+						
+				<EntityDisplayer name="ed_chara">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="272" y="575" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="1" y="1" />
+					</Size>
+					<autoSize>false</autoSize>
+				</EntityDisplayer>				
+				
+				<simpleButton label="[ui.common.reset]" name="btn_reset"   >
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="36" y="616" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="220" y="35" />
+					</Size>
+				</simpleButton>	
+				
+				<simpleButton label="[ui.common.save]" name="btn_save"   >
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="282" y="616" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="220" y="35" />
+					</Size>
+				</simpleButton>		
+			</Container>
+		</Container>
+		
+	</Container>
+</Definition>

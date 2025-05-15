@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Definition SYSTEM "../dtd/ui.dtd">
+<Definition giveFocus="false" transmitFocus="false">
+	<Import url="[config.mod.template]button/iconButton.xml" />
+	
+	<Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+		<Constant name="css" value="[config.ui.skin]css/" />
+	</Constants>
+	
+	<Container name="mainCtr">
+		<Anchors>
+			<Anchor relativePoint="TOPRIGHT" point="TOPRIGHT" />
+		</Anchors>
+
+		<Container name="menuCtr">
+			<Anchors>
+				<Anchor relativePoint="TOPRIGHT" point="TOPRIGHT" />
+			</Anchors>
+			<mouseEnabled>true</mouseEnabled>
+			
+			<!-- Texture tx_bg-->
+	
+			<Texture name="tx_bg">
+				<Size>
+					<AbsDimension x="120" y="32" />
+				</Size>
+				<autoGrid>true</autoGrid>
+				<uri>[local.assets]tx_menuBackground</uri>
+			</Texture>
+			
+			
+			<!-- simpleButton btn_abo -->
+	
+			<iconButton name="btn_abo">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="42" y="5" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<uri>[local.assets]btn_Star_square</uri>
+	        </iconButton>
+	
+			<!-- simpleButton btn_mp -->
+	
+			<iconButton name="btn_mp">
+				<visible>false</visible>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="42" y="5" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<uri>[local.assets]btn_mp</uri>
+	        </iconButton>
+	
+			<!-- simpleButton btn_options -->
+	
+			<iconButton name="btn_options">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="66" y="5" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<uri>[local.assets]btn_option_square</uri>
+	        </iconButton>
+	
+			<!-- simpleButton btn_menu -->
+	
+			<iconButton name="btn_menu">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="90" y="5" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<uri>[local.assets]btn_cross_square</uri>
+	        </iconButton>
+	
+		</Container>
+	</Container>
+
+
+		
+		<Container name="ctr_newMail">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="980" y="40" />
+				</Anchor>
+			</Anchors>
+
+			<Button name="btn_newMail">
+				<Common>
+					<Container name="backgroundCtr" strata="LOW">
+						<Size>
+							<AbsDimension x="250" y="75" />
+						</Size>
+						<shadowColor>[colors.ui.shadow]</shadowColor>
+						<bgCornerRadius>10</bgCornerRadius>
+						<bgColor>[colors.tooltip.bg]</bgColor>
+						<bgAlpha>[colors.tooltip.bg.alpha]</bgAlpha>
+					</Container>
+					
+					<Label name="lbl_newMail">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="10" y="10" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="210" y="55" />
+						</Size>
+						<css>[local.css]normal.css</css>
+						<cssClass>center</cssClass>
+						<text>[ui.ankabox.newMail]</text>
+						<multiline>true</multiline>
+						<wordWrap>true</wordWrap>
+					</Label>
+					
+				</Common>
+			</Button>
+		
+			<iconButton name="btn_close">
+				<Size>
+					<AbsDimension x="15" y="15" />
+				</Size>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="235" y="15" />
+					</Anchor>
+				</Anchors>
+				<uri>[local.assets]tips_close</uri>
+
+				<Hooks>
+					<onRelease />
+				</Hooks>
+			</iconButton>
+		</Container>
+
+    <Container name="ctr_lagometer">
+        <Anchors>
+            <Anchor relativePoint="TOPRIGHT" point="TOPRIGHT">
+                <AbsDimension x="-50" y="50" />
+            </Anchor>
+        </Anchors>
+        <Texture name="tx_lagometer">
+            <Size>
+                <AbsDimension x="30" y="30" />
+            </Size>
+            <uri>[local.assets]tx_wait</uri>
+        </Texture>
+        <mouseEnabled>false</mouseEnabled>
+        <mouseChild>false</mouseChild>
+    </Container>
+</Definition>

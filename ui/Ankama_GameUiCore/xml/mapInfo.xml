@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Definition SYSTEM "../dtd/ui.dtd">
+<Definition>
+	<Import url="[config.mod.template.button]iconButton.xml" />
+	<Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+		<Constant name="css" value="[config.ui.skin]css/" />
+	</Constants>
+	<Container name="infoContainer">
+		<Anchors>
+			<Anchor>
+				<AbsDimension x="15" y="15" />
+			</Anchor>
+		</Anchors>
+		
+		<Label name="info">
+			<fixedWidth>false</fixedWidth>
+			<css>[local.css]special.css</css>
+			<cssClass>coord</cssClass>
+		</Label>
+		
+		<Label name="coordAndLevel">
+			<fixedWidth>false</fixedWidth>
+			<css>[local.css]special.css</css>
+			<cssClass>coord</cssClass>
+			<Anchors>
+				<Anchor relativeTo="info" relativePoint="BOTTOMLEFT">
+					<AbsDimension x="0" y="7" />
+				</Anchor>
+			</Anchors>
+		</Label>
+		
+		<!-- embleme d'alliance controllant la zone de la map -->
+		<Texture name="tx_AllianceEmblemBack">
+			<Size>
+				<AbsDimension x="40" y="40" />
+			</Size>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="0" y="61"/>
+				</Anchor>
+			</Anchors>
+		</Texture>
+		
+		<Texture name="tx_AllianceEmblemUp">
+			<Size>
+				<AbsDimension x="24" y="24" />
+			</Size>
+		</Texture>
+		
+		<Label name="lbl_Alliance">
+			<hyperlinkEnabled>true</hyperlinkEnabled>
+			<fixedWidth>false</fixedWidth>
+			<useStyleSheet>true</useStyleSheet>
+			<css>[local.css]special.css</css>
+			<cssClass>coord</cssClass>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="0" y="63" />
+				</Anchor>
+			</Anchors>
+		</Label>
+	</Container>
+	
+	<!-- Bouton de récompenses d'achievements -->
+	<Container>		
+		<iconButton name="btn_achievementRewards">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="607" y="810" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="58" y="58" />
+			</Size>
+			<uri>[local.assets]btn_achievementRewards</uri>
+		</iconButton>
+	</Container>
+</Definition>

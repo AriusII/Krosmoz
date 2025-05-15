@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Definition>
+	<Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+       	<Constant name="css" value="[config.ui.skin]css/" />
+   </Constants>
+
+    <Import url="[config.mod.template.button]iconButton.xml" />	
+
+	<Container name="ctr_extNotif">
+		<!-- background -->
+		<Texture name="bg">
+			<Size>
+                <AbsDimension x="346" y="90" />
+            </Size>
+            <uri>[local.assets]Notifications_tx_bg</uri>
+		</Texture>
+		<!-- bouton pour fermer la notification -->
+		<iconButton name="btn_close">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="328" y="1"/>
+				</Anchor>
+			</Anchors>
+            <Size>
+                <AbsDimension x="15" y="15" />
+            </Size>
+            <uri>[local.assets]Notifications_btn_close</uri>
+        </iconButton>
+		<!-- icone de l'evenement ou avatar d'un autre joueur-->
+		<Texture name="tx_slot">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="10" y="27"/>
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="54" y="54"/>
+			</Size>
+			<uri>[local.assets]Notifications_tx_slot</uri>
+		</Texture>
+		<Texture name="tx_iconBg">
+			<Anchors>
+				<Anchor relativeTo="tx_slot">
+						<AbsDimension x="3" y="3" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="48" y="48"/>
+			</Size>
+		</Texture>
+		<Texture name="tx_icon">
+			<Anchors>
+				<Anchor relativeTo="tx_slot">
+						<AbsDimension x="3" y="3" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="48" y="48"/>
+			</Size>
+		</Texture>
+		<!-- titre de la fenetre -->
+		<Label name="lbl_title">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="20" y="0"/>
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="300" y="20"/>
+			</Size>
+			<autoResize>false</autoResize>
+			<fixedWidth>true</fixedWidth>
+			<fixedHeight>true</fixedHeight>
+			<selectable>false</selectable>
+			<css>[local.css]normal.css</css>
+			<cssClass>title</cssClass>
+		</Label>
+		<!-- message de l'evenement -->
+		<Label name="lbl_notif">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="73" y="26"/>
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="260" y="56"/>
+			</Size>
+			<multiline>true</multiline>
+			<wordWrap>true</wordWrap>
+			<css>[local.css]normal.css</css>
+			<cssClass>p</cssClass>
+		</Label>
+	</Container>
+</Definition>

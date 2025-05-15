@@ -1,0 +1,35 @@
+p {
+	font-family: Tahoma;
+	font-size: 24px;
+	color: #e0eeff;
+	text-align: left;
+	font-weight: bold;
+}
+right {
+	font-family: Tahoma;
+	font-size: 24px;
+	color: #e0eeff;
+	text-align: right;
+	font-weight: bold;
+}
+center {
+	font-family: Tahoma;
+	font-size: 24px;
+	color: #e0eeff;
+	text-align: center;
+	font-weight: bold;
+}
+darkcenterbig {
+	font-family: Tahoma;
+	font-size: 24px;
+	color: #4E280A;
+	text-align: center;
+	font-weight: bold;
+}
+oppositecenter {
+	font-family: Tahoma;
+	font-size: 25px;
+	color: #e0eeff;
+	text-align:center;
+	font-weight: bold;
+}

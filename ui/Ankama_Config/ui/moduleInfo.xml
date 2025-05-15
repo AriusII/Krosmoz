@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Definition modal="true">
+	<Import url="[config.mod.template.button]iconButton.xml" />
+	<Import url="[config.mod.template.button]simpleButton.xml" />
+	<Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+		<Constant name="css" value="[config.ui.skin]css/" />
+	</Constants>
+	<Container name="mainCtr">
+
+		<Anchors>
+			<Anchor point="CENTER" relativePoint="CENTER" />
+		</Anchors>
+		
+		<Texture name="tx_bgForeground">
+			<Size>
+				<AbsDimension x="780" y="480" />
+			</Size>
+			<autoGrid>true</autoGrid>
+			<uri>[local.assets]tx_darkBg</uri>
+		</Texture>
+		
+		<iconButton name="btn_close">
+			<Size>
+				<AbsDimension x="25" y="25" />
+			</Size>
+			<Anchors>
+				<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT">
+					<AbsDimension x="-15" y="20" />
+				</Anchor>
+			</Anchors>
+			<uri>[local.assets]tips_close</uri>
+		</iconButton>
+		
+        <Grid name="grid">
+            <Anchors>
+                <Anchor>
+                    <AbsDimension x="20" y="45" />
+                </Anchor>
+            </Anchors>
+            <Size>
+                <AbsDimension x="740" y="385" /> <!-- 420 -->
+            </Size>
+            <slotWidth>720</slotWidth>
+            <slotHeight>35</slotHeight>
+            <scrollDisplay>always</scrollDisplay>
+            <rendererName>InlineXmlGridRender</rendererName>
+            <rendererArgs>updateModuleLine,[colors.grid.line],[colors.grid.bg]</rendererArgs>
+            <verticalScrollbarCss>[local.css]scrollBar.css</verticalScrollbarCss>
+            <Hooks>
+                <onSelectItem />
+            </Hooks>
+
+            <Container>
+                <Size>
+                    <AbsDimension x="720" y="35" />
+                </Size>
+
+                <!-- Label lblDescription-->
+
+                <Label name="lblDescription">
+                    <Anchors>
+                        <Anchor>
+                            <AbsDimension x="10" y="4" />
+                        </Anchor>
+                    </Anchors>
+                    <Size>
+                        <AbsDimension x="710" y="22" />
+                    </Size>
+                    <css>[local.css]normal.css</css>
+                </Label>
+            </Container>
+        </Grid>
+		
+		<ComboBox name="cbType" strata="TOP">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="20" y="10" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="200" y="25" />
+			</Size>
+			<autoSelectMode>0</autoSelectMode>
+			<buttonTexture>[local.assets]btn_combobox</buttonTexture>
+			<listTexture>[local.assets]tx_combobox</listTexture>
+			<rendererArgs>[local.css]normal.css,,,[colors.grid.over],[colors.grid.selected]</rendererArgs>;
+			<scrollBarCss>[local.css]scrollBar.css</scrollBarCss>
+		</ComboBox>
+		
+		<simpleButton name="btnAccept">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="490" y="440" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="154" y="30" />
+			</Size>
+			<label>[ui.common.accept]</label>
+			<cssClass>boldcenter</cssClass>
+			<css>[local.css]button.css</css>
+		</simpleButton>
+		
+		<simpleButton name="btnDesagree">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="129" y="440" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="154" y="30" />
+			</Size>
+			<label>[ui.common.refuse]</label>
+			<cssClass>boldcenter</cssClass>
+			<css>[local.css]button.css</css>
+		</simpleButton>
+		
+	</Container>
+</Definition>
+

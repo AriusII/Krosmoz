@@ -1,0 +1,1137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Definition SYSTEM "../dtd/ui.dtd">
+<Definition>
+	<Import url="[config.mod.template]button/simpleButton.xml" />
+	<Import url="[config.mod.template]button/greyButton.xml" />
+	<Import url="[config.mod.template]button/iconButton.xml" />
+	
+	<Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+		<Constant name="css" value="[config.ui.skin]css/" />		
+		<Constant name="bitmap" value="[config.ui.skin]bitmap/" />		
+		
+		<Constant name="breed_uri" value="[config.content.path]gfx/classes/" />
+		<Constant name="artwork_uri" value="[config.content.path]gfx/illusUi/illus_classe.swf|artwork_" />
+		<Constant name="illus" value="[config.content.path]gfx/illusUi/" />
+		<Constant name="heads_uri" value="[config.content.path]gfx/cosmetics/" />
+	</Constants>
+
+	<Container name="creaCtr">
+		<Anchors>
+			<Anchor point="TOP" relativePoint="TOP" >
+				<AbsDimension x="0" y="217" />
+			</Anchor>
+		</Anchors>
+
+
+		<!-- Texture tx_creaperso_background-->
+
+		<Texture name="tx_bgCreation">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="0" y="-5" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="1142" y="765" />
+			</Size>
+			<uri>[local.assets]CreaPerso_tx_background</uri>
+		</Texture>
+
+		<!-- Label lbl_titrecreerperso-->
+
+		<Label name="lbl_titleCreation">
+			<Anchors>
+				<Anchor point="TOP" relativePoint="TOP" >
+					<AbsDimension x="0" y="-5" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="700" y="30" />
+			</Size>
+			<text>[ui.charcrea.title]</text>
+			<css>[local.css]title.css</css>
+			<cssClass>center</cssClass>
+		</Label>
+		
+
+		<Label name="lbl_breed">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="438" y="57" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="263" y="26" />
+			</Size>
+			<css>[local.css]titleSmall.css</css>
+			<cssClass>center</cssClass>
+		</Label>
+		
+		
+		<Texture name="tx_breedSymbol">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="385" y="87" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="354" y="377" />
+			</Size>
+			<uri>[local.illus]symboles_classe.swf|CreaPerso_tx_symboleclasse</uri>
+		</Texture>
+		
+
+		<!-- Button btn_more -->		
+
+		<simpleButton label="[ui.common.history]" name="btn_more"   >
+			<Anchors>
+				<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="lbl_breed">
+					<AbsDimension x="-90" y="20" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="132" y="26" />
+			</Size>
+			<css>[local.css]button.css</css>
+			<cssClass>small</cssClass>
+			<Hooks>
+				<onRelease />
+			</Hooks>
+		</simpleButton>
+		
+		<!-- Button btn_spell -->		
+
+		<simpleButton label="[ui.charcrea.spells]" name="btn_spell"   >
+			<Anchors>
+				<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="lbl_breed">
+					<AbsDimension x="90" y="20" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="132" y="26" />
+			</Size>
+			<css>[local.css]button.css</css>
+			<cssClass>small</cssClass>
+			<Hooks>
+				<onRelease />
+			</Hooks>
+		</simpleButton>
+		
+
+
+
+		<!-- Label lbl_titreclasse-->
+
+		<Label name="lbl_breedTitle">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="63" y="84" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="164" y="22" />
+			</Size>
+			<text>[ui.charcrea.breed]</text>
+			<css>[local.css]titleSmall.css</css>
+		</Label>
+		
+		
+		<Container>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="229" y="83" />
+				</Anchor>
+			</Anchors>
+
+			<!-- Button btn_sex0-->
+
+			<Button name="btn_sex0">
+				<Common>
+					<radioGroup>genderGroup</radioGroup>
+					<radioMode>true</radioMode>
+
+					<Texture name="tx_bg0">
+						<Size>
+							<AbsDimension x="70" y="30" />
+						</Size>
+						<uri>[local.assets]SelectionServeur_btn_onglet</uri>
+					</Texture>
+					<Texture>
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="26" y="7" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="18" y="18" />
+						</Size>
+						<uri>[local.assets]CreaPerso_tx_pictoMale</uri>
+					</Texture>
+
+
+					<Hooks>
+						<onRelease />
+						<onRollOver />
+						<onRollOut />
+					</Hooks>
+				</Common>
+				<State type="OVER">
+					<SetProperties target="tx_bg0">
+						<gotoAndStop>over</gotoAndStop>
+					</SetProperties>
+				</State>
+				<State type="PRESSED">
+					<SetProperties target="tx_bg0">
+						<gotoAndStop>pressed</gotoAndStop>
+					</SetProperties>
+				</State>
+				<State type="SELECTED">
+					<SetProperties target="tx_bg0">
+						<gotoAndStop>selected</gotoAndStop>
+					</SetProperties>
+				</State>
+			</Button>
+
+			<!-- Button btn_sex1-->
+
+			<Button name="btn_sex1">
+				<Common>
+					<radioGroup>genderGroup</radioGroup>
+					<radioMode>true</radioMode>
+
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="70" y="0" />
+						</Anchor>
+					</Anchors>
+				
+					<Texture name="tx_bg1">
+						<Size>
+							<AbsDimension x="70" y="30" />
+						</Size>
+						<uri>[local.assets]SelectionServeur_btn_onglet</uri>
+					</Texture>
+					<Texture>
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="27" y="6" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="11" y="20" />
+						</Size>
+						<uri>[local.assets]CreaPerso_tx_pictoFemelle </uri>
+					</Texture>
+					
+					<Hooks>
+						<onRelease />
+						<onRollOver />
+						<onRollOut />
+					</Hooks>
+				</Common>
+				<State type="OVER">
+					<SetProperties target="tx_bg1">
+						<gotoAndStop>over</gotoAndStop>
+					</SetProperties>
+				</State>
+				<State type="PRESSED">
+					<SetProperties target="tx_bg1">
+						<gotoAndStop>pressed</gotoAndStop>
+					</SetProperties>
+				</State>
+				<State type="SELECTED">
+					<SetProperties target="tx_bg1">
+						<gotoAndStop>selected</gotoAndStop>
+					</SetProperties>
+				</State>
+			</Button>
+		
+		</Container>
+		
+		
+		<!-- Grid gd_breed -->
+
+		<Grid name="gd_breed">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="40" y="120" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="320" y="181" />
+			</Size>
+			<rendererName>InlineXmlGridRender</rendererName>
+			<rendererArgs>updateBreed</rendererArgs>
+			<slotWidth>58</slotWidth>
+			<slotHeight>58</slotHeight>
+
+			<Container name="ctr_breed">
+				<Size>
+					<AbsDimension x="58" y="58" />
+				</Size>
+				<Button name="btn_icon">
+					<Common>
+						<Texture name="tx_breed">
+							<Size>
+								<AbsDimension x="58" y="58" />
+							</Size>
+						</Texture>
+						<Texture name="tx_grey">
+							<Size>
+								<AbsDimension x="58" y="58" />
+							</Size>
+							<visible>false</visible>
+							<bgCornerRadius>39</bgCornerRadius>
+							<bgColor>0x222222</bgColor>
+							<bgAlpha>0.4</bgAlpha>
+						</Texture>
+						<Texture name="tx_selected">
+							<Size>
+								<AbsDimension x="58" y="58" />
+							</Size>
+							<uri>[local.bitmap]selected.png</uri>
+							<visible>false</visible>
+						</Texture>
+					</Common>
+					<State type="SELECTED">
+						<SetProperties target="tx_selected">
+							<visible>true</visible>
+						</SetProperties>
+					</State>
+				</Button>	
+			</Container>
+			<Hooks>
+				<onSelectItem />
+			</Hooks>
+		</Grid>
+
+		
+
+		
+		
+		<!-- Label lbl_titrecouleurs-->
+
+		<Label name="lbl_colorTitle">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="63" y="303" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="291" y="22" />
+			</Size>
+			<text>[ui.charcrea.colors]</text>
+			<css>[local.css]titleSmall.css</css>
+		</Label>
+
+
+		<Container>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="31" y="340" />
+				</Anchor>
+			</Anchors>
+		
+			<!-- Texture de fond des slots à couleur -->
+
+			<Texture>
+				<Anchors><Anchor><AbsDimension x="0" y="0" /></Anchor></Anchors>
+				<Size><AbsDimension x="40" y="40" /></Size>
+				<uri>[local.assets]CreaPerso_tx_colorBg</uri>
+			</Texture>
+			<Texture>
+				<Anchors><Anchor><AbsDimension x="0" y="45" /></Anchor></Anchors>
+				<Size><AbsDimension x="40" y="40" /></Size>
+				<uri>[local.assets]CreaPerso_tx_colorBg</uri>
+			</Texture>
+			<Texture>
+				<Anchors><Anchor><AbsDimension x="0" y="90" /></Anchor></Anchors>
+				<Size><AbsDimension x="40" y="40" /></Size>
+				<uri>[local.assets]CreaPerso_tx_colorBg</uri>
+			</Texture>
+			<Texture>
+				<Anchors><Anchor><AbsDimension x="45" y="0" /></Anchor></Anchors>
+				<Size><AbsDimension x="40" y="40" /></Size>
+				<uri>[local.assets]CreaPerso_tx_colorBg</uri>
+			</Texture>
+			<Texture>
+				<Anchors><Anchor><AbsDimension x="45" y="45" /></Anchor></Anchors>
+				<Size><AbsDimension x="40" y="40" /></Size>
+				<uri>[local.assets]CreaPerso_tx_colorBg</uri>
+			</Texture>
+			<Texture>
+				<Anchors><Anchor><AbsDimension x="45" y="90" /></Anchor></Anchors>
+				<Size><AbsDimension x="40" y="40" /></Size>
+				<uri>[local.bitmap]emptySlot.png</uri>
+			</Texture>
+
+			<!-- Texture tx_couleur -->
+
+			<Texture name="tx_color0">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="1" y="1" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="38" y="38" />
+				</Size>
+				<uri>[local.assets]CreaPerso_tx_couleur</uri>
+			</Texture>
+			<Texture name="tx_color1">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="1" y="46" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="38" y="38" />
+				</Size>
+				<uri>[local.assets]CreaPerso_tx_couleur</uri>
+			</Texture>
+			<Texture name="tx_color2">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="1" y="92" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="38" y="38" />
+				</Size>
+				<uri>[local.assets]CreaPerso_tx_couleur</uri>
+			</Texture>
+			<Texture name="tx_color3">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="46" y="1" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="38" y="38" />
+				</Size>
+				<uri>[local.assets]CreaPerso_tx_couleur</uri>
+			</Texture>
+			<Texture name="tx_color4">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="46" y="46" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="38" y="38" />
+				</Size>
+				<uri>[local.assets]CreaPerso_tx_couleur</uri>
+			</Texture>
+
+
+			<!-- Button btn_couleur0 -->
+
+			<iconButton name="btn_color0">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="40" y="40" />
+				</Size>
+				<radioMode>true</radioMode>
+				<radioGroup>colorGroup</radioGroup>
+				<uri>[local.assets]CreaPerso_btn_couleur</uri>
+				<Hooks>
+					<onRelease />
+					<onColorChange />
+					<onRollOver />
+					<onRollOut />
+				</Hooks>
+			</iconButton>
+
+			<!-- Button btn_couleur1-->
+
+			<iconButton name="btn_color1">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="45" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="40" y="40" />
+				</Size>
+				<radioMode>true</radioMode>
+				<radioGroup>colorGroup</radioGroup>
+				<uri>[local.assets]CreaPerso_btn_couleur</uri>
+				<Hooks>
+					<onRelease />
+					<onColorChange />
+					<onRollOver />
+					<onRollOut />
+				</Hooks>
+			</iconButton>
+
+			<!-- Button btn_color2-->
+
+			<iconButton name="btn_color2">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="90" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="40" y="40" />
+				</Size>
+				<radioMode>true</radioMode>
+				<radioGroup>colorGroup</radioGroup>
+				<uri>[local.assets]CreaPerso_btn_couleur</uri>
+				<Hooks>
+					<onRelease />
+					<onColorChange />
+					<onRollOver />
+					<onRollOut />
+				</Hooks>
+			</iconButton>
+
+			<!-- Button btn_color3-->
+
+			<iconButton name="btn_color3">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="45" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="40" y="40" />
+				</Size>
+				<radioMode>true</radioMode>
+				<radioGroup>colorGroup</radioGroup>
+				<uri>[local.assets]CreaPerso_btn_couleur</uri>
+				<Hooks>
+					<onRelease />
+					<onColorChange />
+					<onRollOver />
+					<onRollOut />
+				</Hooks>
+			</iconButton>
+
+			<!-- Button btn_color4-->
+
+			<iconButton name="btn_color4">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="45" y="45" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="40" y="40" />
+				</Size>
+				<radioMode>true</radioMode>
+				<radioGroup>colorGroup</radioGroup>
+				<uri>[local.assets]CreaPerso_btn_couleur</uri>
+				<Hooks>
+					<onRelease />
+					<onColorChange />
+					<onRollOver />
+					<onRollOut />
+				</Hooks>
+			</iconButton>
+
+
+
+			<iconButton name="btn_reinitColor0">
+				<Anchors><Anchor relativeTo="btn_color0" point="TOPRIGHT" relativePoint="TOPRIGHT" /></Anchors>
+				<Size><AbsDimension x="10" y="10" /></Size>
+				<Hooks><onRelease /></Hooks>
+				<uri>[local.assets]CreaPerso_btn_ColorDefault</uri>
+			</iconButton>
+			<iconButton name="btn_reinitColor1">
+				<Anchors><Anchor relativeTo="btn_color1" point="TOPRIGHT" relativePoint="TOPRIGHT" /></Anchors>
+				<Size><AbsDimension x="10" y="10" /></Size>
+				<Hooks><onRelease /></Hooks>
+				<uri>[local.assets]CreaPerso_btn_ColorDefault</uri>
+			</iconButton>
+			<iconButton name="btn_reinitColor2">
+				<Anchors><Anchor relativeTo="btn_color2" point="TOPRIGHT" relativePoint="TOPRIGHT" /></Anchors>
+				<Size><AbsDimension x="10" y="10" /></Size>
+				<Hooks><onRelease /></Hooks>
+				<uri>[local.assets]CreaPerso_btn_ColorDefault</uri>
+			</iconButton>
+			<iconButton name="btn_reinitColor3">
+				<Anchors><Anchor relativeTo="btn_color3" point="TOPRIGHT" relativePoint="TOPRIGHT" /></Anchors>
+				<Size><AbsDimension x="10" y="10" /></Size>
+				<Hooks><onRelease /></Hooks>
+				<uri>[local.assets]CreaPerso_btn_ColorDefault</uri>
+			</iconButton>
+			<iconButton name="btn_reinitColor4">
+				<Anchors><Anchor relativeTo="btn_color4" point="TOPRIGHT" relativePoint="TOPRIGHT" /></Anchors>
+				<Size><AbsDimension x="10" y="10" /></Size>
+				<Hooks><onRelease /></Hooks>
+				<uri>[local.assets]CreaPerso_btn_ColorDefault</uri>
+			</iconButton>
+
+
+			<!-- ColorPicker cp_colorChoice-->
+
+			<ColorPicker name="cp_colorPk">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="102" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="226" y="132" />
+				</Size>
+				<sliderTexture>[local.bitmap]cursorSlider.png</sliderTexture>
+				<gradientTexture>[local.bitmap]cursorGradient.png</gradientTexture>
+				<Hooks>
+					<onColorChange />
+				</Hooks>
+			</ColorPicker>
+			
+		</Container>
+		
+		
+
+		<!-- Button btn_generateColor-->
+
+		<Button name="btn_generateColor">
+			<Common>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="201" y="481" />
+					</Anchor>
+				</Anchors>
+				<Texture name="btn_generateColor_tx">
+					<Size>
+						<AbsDimension x="141" y="26" />
+					</Size>
+					<uri>[local.assets]CreaPerso_btn_ongletgenere</uri>
+				</Texture>
+				<Label name="lbl_generateColor">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="6" y="0" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="133" y="20" />
+					</Size>
+					<text>[ui.charcrea.generate]</text>
+					<css>[local.css]normal.css</css>
+				</Label>
+				<Hooks>
+					<onRelease />
+				</Hooks>
+			</Common>
+			<State type="OVER">
+				<SetProperties target="btn_generateColor_tx">
+					<gotoAndStop>over</gotoAndStop>
+				</SetProperties>
+				<SetProperties target="lbl_generateColor">
+					<cssClass>over</cssClass>
+				</SetProperties>
+			</State>
+		</Button>
+
+		<!-- Button btn_reinitColor-->
+
+		<Button name="btn_reinitColor">
+			<Common>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="49" y="481" />
+					</Anchor>
+				</Anchors>
+				<Texture name="btn_reinitColor_tx">
+					<Size>
+						<AbsDimension x="141" y="24" />
+					</Size>
+					<uri>[local.assets]CreaPerso_btn_ongletreinit</uri>
+				</Texture>
+				<Label name="lbl_reinitColor">
+					<Anchors>
+						<Anchor>
+							<AbsDimension x="6" y="0" />
+						</Anchor>
+					</Anchors>
+					<Size>
+						<AbsDimension x="133" y="20" />
+					</Size>
+					<text>[ui.common.reset]</text>
+					<css>[local.css]normal.css</css>
+				</Label>
+				<Hooks>
+					<onRelease />
+				</Hooks>
+			</Common>
+			<State type="OVER">
+				<SetProperties target="btn_reinitColor_tx">
+					<gotoAndStop>over</gotoAndStop>
+				</SetProperties>
+				<SetProperties target="lbl_reinitColor">
+					<cssClass>over</cssClass>
+				</SetProperties>
+			</State>
+		</Button>
+
+		
+
+		<Label name="lbl_headsTitle">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="63" y="507" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="291" y="22" />
+			</Size>
+			<text>[ui.charcrea.face]</text>
+			<css>[local.css]titleSmall.css</css>
+		</Label>
+
+
+
+		<Grid name="gd_heads">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="38" y="543" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="325" y="157" />
+			</Size>
+			<rendererName>InlineXmlGridRender</rendererName>
+			<rendererArgs>updateHead</rendererArgs>
+			<slotWidth>72</slotWidth>
+			<slotHeight>72</slotHeight>
+
+			<Container name="ctr_head">
+				<Size>
+					<AbsDimension x="72" y="72" />
+				</Size>
+				<Button name="btn_head">
+					<Common>
+						<Texture>
+							<Size>
+								<AbsDimension x="72" y="72" />
+							</Size>
+							<uri>[local.bitmap]emptySlot.png</uri>
+						</Texture>
+						<Texture name="tx_head">
+							<Anchors>
+								<Anchor>
+									<AbsDimension x="2" y="2" />
+								</Anchor>
+							</Anchors>
+							<Size>
+								<AbsDimension x="68" y="68" />
+							</Size>
+						</Texture>
+						<Texture name="tx_hselected">
+							<Size>
+								<AbsDimension x="72" y="72" />
+							</Size>
+							<uri>[local.bitmap]selected.png</uri>
+							<visible>false</visible>
+						</Texture>
+					</Common>
+					<State type="SELECTED">
+						<SetProperties target="tx_hselected">
+							<visible>true</visible>
+						</SetProperties>
+					</State>
+				</Button>	
+			</Container>
+			<Hooks>
+				<onSelectItem />
+			</Hooks>
+		</Grid>
+
+
+
+
+
+
+		<!-- ILLU COLORISABLE TEMPORAIREMENT DESACTIVEE >
+
+		<EntityDisplayer name="edColoredArtwork">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="751" y="-78" />
+				</Anchor>
+			</Anchors>
+		</EntityDisplayer-->
+
+
+		<!-- Texture tx_artwork-->
+
+		<Texture name="tx_artwork">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="613" y="-188" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="599" y="958" />
+			</Size>
+		</Texture>
+
+
+
+		<!-- EntityDisplayer edChara-->
+
+		<EntityDisplayer name="edChara">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="563" y="561" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="1" y="1" />
+			</Size>
+			<autoSize>false</autoSize>
+		</EntityDisplayer>
+
+
+
+
+		<iconButton name="btn_rightArrow">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="436" y="549" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="16" y="24" />
+			</Size>
+			<uri>[local.assets]btn_flechedroite</uri>
+			<Hooks>
+				<onRelease />
+				<onDoubleClick />
+			</Hooks>
+        </iconButton>
+
+		<iconButton name="btn_leftArrow">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="682" y="549" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="16" y="24" />
+			</Size>
+			<uri>[local.assets]btn_flechegauche</uri>
+			<Hooks>
+				<onRelease />
+				<onDoubleClick />
+			</Hooks>
+        </iconButton>
+
+
+
+		<Container>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="410" y="640" />
+				</Anchor>
+			</Anchors>
+
+			<Texture name="tx_name">
+				<Size>
+					<AbsDimension x="320" y="58" />
+				</Size>
+				<uri>[local.assets]CreaPerso_tx_cartouchepseudo</uri>
+			</Texture>
+	
+	
+			<!-- Label lbl_nomperso-->
+	
+			<Input name="lbl_name">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="9" y="5" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="275" y="24" />
+				</Size>
+				<css>[local.css]normal.css</css>
+				<cssClass>darkcenter</cssClass>
+			</Input>	
+			
+			
+			<!-- Texture tx_nameRules-->
+	
+			<Texture name="tx_nameRules">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="290" y="9" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="16" y="16" />
+				</Size>
+				<uri>[local.assets]tx_questionMark</uri>
+			</Texture>
+	
+			<!-- Button btn_generateName-->
+	
+			<Button name="btn_generateName">
+				<Common>
+					<Anchors>
+						<Anchor relativeTo="tx_name" relativePoint="BOTTOM" point="BOTTOM">
+							<AbsDimension x="0" y="0" />
+						</Anchor>
+					</Anchors>
+	
+					<!-- Texture btn_generer02_tx-->
+	
+					<Texture name="btn_generateName_tx">
+						<Size>
+							<AbsDimension x="141" y="23" />
+						</Size>
+						<uri>[local.assets]CreaPerso_btn_ongletgenere</uri>
+					</Texture>
+	
+					<!-- Label lbl_generer-->
+	
+					<Label name="lbl_generateName">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="9" y="-1" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="132" y="20" />
+						</Size>
+						<text>[ui.charcrea.generate]</text>
+						<css>[local.css]normal.css</css>
+					</Label>
+					<Hooks>
+						<onRelease />
+					</Hooks>
+				</Common>
+				<State type="OVER">
+					<SetProperties target="btn_generateName_tx">
+						<gotoAndStop>over</gotoAndStop>
+					</SetProperties>
+					<SetProperties target="lbl_generateName">
+						<cssClass>over</cssClass>
+					</SetProperties>
+				</State>
+			</Button>
+		</Container>
+
+
+
+
+
+
+		<!-- Button btn_create label="[ui.charsel.play]" -->		
+
+		<simpleButton name="btn_create"   >
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="461" y="708" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="229" y="39" />
+			</Size>
+		</simpleButton>
+
+
+		<!-- Button btn_undo-->
+
+		<greyButton label="[ui.charcrea.undo]" name="btn_undo" width="241" height="35">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="879" y="723" />
+				</Anchor>
+			</Anchors>
+			<css>[local.css]button.css</css>
+			<cssClass>small</cssClass>
+			<Hooks>
+				<onRelease />
+			</Hooks>
+		</greyButton>
+		
+		
+		
+		
+		
+		<Container name="ctr_hexaColor">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="143" y="350" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="160" y="40" />
+			</Size>
+
+			<shadowColor>[colors.ui.shadow]</shadowColor>
+
+			<Texture>
+				<Size>
+					<RelDimension x="1" y="1" />
+				</Size>
+				<autoGrid>true</autoGrid>
+				<uri>[local.assets]PopupQty_tx_background</uri>
+			</Texture>
+			
+			<Label>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="6" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="30" y="22" />
+				</Size>
+				<cssClass>darkright</cssClass>
+				<css>[local.css]normal.css</css>
+				<text>0x</text>
+			</Label>
+
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="33" y="6" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="87" y="26" />
+				</Size>
+				<autoGrid>true</autoGrid>
+				<uri>[local.assets]tx_inputBackground</uri>
+			</Texture>
+
+			<Input name="inp_hexaValue">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="36" y="6" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="80" y="22" />
+				</Size>
+				<css>[local.css]normal.css</css>
+				<restrict>0-9a-zA-Z</restrict>
+			</Input>
+
+			<iconButton name="btn_hexaOk">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="124" y="6" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="26" y="26" />
+				</Size>
+				<uri>[local.assets]PopupQty_btn_btnOrangeOk</uri>
+				<Hooks>
+					<onRelease />
+				</Hooks>
+			</iconButton>
+		</Container>
+		
+		
+		
+		
+		<Container name="ctr_info">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="297" y="157" />
+				</Anchor>
+			</Anchors>
+			
+			
+			<!-- Texture tx_infoBackground-->
+
+			<Texture name="tx_infoBackground">
+				<Size>
+					<AbsDimension x="530" y="257" />
+				</Size>
+				<autoGrid>true</autoGrid>
+				<uri>[local.assets]tx_generalBackgroundWithTitle</uri>
+			</Texture>
+
+			<!-- Label lbl_infoTitle-->
+
+			<Label name="lbl_infoTitle">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="34" y="15" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="450" y="35" />
+				</Size>
+				<css>[local.css]title.css</css>
+			</Label>
+
+
+			<TextArea name="texta_breedInfo">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="25" y="63" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="483" y="170" />
+				</Size>
+				<css>[local.css]normal.css</css>
+				<scrollCss>[local.css]scrollBar.css</scrollCss>
+				<hideScroll>true</hideScroll>
+			</TextArea>
+
+			<!-- Grid gd_spells -->
+
+			<Grid name="gd_spells">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="49" y="75" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="434" y="145" />
+				</Size>
+				<rendererName>SlotGridRenderer</rendererName>
+				<rendererArgs>[local.bitmap]emptySlot.png,[local.bitmap]over.png,[local.bitmap]selected.png,,,,[local.css]normal.css,false</rendererArgs>
+				<slotWidth>44</slotWidth>
+				<slotHeight>44</slotHeight>
+				<scrollDisplay>none</scrollDisplay>
+				<autoSelectMode>0</autoSelectMode>
+				<Hooks>
+					<onItemRollOver />
+					<onItemRollOut />
+				</Hooks>
+			</Grid>
+			
+			<!-- Button btn_infoClose-->
+
+			<iconButton name="btn_infoClose">
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" />
+				</Anchors>
+				<Size>
+					<AbsDimension x="57" y="36" />
+				</Size>
+				<uri>[local.assets]btn_cornerCross</uri>
+			</iconButton>
+		</Container>
+		
+		
+		
+
+
+
+
+		
+	</Container>
+	
+	<Shortcuts>
+		<validUi />
+	</Shortcuts>
+</Definition>
+

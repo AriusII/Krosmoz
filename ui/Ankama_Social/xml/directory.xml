@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Definition SYSTEM "../dtd/ui.dtd">
+<Definition>
+
+    <Import url="[config.mod.template]button/horizontalTab.xml" />
+	<Import url="[config.mod.template]button/sortButton.xml" />
+	<Import url="[config.mod.template]button/labelCheckBox.xml" />
+    <Import url="[config.mod.template]button/iconButton.xml" />
+    
+    <Constants>
+		<Constant name="assets" value="[config.ui.skin]assets.swf|" />
+        <Constant name="css" value="[config.ui.skin]css/" />
+        <Constant name="picto_uri" value="[config.content.path]gfx/emblems/" />
+        
+	</Constants>
+    
+	<Container>	
+		<Anchors>
+			<Anchor>
+				<AbsDimension x="0" y="2" />
+			</Anchor>
+		</Anchors>
+
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="10" y="-10" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="500" y="28" />
+			</Size>
+			<css>[local.css]title.css</css>
+			<text>[ui.common.directory]</text>
+		</Label>
+
+		<Texture>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="0" y="65" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="1013" y="583" />
+			</Size>
+			<autoGrid>true</autoGrid>
+			<uri>[local.assets]tx_blockBackground_squaredCorner</uri>
+		</Texture>
+		
+				
+		<!-- ONGLET DES GUILDES, ALLIANCES -->
+
+		<horizontalTab name="btn_guilds">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="1" y="39" />
+				</Anchor>
+			</Anchors>
+			<text>[ui.social.guilds]</text>
+		</horizontalTab>		
+		<horizontalTab name="btn_alliances">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="181" y="39" />
+				</Anchor>
+			</Anchors>
+			<text>[ui.alliance.alliances]</text>
+		</horizontalTab>	
+		
+		
+		<Label>
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="20" y="80" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="240" y="20" />
+			</Size>
+			<text>[ui.search.criteria]</text>
+			<css>[local.css]normal.css</css>
+		</Label>
+			
+		<Label name="lbl_warning">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="260" y="80" />
+				</Anchor>
+			</Anchors>
+			<Size>
+				<AbsDimension x="725" y="20" />
+			</Size>
+			<cssClass>right</cssClass>
+			<css>[local.css]normal.css</css>
+			<text>[ui.social.dataUpdate]</text>
+		</Label>
+		
+
+		<Container name="ctr_guild">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="20" y="115" />
+				</Anchor>
+			</Anchors>
+			
+			<ComboBox name="cb_guildSearchType" strata="TOP">
+				<Size>
+					<AbsDimension x="300" y="25" />
+				</Size>
+				
+				<buttonTexture>[local.assets]btn_combobox</buttonTexture>
+				<listTexture>[local.assets]tx_combobox</listTexture>
+				<rendererArgs>[local.css]normal.css,,,[colors.grid.over],[colors.grid.selected]</rendererArgs>
+				<scrollBarCss>[local.css]scrollBar.css</scrollBarCss>
+			</ComboBox>
+			
+			
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="320" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="340" y="25" />
+				</Size>
+				<uri>[local.assets]tx_inputBackgroundDark</uri>
+				<autoGrid>true</autoGrid>
+			</Texture>
+			<Input name="inp_guildFilter">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="330" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="320" y="23" />
+				</Size>
+				<css>[local.css]normal.css</css>
+			</Input>
+			
+			<sortButton name="btn_tabGuildName">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="60" y="51" />
+					</Anchor>
+				</Anchors>				
+				<Size>
+					<AbsDimension x="340" y="24" />
+				</Size>
+			</sortButton>
+			<Label>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="60" y="53" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="200" y="20" />
+				</Size>
+				<text>[ui.common.name]</text>
+				<css>[local.css]normal.css</css>
+			</Label>
+
+			<sortButton name="btn_tabGuildAbr">
+				<visible>false</visible>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="440" y="51" />
+					</Anchor>
+				</Anchors>				
+				<Size>
+					<AbsDimension x="230" y="24" />
+				</Size>
+			</sortButton>
+			<Label>
+				<visible>false</visible>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="440" y="53" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="200" y="20" />
+				</Size>
+				<text>[ui.alliance.tag]</text>
+				<css>[local.css]normal.css</css>
+			</Label>
+
+			<sortButton name="btn_tabGuildLevel">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="614" y="51" />
+					</Anchor>
+				</Anchors>				
+				<Size>
+					<AbsDimension x="120" y="24" />
+				</Size>
+			</sortButton>
+			<Label>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="614" y="53" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="120" y="20" />
+				</Size>
+				<text>[ui.common.level]</text>
+				<cssClass>center</cssClass>
+				<css>[local.css]normal.css</css>
+			</Label>
+			
+			<sortButton name="btn_tabGuildMembers">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="760" y="51" />
+					</Anchor>
+				</Anchors>				
+				<Size>
+					<AbsDimension x="120" y="24" />
+				</Size>
+			</sortButton>
+			<Label>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="760" y="53" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="120" y="20" />
+				</Size>
+				<text>[ui.common.members]</text>
+				<cssClass>center</cssClass>
+				<css>[local.css]normal.css</css>
+			</Label>
+
+			<Grid name="gd_guilds">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="2" y="80" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="955" y="420" />
+				</Size>
+				<rendererName>InlineXmlGridRender</rendererName>
+				<rendererArgs>updateGuildLine,[colors.grid.line]</rendererArgs>
+				<verticalScrollbarCss>[local.css]scrollBar.css</verticalScrollbarCss>
+				<slotWidth>936</slotWidth>
+				<slotHeight>42</slotHeight>
+
+				<Container>
+					<Size>
+						<AbsDimension x="936" y="42" />
+					</Size>
+
+					<Container>
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="10" y="2" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="36" y="36" />
+						</Size>
+						<Texture name="tx_emblemBackGuild">
+							<Size>
+								<AbsDimension x="36" y="36" />
+							</Size>
+							<dispatchMessages>true</dispatchMessages>
+						</Texture>
+						<Texture name="tx_emblemUpGuild">
+							<Anchors>
+								<Anchor>
+									<AbsDimension x="7" y="7" />
+								</Anchor>
+							</Anchors>
+							<Size>
+								<AbsDimension x="22" y="22" />
+							</Size>
+							<dispatchMessages>true</dispatchMessages>
+						</Texture>
+					</Container>
+					
+					<Label name="lbl_guildName">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="60" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="350" y="20" />
+						</Size>
+						<css>[local.css]normal.css</css>
+					</Label>
+					
+					<Label name="lbl_guildAllianceTag">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="440" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="150" y="20" />
+						</Size>
+						<hyperlinkEnabled>true</hyperlinkEnabled>
+						<useStyleSheet>true</useStyleSheet>
+						<css>[local.css]normal.css</css>
+					</Label>
+			
+					<Label name="lbl_guildLvl">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="630" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="90" y="20" />
+						</Size>
+						<cssClass>center</cssClass>
+						<css>[local.css]normal.css</css>
+					</Label>
+			
+					<Label name="lbl_guildMembers">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="770" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="90" y="20" />
+						</Size>
+						<cssClass>center</cssClass>
+						<css>[local.css]normal.css</css>
+					</Label>
+
+					<iconButton name="btn_guildMore">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="900" y="8" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<uri>[local.assets]btn_etc_square</uri>
+					</iconButton>
+				</Container>
+			</Grid>
+
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="50" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="975" y="480" />
+				</Size>
+				<uri>[local.assets]tx_commonGridScrollbar</uri>
+				<autoGrid>true</autoGrid>
+			</Texture>
+
+		</Container>
+
+
+
+		<Container name="ctr_alliance">
+			<Anchors>
+				<Anchor>
+					<AbsDimension x="20" y="115" />
+				</Anchor>
+			</Anchors>
+			
+			<visible>false</visible>
+			
+			<ComboBox name="cb_allianceSearchType" strata="TOP">
+				<Size>
+					<AbsDimension x="300" y="25" />
+				</Size>
+				
+				<buttonTexture>[local.assets]btn_combobox</buttonTexture>
+				<listTexture>[local.assets]tx_combobox</listTexture>
+				<rendererArgs>[local.css]normal.css,,,[colors.grid.over],[colors.grid.selected]</rendererArgs>
+				<scrollBarCss>[local.css]scrollBar.css</scrollBarCss>
+			</ComboBox>
+			
+			
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="320" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="340" y="25" />
+				</Size>
+				<uri>[local.assets]tx_inputBackgroundDark</uri>
+				<autoGrid>true</autoGrid>
+			</Texture>
+			<Input name="inp_allianceFilter">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="330" y="0" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="320" y="23" />
+				</Size>
+				<css>[local.css]normal.css</css>
+			</Input>
+			
+
+			<sortButton name="btn_tabAllianceName">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="60" y="51" />
+					</Anchor>
+				</Anchors>				
+				<Size>
+					<AbsDimension x="340" y="24" />
+				</Size>
+			</sortButton>
+			<Label>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="60" y="53" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="200" y="20" />
+				</Size>
+				<text>[ui.common.name]</text>
+				<css>[local.css]normal.css</css>
+			</Label>
+
+			<sortButton name="btn_tabAllianceAbr">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="410" y="51" />
+					</Anchor>
+				</Anchors>				
+				<Size>
+					<AbsDimension x="230" y="24" />
+				</Size>
+			</sortButton>
+			<Label>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="410" y="53" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="200" y="20" />
+				</Size>
+				<text>[ui.alliance.tag]</text>
+				<css>[local.css]normal.css</css>
+			</Label>
+
+			<sortButton name="btn_tabAllianceGuildNumber">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="560" y="51" />
+					</Anchor>
+				</Anchors>				
+				<Size>
+					<AbsDimension x="160" y="24" />
+				</Size>
+			</sortButton>
+			<Label>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="530" y="53" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="120" y="20" />
+				</Size>
+				<text>[ui.social.guilds]</text>
+				<css>[local.css]normal.css</css>
+				<cssClass>center</cssClass>
+			</Label>
+			
+			<sortButton name="btn_tabAllianceNbMembers">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="680" y="51" />
+					</Anchor>
+				</Anchors>				
+				<Size>
+					<AbsDimension x="160" y="24" />
+				</Size>
+			</sortButton>
+			<Label>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="660" y="53" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="120" y="20" />
+				</Size>
+				<text>[ui.common.members]</text>
+				<css>[local.css]normal.css</css>
+				<cssClass>center</cssClass>
+			</Label>
+			
+			<sortButton name="btn_tabAllianceSubarea">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="810" y="51" />
+					</Anchor>
+				</Anchors>				
+				<Size>
+					<AbsDimension x="120" y="24" />
+				</Size>
+			</sortButton>
+			<Label>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="790" y="53" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="120" y="20" />
+				</Size>
+				<text>[ui.common.territory]</text>
+				<css>[local.css]normal.css</css>
+				<cssClass>center</cssClass>
+			</Label>
+
+			<Grid name="gd_alliances">
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="2" y="80" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="955" y="420" />
+				</Size>
+				<rendererName>InlineXmlGridRender</rendererName>
+				<rendererArgs>updateAllianceLine,[colors.grid.line]</rendererArgs>
+				<verticalScrollbarCss>[local.css]scrollBar.css</verticalScrollbarCss>
+				<slotWidth>936</slotWidth>
+				<slotHeight>42</slotHeight>
+
+				<Container>
+					<Size>
+						<AbsDimension x="780" y="36" />
+					</Size>
+
+					<Container>
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="10" y="2" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="36" y="36" />
+						</Size>
+						<Texture name="tx_emblemBackAlliance">
+							<Size>
+								<AbsDimension x="36" y="36" />
+							</Size>
+							<dispatchMessages>true</dispatchMessages>
+						</Texture>
+						<Texture name="tx_emblemUpAlliance">
+							<Anchors>
+								<Anchor>
+									<AbsDimension x="7" y="7" />
+								</Anchor>
+							</Anchors>
+							<Size>
+								<AbsDimension x="22" y="22" />
+							</Size>
+							<dispatchMessages>true</dispatchMessages>
+						</Texture>
+					</Container>
+					
+					<Label name="lbl_allianceName">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="60" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="350" y="20" />
+						</Size>
+						<css>[local.css]normal.css</css>
+						<useStyleSheet>true</useStyleSheet>
+						<hyperlinkEnabled>true</hyperlinkEnabled>
+					</Label>
+					
+					<Label name="lbl_allianceTag">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="410" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="100" y="20" />
+						</Size>
+						<css>[local.css]normal.css</css>
+						<hyperlinkEnabled>true</hyperlinkEnabled>
+						<useStyleSheet>true</useStyleSheet>
+					</Label>
+			
+					<Label name="lbl_allianceGuilds">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="540" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="90" y="20" />
+						</Size>
+						<cssClass>center</cssClass>
+						<css>[local.css]normal.css</css>
+					</Label>
+			
+					<Label name="lbl_allianceAreas">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="810" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="80" y="20" />
+						</Size>
+						<cssClass>center</cssClass>
+						<css>[local.css]normal.css</css>
+					</Label>
+			
+					<Label name="lbl_allianceMembers">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="680" y="9" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="80" y="20" />
+						</Size>
+						<cssClass>center</cssClass>
+						<css>[local.css]normal.css</css>
+					</Label>
+
+					<iconButton name="btn_allianceMore">
+						<Anchors>
+							<Anchor>
+								<AbsDimension x="910" y="8" />
+							</Anchor>
+						</Anchors>
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<uri>[local.assets]btn_etc_square</uri>
+					</iconButton>
+				</Container>
+			</Grid>
+
+			<Texture>
+				<Anchors>
+					<Anchor>
+						<AbsDimension x="0" y="50" />
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="975" y="480" />
+				</Size>
+				<uri>[local.assets]tx_commonGridScrollbar</uri>
+				<autoGrid>true</autoGrid>
+			</Texture>
+
+		</Container>
+
+
+	</Container>
+	
+</Definition>
+
