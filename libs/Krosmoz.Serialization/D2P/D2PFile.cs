@@ -90,6 +90,22 @@ public sealed class D2PFile
     }
 
     /// <summary>
+    /// Reads the file data for the specified entry from the D2P file.
+    /// </summary>
+    /// <param name="entry">The entry to read the file data for.</param>
+    /// <returns>A byte array containing the file data.</returns>
+    public byte[] ReadFile(D2PEntry entry)
+    {
+        if (entry.Container != this)
+            return entry.Container.ReadFile(entry);
+
+        if (entry.Index >= 0 && IndexTable.OffsetBase + entry.Index >= 0)
+            _reader.Seek(SeekOrigin.Begin, (int)IndexTable.OffsetBase + entry.Index);
+
+        return entry.ReadEntry(_reader);
+    }
+
+    /// <summary>
     /// Gets the entries that belong only to this D2P file instance.
     /// </summary>
     /// <returns>An enumerable collection of entries.</returns>
