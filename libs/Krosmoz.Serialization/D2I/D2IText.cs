@@ -2,52 +2,34 @@
 // Krosmoz licenses this file to you under the MIT license.
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
-using Krosmoz.Core.Cache;
-
 namespace Krosmoz.Serialization.D2I;
 
 /// <summary>
 /// Represents a text entry in a D2I file.
 /// </summary>
 /// <typeparam name="T">The type of the identifier, which must be non-nullable.</typeparam>
-public sealed class D2IText<T> : ObjectModel
+public sealed class D2IText<T>
     where T : notnull
 {
     /// <summary>
     /// Gets or sets the identifier of the text entry.
     /// </summary>
-    public T Id
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public T Id { get; set; }
 
     /// <summary>
     /// Gets or sets the main text associated with the identifier.
     /// </summary>
-    public string Text
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public string Text { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the non-diacritical text should be used.
     /// </summary>
-    public bool UseNotDiacriticalText
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public bool UseNotDiacriticalText { get; set; }
 
     /// <summary>
     /// Gets or sets the non-diacritical version of the text.
     /// </summary>
-    public string NotDiacriticalText
-    {
-        get;
-        set => SetPropertyChanged(ref field, value);
-    }
+    public string NotDiacriticalText { get; set; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="D2IText{T}"/> class with the specified identifier and text.
