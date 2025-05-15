@@ -93,11 +93,6 @@ public static class PathConstants
         public static readonly string ElementsPath;
 
         /// <summary>
-        /// The path to the French internationalization file.
-        /// </summary>
-        public static readonly string I18NFrPath;
-
-        /// <summary>
         /// The path to the Dofus executable file.
         /// </summary>
         public static readonly string DofusExecutablePath;
@@ -113,7 +108,6 @@ public static class PathConstants
         static Files()
         {
             ElementsPath = Path.Combine(Directories.MapsPath, "elements.ele");
-            I18NFrPath = Path.Combine(Directories.I18NPath, "i18n_fr.d2i");
             DofusExecutablePath = Path.Combine(Directories.DofusPath, "Dofus.exe");
             RegExecutablePath = Path.Combine(Directories.RegPath, "Reg.exe");
         }
