@@ -7,6 +7,7 @@ using Krosmoz.Core.Network.Dispatcher;
 using Krosmoz.Core.Network.Factory;
 using Krosmoz.Core.Network.Framing;
 using Krosmoz.Core.Network.Transport;
+using Krosmoz.Servers.AuthServer.Database.Models.Accounts;
 using Microsoft.Extensions.Logging;
 
 namespace Krosmoz.Servers.AuthServer.Network.Transport;
@@ -16,6 +17,16 @@ namespace Krosmoz.Servers.AuthServer.Network.Transport;
 /// </summary>
 public sealed class AuthSession : TcpSession
 {
+    /// <summary>
+    /// Gets or sets the account associated with the session.
+    /// </summary>
+    public AccountRecord Account { get; set; }
+
+    /// <summary>
+    /// Gets or sets the game server ID associated with the session.
+    /// </summary>
+    public int AutoSelectServerId { get; set; }
+
     /// <summary>
     /// Initializes a new instance of the <see cref="AuthSession"/> class.
     /// </summary>
@@ -34,5 +45,20 @@ public sealed class AuthSession : TcpSession
         ILogger<TcpSession> logger)
         : base(socket, messageDecoder, messageEncoder, messageDispatcher, messageFactory, logger)
     {
+        Account = null!;
+    }
+
+    /// <summary>
+    /// Returns a string representation of the authentication session.
+    /// </summary>
+    /// <returns>
+    /// A string containing the account's nickname if available, otherwise the account's username.
+    /// If no account is associated, the base string representation is returned.
+    /// </returns>
+    public override string ToString()
+    {
+        return Account is null
+            ? base.ToString()
+            : Account.Nickname ?? Account.Username;
     }
 }
