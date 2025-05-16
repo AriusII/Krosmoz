@@ -8,6 +8,7 @@ using Krosmoz.Protocol.Messages;
 using Krosmoz.Serialization.D2O.Abstractions;
 using Krosmoz.Serialization.Repository;
 using Krosmoz.Servers.AuthServer.Database;
+using Krosmoz.Servers.AuthServer.Database.Repositories.Accounts;
 using Krosmoz.Servers.AuthServer.Network.Transport;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +26,7 @@ builder.Services
     .AddSingleton<IMessageFactory, MessageFactory>()
     .AddSingleton<IDatacenterObjectFactory, DatacenterObjectFactory>()
     .AddSingleton<IDatacenterRepository, DatacenterRepository>()
+    .AddSingleton<IAccountRepository, AccountRepository>()
     .AddHostedServiceAsSingleton<AuthServer>()
     .AddMessageHandlers()
     .AddControllers();
