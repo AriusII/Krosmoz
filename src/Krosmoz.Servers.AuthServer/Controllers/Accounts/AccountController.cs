@@ -7,7 +7,7 @@ using Krosmoz.Servers.AuthServer.Database.Repositories.Accounts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Krosmoz.Servers.AuthServer.Controllers;
+namespace Krosmoz.Servers.AuthServer.Controllers.Accounts;
 
 /// <summary>
 /// Controller for managing account-related operations.
