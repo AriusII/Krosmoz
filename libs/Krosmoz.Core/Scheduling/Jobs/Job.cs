@@ -98,4 +98,14 @@ public sealed class Job
     {
         IsCancelled = true;
     }
+
+    /// <summary>
+    /// Creates a new instance of the <see cref="JobBuilder"/> class with the specified asynchronous callback.
+    /// </summary>
+    /// <param name="asyncCallback">The asynchronous callback to execute for the job.</param>
+    /// <returns>A new instance of the <see cref="JobBuilder"/> class.</returns>
+    public static JobBuilder CreateBuilder(Func<CancellationToken, Task> asyncCallback)
+    {
+        return new JobBuilder(asyncCallback);
+    }
 }
