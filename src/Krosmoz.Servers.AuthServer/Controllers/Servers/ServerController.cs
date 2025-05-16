@@ -43,7 +43,7 @@ public sealed class ServerController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> UpdateServerStatusAsync(int serverId, ServerStatuses status)
     {
-        if (await _serverService.UpdateServerStatusAsync(serverId, status))
+        if (await _serverService.UpdateServerStatusAsync(serverId, status, HttpContext.RequestAborted))
             return Ok();
 
         return NotFound($"Server with id {serverId} not found.");
