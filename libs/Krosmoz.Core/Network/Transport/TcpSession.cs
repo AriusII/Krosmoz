@@ -253,6 +253,6 @@ public abstract class TcpSession : IAsyncDisposable
     /// <returns>The session ID as a string.</returns>
     public override string ToString()
     {
-        return EndPoint?.ToString() ?? SessionId;
+        return IsConnected ? $"{EndPoint}" : SessionId;
     }
 }
