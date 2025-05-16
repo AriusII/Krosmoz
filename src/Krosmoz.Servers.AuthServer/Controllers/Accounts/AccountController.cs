@@ -36,7 +36,7 @@ public sealed class AccountController : ControllerBase
     /// or an appropriate error response if not found or invalid input is provided.
     /// </returns>
     [HttpGet("search/username/{username}")]
-    [ActionName(nameof(GetAccountByUsernameAsync))]
+    [ActionName("GetAccountByUsername")]
     [ProducesResponseType(typeof(AccountRecord), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -62,7 +62,7 @@ public sealed class AccountController : ControllerBase
     /// or an appropriate error response if not found or invalid input is provided.
     /// </returns>
     [HttpGet("search/ticket/{ticket}")]
-    [ActionName(nameof(GetAccountByTicketAsync))]
+    [ActionName("GetAccountByTicket")]
     [ProducesResponseType(typeof(AccountRecord), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -89,7 +89,7 @@ public sealed class AccountController : ControllerBase
     /// or an appropriate error response if authentication fails or invalid input is provided.
     /// </returns>
     [HttpGet("authenticate/{username}/{password}")]
-    [ActionName(nameof(AuthenticateAsync))]
+    [ActionName("Authenticate")]
     [ProducesResponseType(typeof(AccountRecord), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
