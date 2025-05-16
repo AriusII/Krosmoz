@@ -154,9 +154,9 @@ public sealed class AuthenticationService : IAuthenticationService
     /// <param name="session">The session to which the failure message will be sent.</param>
     /// <param name="reason">The reason for the identification failure.</param>
     /// <returns>A task that represents the asynchronous operation.</returns>
-    private static async Task SendIdentificationFailedAsync(AuthSession session, IdentificationFailureReasons reason)
+    private static ValueTask SendIdentificationFailedAsync(AuthSession session, IdentificationFailureReasons reason)
     {
-        await session.SendAsync(new IdentificationFailedMessage { Reason = (sbyte)reason });
+        return session.SendAsync(new IdentificationFailedMessage { Reason = (sbyte)reason });
     }
 
     /// <summary>
@@ -164,9 +164,9 @@ public sealed class AuthenticationService : IAuthenticationService
     /// </summary>
     /// <param name="session">The session to which the failure message will be sent.</param>
     /// <returns>A task that represents the asynchronous operation.</returns>
-    private static async Task SendIdentificationFailedForBadVersionAsync(AuthSession session)
+    private static ValueTask SendIdentificationFailedForBadVersionAsync(AuthSession session)
     {
-        await session.SendAsync(new IdentificationFailedForBadVersionMessage
+        return session.SendAsync(new IdentificationFailedForBadVersionMessage
         {
             Reason = (sbyte)IdentificationFailureReasons.BadVersion,
             RequiredVersion = s_requiredVersion
