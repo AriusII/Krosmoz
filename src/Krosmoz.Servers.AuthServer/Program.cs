@@ -3,6 +3,7 @@ using Krosmoz.Core.Network.Dispatcher;
 using Krosmoz.Core.Network.Factory;
 using Krosmoz.Core.Network.Framing;
 using Krosmoz.Core.Network.Transport;
+using Krosmoz.Core.Scheduling;
 using Krosmoz.Protocol.Datacenter;
 using Krosmoz.Protocol.Messages;
 using Krosmoz.Serialization.D2O.Abstractions;
@@ -23,6 +24,7 @@ builder.Services
     .AddDbContext<AuthDbContext>(builder.Configuration.GetConnectionString("Auth"))
     .AddTransient<DofusMessageDecoder>()
     .AddTransient<DofusMessageEncoder>()
+    .AddTransient<IScheduler, Scheduler>()
     .AddSingleton<IMessageFactory, MessageFactory>()
     .AddSingleton<IDatacenterObjectFactory, DatacenterObjectFactory>()
     .AddSingleton<IDatacenterRepository, DatacenterRepository>()
