@@ -3,6 +3,7 @@
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
 using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Net.Sockets;
@@ -61,6 +62,8 @@ public abstract class TcpServer<[DynamicallyAccessedMembers(DynamicallyAccessedM
 
         _logger.LogInformation("Now listening on: {EndPoint}", _socket.LocalEndPoint);
 
+        await OnServerStartedAsync().ConfigureAwait(false);
+
         while (!cancellationToken.IsCancellationRequested)
         {
             var socket = await _socket.AcceptAsync(cancellationToken).ConfigureAwait(false);
@@ -73,6 +76,8 @@ public abstract class TcpServer<[DynamicallyAccessedMembers(DynamicallyAccessedM
 
             _ = ListenSessionAsync(session).ConfigureAwait(false);
         }
+
+        await OnServerStoppedAsync().ConfigureAwait(false);
     }
 
     /// <summary>
@@ -156,6 +161,24 @@ public abstract class TcpServer<[DynamicallyAccessedMembers(DynamicallyAccessedM
         _socket.Dispose();
 
         GC.SuppressFinalize(this);
+    }
+
+    /// <summary>
+    /// Called when the server has started. Can be overridden to provide custom behavior upon server startup.
+    /// </summary>
+    /// <returns>A task that represents the asynchronous operation.</returns>
+    protected virtual Task OnServerStartedAsync()
+    {
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Called when the server has stopped. Can be overridden to provide custom behavior upon server shutdown.
+    /// </summary>
+    /// <returns>A task that represents the asynchronous operation.</returns>
+    protected virtual Task OnServerStoppedAsync()
+    {
+        return Task.CompletedTask;
     }
 
     /// <summary>
