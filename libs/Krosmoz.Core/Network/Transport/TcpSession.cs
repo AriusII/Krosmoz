@@ -250,7 +250,10 @@ public abstract class TcpSession : IAsyncDisposable
     /// <summary>
     /// Returns a string representation of the session.
     /// </summary>
-    /// <returns>The session ID as a string.</returns>
+    /// <returns>
+    /// A string containing the remote endpoint if the session is connected;
+    /// otherwise, the session ID.
+    /// </returns>
     public override string ToString()
     {
         return IsConnected ? $"{EndPoint}" : SessionId;
