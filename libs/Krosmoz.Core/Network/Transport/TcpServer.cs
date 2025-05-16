@@ -60,7 +60,7 @@ public abstract class TcpServer<[DynamicallyAccessedMembers(DynamicallyAccessedM
 
         _socket.Listen(_options.MaxConnections);
 
-        _logger.LogInformation("Now listening on: {EndPoint}", _socket.LocalEndPoint);
+        _logger.LogInformation("Now listening on: tcp://{EndPoint}", _socket.LocalEndPoint);
 
         await OnServerStartedAsync().ConfigureAwait(false);
 
