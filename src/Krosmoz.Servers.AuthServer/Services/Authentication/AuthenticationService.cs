@@ -28,7 +28,7 @@ public sealed class AuthenticationService : IAuthenticationService
     {
         Major = 2,
         Minor = 14,
-        Release = 1,
+        Release = 0,
         Revision = 35100,
         Patch = 0,
         BuildType = 5,
