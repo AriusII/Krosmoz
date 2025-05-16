@@ -9,23 +9,29 @@ using Krosmoz.Serialization.D2O.Abstractions;
 using Krosmoz.Serialization.Repository;
 using Krosmoz.Servers.AuthServer.Database;
 using Krosmoz.Servers.AuthServer.Network.Transport;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
-await Host.CreateDefaultBuilder(args)
-    .ConfigureLogging(static logging => logging.UseSerilog())
-    .ConfigureServices(static (context, services) =>
-    {
-        services
-            .Configure<TcpServerOptions>(context.Configuration.GetSection("Server"))
-            .AddDbContext<AuthDbContext>(context.Configuration.GetConnectionString("Auth"))
-            .AddTransient<DofusMessageDecoder>()
-            .AddTransient<DofusMessageEncoder>()
-            .AddSingleton<IMessageFactory, MessageFactory>()
-            .AddSingleton<IDatacenterObjectFactory, DatacenterObjectFactory>()
-            .AddSingleton<IDatacenterRepository, DatacenterRepository>()
-            .AddMessageHandlers()
-            .AddHostedServiceAsSingleton<AuthServer>();
-    })
-    .RunConsoleAsync();
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Logging.UseSerilog();
+
+builder.Services
+    .Configure<TcpServerOptions>(builder.Configuration.GetSection("Server"))
+    .AddDbContext<AuthDbContext>(builder.Configuration.GetConnectionString("Auth"))
+    .AddTransient<DofusMessageDecoder>()
+    .AddTransient<DofusMessageEncoder>()
+    .AddSingleton<IMessageFactory, MessageFactory>()
+    .AddSingleton<IDatacenterObjectFactory, DatacenterObjectFactory>()
+    .AddSingleton<IDatacenterRepository, DatacenterRepository>()
+    .AddHostedServiceAsSingleton<AuthServer>()
+    .AddMessageHandlers()
+    .AddControllers();
+
+var app = builder.Build();
+
+app.UseAuthorization();
+app.MapControllers();
+
+app.Run();
