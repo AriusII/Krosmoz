@@ -43,6 +43,17 @@ public interface IAccountRepository
     Task<AccountRecord?> GetAccountByTicketAsync(string ticket, CancellationToken cancellationToken);
 
     /// <summary>
+    /// Checks if an account with the specified nickname already exists in the database asynchronously.
+    /// </summary>
+    /// <param name="nickname">The nickname to check for existence.</param>
+    /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+    /// <returns>
+    /// A task that represents the asynchronous operation. The task result contains a boolean value
+    /// indicating whether an account with the same nickname exists.
+    /// </returns>
+    Task<bool> AccountWithSameNicknameExistsAsync(string nickname, CancellationToken cancellationToken);
+
+    /// <summary>
     /// Updates the account record in the database asynchronously.
     /// </summary>
     /// <param name="account">The account record to update.</param>

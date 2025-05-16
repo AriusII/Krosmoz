@@ -76,6 +76,22 @@ public sealed class AccountRepository : IAccountRepository
     }
 
     /// <summary>
+    /// Checks asynchronously if an account with the specified nickname already exists in the database.
+    /// </summary>
+    /// <param name="nickname">The nickname to check for existence.</param>
+    /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+    /// <returns>
+    /// A task that represents the asynchronous operation. The task result contains a boolean value
+    /// indicating whether an account with the same nickname exists.
+    /// </returns>
+    public async Task<bool> AccountWithSameNicknameExistsAsync(string nickname, CancellationToken cancellationToken)
+    {
+        await using var dbContext = await _dbContextFactory.CreateDbContextAsync(cancellationToken);
+
+        return await dbContext.Accounts.AnyAsync(x => x.Nickname != null && x.Nickname.ToLower().Equals(nickname.ToLower()), cancellationToken);
+    }
+
+    /// <summary>
     /// Updates the account record in the database asynchronously.
     /// </summary>
     /// <param name="account">The account record to update.</param>
