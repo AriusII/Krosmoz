@@ -30,4 +30,12 @@ public interface IAccountRepository
     /// A task that represents the asynchronous operation. The task result contains the account record if found, or null if not found.
     /// </returns>
     Task<AccountRecord?> GetAccountByTicketAsync(string ticket, CancellationToken cancellationToken);
+
+    /// <summary>
+    /// Updates the account record in the database asynchronously.
+    /// </summary>
+    /// <param name="account">The account record to update.</param>
+    /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+    /// <returns>A task that represents the asynchronous operation.</returns>
+    Task UpdateAccountAsync(AccountRecord account, CancellationToken cancellationToken);
 }

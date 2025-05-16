@@ -35,7 +35,9 @@ public sealed class AccountRepository : IAccountRepository
     {
         await using var dbContext = await _dbContextFactory.CreateDbContextAsync(cancellationToken);
 
-        return await dbContext.Accounts.FirstOrDefaultAsync(x => x.Username == username, cancellationToken);
+        return await dbContext.Accounts
+            .Include(static x => x.Characters)
+            .FirstOrDefaultAsync(x => x.Username == username, cancellationToken);
     }
 
     /// <summary>
@@ -50,6 +52,22 @@ public sealed class AccountRepository : IAccountRepository
     {
         await using var dbContext = await _dbContextFactory.CreateDbContextAsync(cancellationToken);
 
-        return await dbContext.Accounts.FirstOrDefaultAsync(x => x.Ticket == ticket, cancellationToken);
+        return await dbContext.Accounts
+            .Include(static x => x.Characters)
+            .FirstOrDefaultAsync(x => x.Ticket == ticket, cancellationToken);
+    }
+
+    /// <summary>
+    /// Updates the account record in the database asynchronously.
+    /// </summary>
+    /// <param name="account">The account record to update.</param>
+    /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+    /// <returns>A task that represents the asynchronous operation.</returns>
+    public async Task UpdateAccountAsync(AccountRecord account, CancellationToken cancellationToken)
+    {
+        await using var dbContext = await _dbContextFactory.CreateDbContextAsync(cancellationToken);
+
+        dbContext.Accounts.Update(account);
+        await dbContext.SaveChangesAsync(cancellationToken);
     }
 }
