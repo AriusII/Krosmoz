@@ -41,6 +41,24 @@ public sealed class AccountRepository : IAccountRepository
     }
 
     /// <summary>
+    /// Retrieves an account record by its nickname asynchronously.
+    /// </summary>
+    /// <param name="nickname">The nickname of the account to retrieve.</param>
+    /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+    /// <returns>
+    /// A task that represents the asynchronous operation. The task result contains the
+    /// <see cref="AccountRecord"/> associated with the specified nickname, or null if no such account exists.
+    /// </returns>
+    public async Task<AccountRecord?> GetAccountByNicknameAsync(string nickname, CancellationToken cancellationToken)
+    {
+        await using var dbContext = await _dbContextFactory.CreateDbContextAsync(cancellationToken);
+
+        return await dbContext.Accounts
+            .Include(static x => x.Characters)
+            .FirstOrDefaultAsync(x => x.Nickname == nickname, cancellationToken);
+    }
+
+    /// <summary>
     /// Retrieves an account record by its ticket.
     /// </summary>
     /// <param name="ticket">The ticket associated with the account to retrieve.</param>
