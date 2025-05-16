@@ -7,6 +7,7 @@ using Krosmoz.Core.Network.Transport;
 using Krosmoz.Protocol.Messages.Connection;
 using Krosmoz.Protocol.Messages.Handshake;
 using Krosmoz.Serialization.Constants;
+using Krosmoz.Servers.AuthServer.Services.Queue;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
@@ -17,14 +18,18 @@ namespace Krosmoz.Servers.AuthServer.Network.Transport;
 /// </summary>
 public sealed class AuthServer : TcpServer<AuthSession>
 {
+    private readonly IQueueService _queueService;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="AuthServer"/> class.
     /// </summary>
     /// <param name="services">The service provider for resolving dependencies.</param>
     /// <param name="logger">The logger for logging server-related information.</param>
     /// <param name="options">The options for configuring the TCP server.</param>
-    public AuthServer(IServiceProvider services, ILogger<TcpServer<AuthSession>> logger, IOptions<TcpServerOptions> options) : base(services, logger, options)
+    /// <param name="queueService">The queue service for managing session connections.</param>
+    public AuthServer(IServiceProvider services, ILogger<TcpServer<AuthSession>> logger, IOptions<TcpServerOptions> options, IQueueService queueService) : base(services, logger, options)
     {
+        _queueService = queueService;
     }
 
     /// <summary>
@@ -35,7 +40,6 @@ public sealed class AuthServer : TcpServer<AuthSession>
     {
         // TODO: LAUNCH THIS PROCESS IN THE LAUNCHER AND NOT HERE
         Process.Start(PathConstants.Files.DofusExecutablePath, "username=admin password=admin");
-
         return base.OnServerStartedAsync();
     }
 
@@ -58,5 +62,13 @@ public sealed class AuthServer : TcpServer<AuthSession>
             Key = [],
             Salt = string.Empty
         });
+
+        _queueService.Enqueue(session);
+    }
+
+    protected override Task OnSessionDisconnectedAsync(AuthSession session)
+    {
+        _queueService.Dequeue(session);
+        return base.OnSessionDisconnectedAsync(session);
     }
 }
