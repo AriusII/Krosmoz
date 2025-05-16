@@ -129,6 +129,44 @@ namespace Krosmoz.Servers.AuthServer.Database.Migrations
                     b.ToTable("servers_characters", (string)null);
                 });
 
+            modelBuilder.Entity("Krosmoz.Servers.AuthServer.Database.Models.Servers.ServerRecord", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Community")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IpAddress")
+                        .HasColumnType("nvarchar(45)");
+
+                    b.Property<int>("JoinableHierarchy")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("OpenedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("Port")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VisibleHierarchy")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("servers", (string)null);
+                });
+
             modelBuilder.Entity("Krosmoz.Servers.AuthServer.Database.Models.Servers.ServerCharacterRecord", b =>
                 {
                     b.HasOne("Krosmoz.Servers.AuthServer.Database.Models.Accounts.AccountRecord", null)
