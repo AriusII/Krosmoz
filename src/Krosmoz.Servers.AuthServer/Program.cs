@@ -7,7 +7,9 @@ using Krosmoz.Protocol.Datacenter;
 using Krosmoz.Protocol.Messages;
 using Krosmoz.Serialization.D2O.Abstractions;
 using Krosmoz.Serialization.Repository;
+using Krosmoz.Servers.AuthServer.Database;
 using Krosmoz.Servers.AuthServer.Network.Transport;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -17,6 +19,7 @@ await Host.CreateDefaultBuilder(args)
     {
         services
             .Configure<TcpServerOptions>(context.Configuration.GetSection("Server"))
+            .AddDbContext<AuthDbContext>(context.Configuration.GetConnectionString("Auth"))
             .AddTransient<DofusMessageDecoder>()
             .AddTransient<DofusMessageEncoder>()
             .AddSingleton<IMessageFactory, MessageFactory>()
