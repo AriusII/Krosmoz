@@ -14,6 +14,7 @@ using Krosmoz.Serialization.I18N;
 using Krosmoz.Servers.AuthServer.Database.Models.Accounts;
 using Krosmoz.Servers.AuthServer.Database.Repositories.Accounts;
 using Krosmoz.Servers.AuthServer.Network.Transport;
+using Krosmoz.Servers.AuthServer.Services.Queue;
 using Krosmoz.Servers.AuthServer.Services.Servers;
 
 namespace Krosmoz.Servers.AuthServer.Services.Authentication;
@@ -37,16 +38,19 @@ public sealed class AuthenticationService : IAuthenticationService
 
     private readonly IAccountRepository _accountRepository;
     private readonly IServerService _serverService;
+    private readonly IQueueService _queueService;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="AuthenticationService"/> class.
     /// </summary>
     /// <param name="accountRepository">The repository for managing account-related operations.</param>
     /// <param name="serverService">The service for managing server-related operations.</param>
-    public AuthenticationService(IAccountRepository accountRepository, IServerService serverService)
+    /// <param name="queueService">The service for managing queue-related operations.</param>
+    public AuthenticationService(IAccountRepository accountRepository, IServerService serverService, IQueueService queueService)
     {
         _accountRepository = accountRepository;
         _serverService = serverService;
+        _queueService = queueService;
     }
 
     /// <summary>
@@ -89,6 +93,8 @@ public sealed class AuthenticationService : IAuthenticationService
             return;
         }
 
+        // TODO: Check if the account is banned or ip or mac address is banned
+
         account.MacAddress = macAddress;
         session.Account.IpAddress = session.EndPoint!.Address;
         session.Account.Ticket = Guid.NewGuid().ToString().ToMd5();
@@ -105,6 +111,10 @@ public sealed class AuthenticationService : IAuthenticationService
     /// <returns>A task that represents the asynchronous operation.</returns>
     public async Task OnSuccessfullyAuthenticatedAsync(AuthSession session, AccountRecord account, int serverId)
     {
+        _queueService.Dequeue(session);
+
+        await _queueService.SendQueueStatusAsync(session, 0, 0);
+
         if (string.IsNullOrEmpty(session.Account.Nickname))
         {
             await session.SendAsync<NicknameRegistrationMessage>();
