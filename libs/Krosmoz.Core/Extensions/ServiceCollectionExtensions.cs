@@ -3,6 +3,7 @@
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
 using System.Diagnostics.CodeAnalysis;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -41,5 +42,29 @@ public static class ServiceCollectionExtensions
         return services
             .AddSingleton<TService, TImplementation>()
             .AddHostedService(static x => x.GetRequiredService<TService>());
+    }
+
+    /// <summary>
+    /// Adds a database context to the service collection with a specified connection string.
+    /// </summary>
+    /// <typeparam name="T">The type of the database context to add.</typeparam>
+    /// <param name="services">The service collection to add the database context to.</param>
+    /// <param name="connectionString">The connection string for the database.</param>
+    /// <returns>The updated service collection.</returns>
+    /// <exception cref="ArgumentException">Thrown if the connection string is null or empty.</exception>
+    public static IServiceCollection AddDbContext<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] T>(this IServiceCollection services, string? connectionString)
+        where T : DbContext
+    {
+        ArgumentException.ThrowIfNullOrEmpty(connectionString);
+
+        return services.AddPooledDbContextFactory<T>(dbContextOptions =>
+        {
+            dbContextOptions.UseSqlServer(connectionString, static sqlServerOptions =>
+            {
+                sqlServerOptions
+                    .MigrationsAssembly(typeof(T).Assembly)
+                    .MigrationsHistoryTable("migrations");
+            });
+        });
     }
 }
