@@ -3,7 +3,6 @@
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
 using System.Net;
-using System.Net.NetworkInformation;
 using Krosmoz.Protocol.Enums;
 using Krosmoz.Serialization.I18N;
 using Krosmoz.Servers.AuthServer.Database.Models.Servers;
@@ -36,7 +35,7 @@ public sealed class AccountRecord
 
     public string? Nickname { get; set; }
 
-    public PhysicalAddress? MacAddress { get; set; }
+    public string? MacAddress { get; set; }
 
     public IPAddress? IpAddress { get; set; }
 
