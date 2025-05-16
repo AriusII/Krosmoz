@@ -66,6 +66,12 @@ public sealed class AuthServer : TcpServer<AuthSession>
         _queueService.Enqueue(session);
     }
 
+    /// <summary>
+    /// Handles the event when a session is disconnected from the server.
+    /// Removes the session from the queue service and performs base class disconnection logic.
+    /// </summary>
+    /// <param name="session">The session that has disconnected from the server.</param>
+    /// <returns>A task that represents the asynchronous operation.</returns>
     protected override Task OnSessionDisconnectedAsync(AuthSession session)
     {
         _queueService.Dequeue(session);
