@@ -4,7 +4,7 @@
 
 namespace Krosmoz.Protocol.Types.Version;
 
-public sealed class VersionExtended : Version
+public sealed class VersionExtended : Version, IEquatable<VersionExtended>
 {
 	public new const ushort StaticProtocolId = 393;
 
@@ -31,4 +31,32 @@ public sealed class VersionExtended : Version
 		Install = reader.ReadInt8();
 		Technology = reader.ReadInt8();
 	}
+
+    public bool Equals(VersionExtended? other)
+    {
+        if (other is null)
+            return false;
+
+        if (ReferenceEquals(this, other))
+            return true;
+
+        return BuildType == other.BuildType &&
+               Patch == other.Patch &&
+               Revision == other.Revision &&
+               Release == other.Release &&
+               Minor == other.Minor &&
+               Major == other.Major &&
+               Install == other.Install &&
+               Technology == other.Technology;
+    }
+
+    public override bool Equals(object? obj)
+    {
+        return ReferenceEquals(this, obj) || obj is VersionExtended other && Equals(other);
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(BuildType, Patch, Revision, Release, Minor, Major, Install, Technology);
+    }
 }
