@@ -16,6 +16,7 @@ using Krosmoz.Servers.AuthServer.Network.Transport;
 using Krosmoz.Servers.AuthServer.Services.Authentication;
 using Krosmoz.Servers.AuthServer.Services.Nickname;
 using Krosmoz.Servers.AuthServer.Services.Queue;
+using Krosmoz.Servers.AuthServer.Services.Servers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -37,6 +38,7 @@ builder.Services
     .AddSingleton<IServerRepository, ServerRepository>()
     .AddSingleton<ICensoredWordRepository, CensoredWordRepository>()
     .AddSingleton<IQueueService, QueueService>()
+    .AddSingleton<IServerService, ServerService>()
     .AddSingleton<INicknameService, NicknameService>()
     .AddSingleton<IAuthenticationService, AuthenticationService>()
     .AddHostedServiceAsSingleton<AuthServer>()
