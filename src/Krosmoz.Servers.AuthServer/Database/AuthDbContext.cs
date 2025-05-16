@@ -15,6 +15,12 @@ namespace Krosmoz.Servers.AuthServer.Database;
 public sealed class AuthDbContext : DbContext
 {
     /// <summary>
+    /// Gets or sets the DbSet representing the collection of <see cref="ServerRecord"/> entities
+    /// in the database. This property is required and provides access to the "Servers" table.
+    /// </summary>
+    public required DbSet<ServerRecord> Servers { get; set; }
+
+    /// <summary>
     /// Gets or sets the DbSet representing the collection of <see cref="ServerCharacterRecord"/> entities
     /// in the database. This property is required and provides access to the "ServerCharacters" table.
     /// </summary>
