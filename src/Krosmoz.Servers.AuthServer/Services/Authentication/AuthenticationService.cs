@@ -4,6 +4,7 @@
 
 using System.Diagnostics;
 using System.Net.NetworkInformation;
+using System.Text.RegularExpressions;
 using Krosmoz.Core.Extensions;
 using Krosmoz.Protocol.Enums;
 using Krosmoz.Protocol.Enums.Custom;
@@ -86,18 +87,11 @@ public sealed class AuthenticationService : IAuthenticationService
             return;
         }
 
-        if (!PhysicalAddress.TryParse(message.Hwnd, out var macAddress))
-        {
-            await SendIdentificationFailedAsync(session, IdentificationFailureReasons.WrongCredentials);
-            await session.DisconnectAsync();
-            return;
-        }
-
         // TODO: Check if the account is banned or ip or mac address is banned
 
-        account.MacAddress = macAddress;
-        session.Account.IpAddress = session.EndPoint!.Address;
-        session.Account.Ticket = Guid.NewGuid().ToString().ToMd5();
+        account.MacAddress = message.Hwnd;
+        account.IpAddress = session.EndPoint!.Address;
+        account.Ticket = Guid.NewGuid().ToString().ToMd5();
 
         await OnSuccessfullyAuthenticatedAsync(session, account, message.ServerId);
     }
@@ -115,14 +109,14 @@ public sealed class AuthenticationService : IAuthenticationService
 
         await _queueService.SendQueueStatusAsync(session, 0, 0);
 
+        session.Account = account;
+        session.AutoSelectServerId = serverId;
+
         if (string.IsNullOrEmpty(session.Account.Nickname))
         {
             await session.SendAsync<NicknameRegistrationMessage>();
             return;
         }
-
-        session.Account = account;
-        session.AutoSelectServerId = serverId;
 
         await _accountRepository.UpdateAccountAsync(account, session.ConnectionClosed);
 
