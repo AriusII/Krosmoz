@@ -43,7 +43,7 @@ public sealed class InteractiveConfiguration : IEntityTypeConfiguration<Interact
             .HasConversion(
                 static x => SerializeMapsData(x),
                 static x => DeserializeMapsData(x),
-                new ArrayStructuralComparer<InteractiveMapData[]>())
+                new ArrayStructuralComparer<InteractiveMapData>())
             .IsRequired();
 
         builder.ToTable("interactives");
