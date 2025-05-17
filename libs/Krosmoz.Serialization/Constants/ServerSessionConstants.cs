@@ -6,13 +6,13 @@ namespace Krosmoz.Serialization.Constants;
 
 public static class ServerSessionConstants
 {
-    public const int TimeBeforeDisconnection = 1;
+    public const short TimeBeforeDisconnection = 1;
 
-    public const int KohDuration = 2;
+    public const short KohDuration = 2;
 
-    public const int KohWinningScore = 3;
+    public const short KohWinningScore = 3;
 
-    public const int MinimalTimeBeforeKoh = 4;
+    public const short MinimalTimeBeforeKoh = 4;
 
-    public const int MinimalTimeWeighInKoh = 5;
+    public const short MinimalTimeWeighInKoh = 5;
 }
