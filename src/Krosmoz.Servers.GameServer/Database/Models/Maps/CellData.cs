@@ -2,19 +2,22 @@
 // Krosmoz licenses this file to you under the MIT license.
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
+using MemoryPack;
+
 namespace Krosmoz.Servers.GameServer.Database.Models.Maps;
 
-public struct CellData
+[MemoryPackable]
+public sealed partial class CellData
 {
-    public short Id;
+    public short Id { get; set; }
 
-    public byte MapChangeData;
+    public byte MapChangeData { get; set; }
 
-    public byte MoveZone;
+    public byte MoveZone { get; set; }
 
-    public sbyte Speed;
+    public sbyte Speed { get; set; }
 
-    public byte Floor;
+    public byte Floor { get; set; }
 
-    public byte LosMov;
+    public byte LosMov { get; set; }
 }
