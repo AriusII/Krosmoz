@@ -4,6 +4,7 @@
 
 using Krosmoz.Servers.GameServer.Database.Models.Maps;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Krosmoz.Servers.GameServer.Database.Configurations.Maps;
@@ -86,7 +87,7 @@ public sealed class MapConfiguration : IEntityTypeConfiguration<MapRecord>
             .HasConversion(
                 static x => SerializeCells(x),
                 static x => DeserializeCells(x),
-                new CellDataArrayValueComparer())
+                new ArrayStructuralComparer<CellData>())
             .IsRequired();
 
         builder
