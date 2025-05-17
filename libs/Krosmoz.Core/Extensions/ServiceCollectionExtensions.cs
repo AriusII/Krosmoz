@@ -59,9 +59,9 @@ public static class ServiceCollectionExtensions
 
         return services.AddPooledDbContextFactory<T>(dbContextOptions =>
         {
-            dbContextOptions.UseSqlServer(connectionString, static sqlServerOptions =>
+            dbContextOptions.UseNpgsql(connectionString, static npgsqlOptions =>
             {
-                sqlServerOptions
+                npgsqlOptions
                     .MigrationsAssembly(typeof(T).Assembly)
                     .MigrationsHistoryTable("migrations");
             });
