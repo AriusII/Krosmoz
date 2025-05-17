@@ -2,6 +2,7 @@
 // Krosmoz licenses this file to you under the MIT license.
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
+using Krosmoz.Core.Extensions;
 using Krosmoz.Servers.GameServer.Database.Models.Maps;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -84,10 +85,7 @@ public sealed class MapConfiguration : IEntityTypeConfiguration<MapRecord>
 
         builder
             .Property(static x => x.Cells)
-            .HasConversion(
-                static x => SerializeCells(x),
-                static x => DeserializeCells(x),
-                new ArrayStructuralComparer<CellData>())
+            .HasBlobConversion(new ArrayStructuralComparer<CellData>())
             .IsRequired();
 
         builder
@@ -107,35 +105,5 @@ public sealed class MapConfiguration : IEntityTypeConfiguration<MapRecord>
             .IsRequired();
 
         builder.ToTable("maps");
-    }
-
-    /// <summary>
-    /// Serializes an array of <see cref="CellData"/> into an array of long values.
-    /// </summary>
-    /// <param name="cells">The array of <see cref="CellData"/> to serialize.</param>
-    /// <returns>An array of long values representing the serialized cells.</returns>
-    private static long[] SerializeCells(CellData[] cells)
-    {
-        var newCells = new long[cells.Length];
-
-        for (var i = 0; i < cells.Length; i++)
-            newCells[i] = cells[i].Data;
-
-        return newCells;
-    }
-
-    /// <summary>
-    /// Deserializes an array of long values into an array of <see cref="CellData"/>.
-    /// </summary>
-    /// <param name="cells">The array of long values to deserialize.</param>
-    /// <returns>An array of <see cref="CellData"/> representing the deserialized cells.</returns>
-    private static CellData[] DeserializeCells(long[] cells)
-    {
-        var newCells = new CellData[cells.Length];
-
-        for (var i = 0; i < cells.Length; i++)
-            newCells[i] = new CellData { Data = cells[i] };
-
-        return newCells;
     }
 }
