@@ -2,6 +2,7 @@
 // Krosmoz licenses this file to you under the MIT license.
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using Krosmoz.Serialization.Constants;
 using Krosmoz.Serialization.D2I;
@@ -96,18 +97,27 @@ public sealed class DatacenterRepository : IDatacenterRepository
     }
 
     /// <summary>
-    /// Retrieves a map from the specified D2P file using its ID.
+    /// Attempts to retrieve a map from the specified D2P file by its identifier.
     /// </summary>
-    /// <param name="d2PFile">The D2P file containing the map.</param>
-    /// <param name="id">The ID of the map to retrieve.</param>
-    /// <returns>An instance of <see cref="DlmMap"/>.</returns>
-    /// <exception cref="Exception">Thrown if the map with the specified ID is not found.</exception>
-    public DlmMap? GetMap(D2PFile d2PFile, int id)
+    /// <param name="d2PFile">The D2P file containing the map data.</param>
+    /// <param name="id">The identifier of the map to retrieve.</param>
+    /// <param name="map">
+    /// When this method returns, contains the retrieved <see cref="DlmMap"/> if the operation succeeds;
+    /// otherwise, <c>null</c>.
+    /// </param>
+    /// <returns>
+    /// <c>true</c> if the map was successfully retrieved; otherwise, <c>false</c>.
+    /// </returns>
+    public bool TryGetMap(D2PFile d2PFile, int id, [NotNullWhen(true)] out DlmMap? map)
     {
         if (d2PFile.TryGetEntry($"{id.ToString(CultureInfo.InvariantCulture).Last()}/{id}.dlm", out var entry))
-            return DlmAdapter.Load(d2PFile.ReadFile(entry));
+        {
+            map = DlmAdapter.Load(d2PFile.ReadFile(entry));
+            return true;
+        }
 
-        return null;
+        map = null;
+        return false;
     }
 
     /// <summary>

@@ -2,6 +2,7 @@
 // Krosmoz licenses this file to you under the MIT license.
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
+using System.Diagnostics.CodeAnalysis;
 using Krosmoz.Serialization.D2I;
 using Krosmoz.Serialization.D2O;
 using Krosmoz.Serialization.D2O.Abstractions;
@@ -57,12 +58,18 @@ public interface IDatacenterRepository
     D2PFile GetTilesD2P(string fileName = "gfx0.d2p");
 
     /// <summary>
-    /// Retrieves a map from the specified D2P file using its ID.
+    /// Attempts to retrieve a map from the specified D2P file by its identifier.
     /// </summary>
-    /// <param name="d2PFile">The D2P file containing the map.</param>
-    /// <param name="id">The ID of the map to retrieve.</param>
-    /// <returns>An instance of <see cref="DlmMap"/>.</returns>
-    DlmMap? GetMap(D2PFile d2PFile, int id);
+    /// <param name="d2PFile">The D2P file containing the map data.</param>
+    /// <param name="id">The identifier of the map to retrieve.</param>
+    /// <param name="map">
+    /// When this method returns, contains the retrieved <see cref="DlmMap"/> if the operation succeeds;
+    /// otherwise, <c>null</c>.
+    /// </param>
+    /// <returns>
+    /// <c>true</c> if the map was successfully retrieved; otherwise, <c>false</c>.
+    /// </returns>
+    bool TryGetMap(D2PFile d2PFile, int id, [NotNullWhen(true)] out DlmMap? map);
 
     /// <summary>
     /// Retrieves a list of objects of the specified type from the datacenter.
