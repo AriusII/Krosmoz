@@ -3,8 +3,6 @@
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
 using System.Diagnostics;
-using System.Net.NetworkInformation;
-using System.Text.RegularExpressions;
 using Krosmoz.Core.Extensions;
 using Krosmoz.Protocol.Enums;
 using Krosmoz.Protocol.Enums.Custom;

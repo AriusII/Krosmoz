@@ -3,7 +3,6 @@
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
 using System.Collections.Concurrent;
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Net.Sockets;

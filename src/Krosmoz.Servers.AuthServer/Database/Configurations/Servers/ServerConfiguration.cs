@@ -2,7 +2,6 @@
 // Krosmoz licenses this file to you under the MIT license.
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
-using Krosmoz.Core.Extensions;
 using Krosmoz.Servers.AuthServer.Database.Models.Servers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
