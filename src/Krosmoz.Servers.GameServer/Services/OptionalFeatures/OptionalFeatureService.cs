@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 namespace Krosmoz.Servers.GameServer.Services.OptionalFeatures;
 
 /// <summary>
-/// Provides functionality to manage optional features in the game server.
+/// Provides functionality to manage optional features.
 /// </summary>
 public sealed class OptionalFeatureService : IOptionalFeatureService
 {

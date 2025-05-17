@@ -7,7 +7,7 @@ using Krosmoz.Protocol.Enums.Custom;
 namespace Krosmoz.Servers.GameServer.Services.OptionalFeatures;
 
 /// <summary>
-/// Defines the contract for a service that manages optional features in the game server.
+/// Defines the contract for a service that manages optional features.
 /// </summary>
 public interface IOptionalFeatureService
 {
