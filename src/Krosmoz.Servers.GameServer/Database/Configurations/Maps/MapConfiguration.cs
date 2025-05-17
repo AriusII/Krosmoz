@@ -4,6 +4,7 @@
 
 using Krosmoz.Servers.GameServer.Database.Models.Maps;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Krosmoz.Servers.GameServer.Database.Configurations.Maps;
@@ -83,7 +84,13 @@ public sealed class MapConfiguration : IEntityTypeConfiguration<MapRecord>
 
         builder
             .Property(static x => x.Cells)
-            .HasConversion(static x => SerializeCells(x), static x => DeserializeCells(x))
+            .HasConversion(
+                static x => SerializeCells(x),
+                static x => DeserializeCells(x),
+                new ValueComparer<CellData>(
+                    static (x, y) => x!.Equals(y),
+                    static property => property.GetHashCode(),
+                    static property => property))
             .IsRequired();
 
         builder
@@ -106,25 +113,32 @@ public sealed class MapConfiguration : IEntityTypeConfiguration<MapRecord>
     }
 
     /// <summary>
-    /// Serializes an array of <see cref="CellData"/> into a comma-separated string.
+    /// Serializes an array of <see cref="CellData"/> into an array of long values.
     /// </summary>
     /// <param name="cells">The array of <see cref="CellData"/> to serialize.</param>
-    /// <returns>A comma-separated string representing the serialized cells.</returns>
-    private static string SerializeCells(CellData[] cells)
+    /// <returns>An array of long values representing the serialized cells.</returns>
+    private static long[] SerializeCells(CellData[] cells)
     {
-        return string.Join(',', cells.Select(static c => c.Data));
+        var newCells = new long[cells.Length];
+
+        for (var i = 0; i < cells.Length; i++)
+            newCells[i] = cells[i].Data;
+
+        return newCells;
     }
 
     /// <summary>
-    /// Deserializes a comma-separated string into an array of <see cref="CellData"/>.
+    /// Deserializes an array of long values into an array of <see cref="CellData"/>.
     /// </summary>
-    /// <param name="cells">The comma-separated string to deserialize.</param>
+    /// <param name="cells">The array of long values to deserialize.</param>
     /// <returns>An array of <see cref="CellData"/> representing the deserialized cells.</returns>
-    private static CellData[] DeserializeCells(string cells)
+    private static CellData[] DeserializeCells(long[] cells)
     {
-        return cells
-            .Split(',', StringSplitOptions.RemoveEmptyEntries)
-            .Select(static s => new CellData { Data = long.Parse(s) })
-            .ToArray();
+        var newCells = new CellData[cells.Length];
+
+        for (var i = 0; i < cells.Length; i++)
+            newCells[i] = new CellData { Data = cells[i] };
+
+        return newCells;
     }
 }
