@@ -2,6 +2,7 @@
 // Krosmoz licenses this file to you under the MIT license.
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
+using Krosmoz.Servers.GameServer.Database.Models.Interactives;
 using Krosmoz.Servers.GameServer.Database.Models.Maps;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +17,11 @@ public sealed class GameDbContext : DbContext
     /// Gets or sets the DbSet representing the collection of <see cref="MapRecord"/> entities.
     /// </summary>
     public required DbSet<MapRecord> Maps { get; set; }
+
+    /// <summary>
+    /// Gets or sets the DbSet representing the collection of <see cref="InteractiveRecord"/> entities.
+    /// </summary>
+    public required DbSet<InteractiveRecord> Interactives { get; set; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="GameDbContext"/> class with the specified options.
