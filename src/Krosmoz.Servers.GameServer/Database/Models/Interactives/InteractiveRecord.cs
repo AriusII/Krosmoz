@@ -14,7 +14,7 @@ public sealed class InteractiveRecord
 
     public required int MapId { get; init; }
 
-    public int? ElementId { get; init; }
+    public int ElementId { get; init; }
 
     public required InteractiveMapData[] MapsData { get; init; }
 }
