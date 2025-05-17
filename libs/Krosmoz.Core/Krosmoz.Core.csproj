@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+    <PackageReference Include="protobuf-net" Version="3.2.52" />
     <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
     <PackageReference Include="zlib.net-mutliplatform" Version="1.0.8" />
   </ItemGroup>
