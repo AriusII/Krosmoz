@@ -13,7 +13,7 @@ namespace Krosmoz.Servers.AuthServer.Database.Repositories.Communication;
 /// <summary>
 /// Represents a repository for managing censored words in the database.
 /// </summary>
-public sealed class CensoredWordRepository : InitializableService, ICensoredWordRepository
+public sealed class CensoredWordRepository : ICensoredWordRepository, IInitializableService
 {
     private readonly IDatacenterRepository _datacenterRepository;
 
@@ -23,7 +23,7 @@ public sealed class CensoredWordRepository : InitializableService, ICensoredWord
     /// Initializes the repository by loading censored words from the datacenter repository
     /// and storing them in a frozen set for efficient access.
     /// </summary>
-    protected override void Initialize()
+    public void Initialize()
     {
         _censoredWords = _datacenterRepository.GetObjects<CensoredWord>().ToFrozenSet();
     }
