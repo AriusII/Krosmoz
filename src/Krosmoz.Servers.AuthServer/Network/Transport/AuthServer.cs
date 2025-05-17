@@ -39,7 +39,7 @@ public sealed class AuthServer : TcpServer<AuthSession>
     protected override Task OnServerStartedAsync()
     {
         // TODO: LAUNCH THIS PROCESS IN THE LAUNCHER AND NOT HERE
-        Process.Start(PathConstants.Files.DofusExecutablePath, "username=admin password=admin");
+        Process.Start(PathConstants.Files.DofusExecutablePath, "krosmozusername=admin krosmozpassword=admin");
         return base.OnServerStartedAsync();
     }
 
