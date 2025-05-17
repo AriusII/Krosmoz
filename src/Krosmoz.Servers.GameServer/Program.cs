@@ -1,3 +1,13 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
+using Krosmoz.Core.Extensions;
+using Krosmoz.Servers.GameServer.Database;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 
-Console.WriteLine("Hello, World!");
+await Host.CreateDefaultBuilder(args)
+    .ConfigureLogging(static logging => logging.UseSerilog())
+    .ConfigureServices(static (context, services) =>
+    {
+        services.AddDbContext<GameDbContext>(context.Configuration.GetConnectionString("Game"));
+    })
+    .RunConsoleAsync();
