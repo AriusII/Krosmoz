@@ -13,9 +13,8 @@ namespace Krosmoz.Servers.AuthServer.Services.Queue;
 
 /// <summary>
 /// Represents a service that manages a queue of authentication sessions.
-/// Implements <see cref="AsyncInitializableService"/> and <see cref="IQueueService"/>.
 /// </summary>
-public sealed class QueueService : AsyncInitializableService, IQueueService
+public sealed class QueueService : IAsyncInitializableService, IQueueService
 {
     private readonly ConcurrentDictionary<AuthSession, DateTime> _connectionQueue;
     private readonly IScheduler _scheduler;
@@ -69,7 +68,7 @@ public sealed class QueueService : AsyncInitializableService, IQueueService
     /// </summary>
     /// <param name="cancellationToken">A token to signal the initialization should be canceled.</param>
     /// <returns>A task that represents the asynchronous initialization operation.</returns>
-    protected override async Task InitializeAsync(CancellationToken cancellationToken)
+    public async Task InitializeAsync(CancellationToken cancellationToken)
     {
         var processQueueJob = Job.CreateBuilder(ProcessQueueAsync)
             .WithName("QueueService::ProcessQueue()")
