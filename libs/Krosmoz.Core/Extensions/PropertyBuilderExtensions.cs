@@ -4,9 +4,9 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
+using MemoryPack;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ProtoBuf;
 
 namespace Krosmoz.Core.Extensions;
 
@@ -25,35 +25,32 @@ public static class PropertyBuilderExtensions
     public static PropertyBuilder<TProperty> HasBlobConversion<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] TProperty>(this PropertyBuilder<TProperty> builder, ValueComparer valueComparer)
     {
         return builder.HasConversion(
-            static x => SerializeWithProtobuf(x),
-            static x => DeserializeWithProtobuf<TProperty>(x),
+            static x => Serialize(x),
+            static x => Deserialize<TProperty>(x),
             valueComparer);
     }
 
     /// <summary>
-    /// Serializes an object to a byte array using Protobuf.
+    /// Serializes an object to a byte array using MemoryPack.
     /// </summary>
     /// <typeparam name="T">The type of the object to serialize.</typeparam>
     /// <param name="value">The object to serialize.</param>
     /// <returns>A byte array representing the serialized object.</returns>
     [Pure]
-    private static byte[] SerializeWithProtobuf<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] T>(T value)
+    private static byte[] Serialize<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] T>(T value)
     {
-        using var ms = new MemoryStream();
-        Serializer.Serialize(ms, value);
-        return ms.ToArray();
+        return MemoryPackSerializer.Serialize(value);
     }
 
     /// <summary>
-    /// Deserializes a byte array to an object using Protobuf.
+    /// Deserializes a byte array to an object using MemoryPack.
     /// </summary>
     /// <typeparam name="T">The type of the object to deserialize.</typeparam>
     /// <param name="value">The byte array to deserialize.</param>
     /// <returns>The deserialized object.</returns>
     [Pure]
-    private static T DeserializeWithProtobuf<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] T>(byte[] value)
+    private static T Deserialize<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] T>(byte[] value)
     {
-        using var ms = new MemoryStream(value);
-        return Serializer.Deserialize<T>(ms)!;
+        return MemoryPackSerializer.Deserialize<T>(value)!;
     }
 }
