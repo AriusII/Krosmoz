@@ -39,6 +39,10 @@ public sealed class InteractiveConfiguration : IEntityTypeConfiguration<Interact
             .IsRequired();
 
         builder
+            .Property(static x => x.ElementId)
+            .IsRequired();
+
+        builder
             .Property(static x => x.MapsData)
             .HasConversion(
                 static x => SerializeMapsData(x),
