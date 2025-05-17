@@ -15,7 +15,7 @@ namespace Krosmoz.Servers.AuthServer.Database.Repositories.Servers;
 /// <summary>
 /// Represents a repository for managing server records in the database.
 /// </summary>
-public sealed class ServerRepository : AsyncInitializableService, IServerRepository
+public sealed class ServerRepository : IServerRepository, IAsyncInitializableService
 {
     private readonly IDbContextFactory<AuthDbContext> _dbContextFactory;
     private ConcurrentDictionary<int, ServerRecord> _servers;
@@ -35,7 +35,7 @@ public sealed class ServerRepository : AsyncInitializableService, IServerReposit
     /// </summary>
     /// <param name="cancellationToken">A token to signal the initialization should be canceled.</param>
     /// <returns>A task that represents the asynchronous initialization operation.</returns>
-    protected override async Task InitializeAsync(CancellationToken cancellationToken)
+    public async Task InitializeAsync(CancellationToken cancellationToken)
     {
         await using var dbContext = await _dbContextFactory.CreateDbContextAsync(cancellationToken);
 
@@ -65,7 +65,7 @@ public sealed class ServerRepository : AsyncInitializableService, IServerReposit
     /// <returns>An enumerable collection of visible server records.</returns>
     public IEnumerable<ServerRecord> GetVisibleServers(GameHierarchies hierarchy)
     {
-        return _servers.Values.Where(x => x.IpAddress is not null && x.VisibleHierarchy == hierarchy);
+        return _servers.Values.Where(x => x.IpAddress is not null && x.VisibleHierarchy <= hierarchy);
     }
 
     /// <summary>
