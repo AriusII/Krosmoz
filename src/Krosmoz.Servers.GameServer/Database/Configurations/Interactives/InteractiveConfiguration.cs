@@ -2,6 +2,7 @@
 // Krosmoz licenses this file to you under the MIT license.
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
+using Krosmoz.Core.Extensions;
 using Krosmoz.Servers.GameServer.Database.Models.Interactives;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -44,42 +45,9 @@ public sealed class InteractiveConfiguration : IEntityTypeConfiguration<Interact
 
         builder
             .Property(static x => x.MapsData)
-            .HasConversion(
-                static x => SerializeMapsData(x),
-                static x => DeserializeMapsData(x),
-                new ArrayStructuralComparer<InteractiveMapData>())
+            .HasBlobConversion(new ArrayStructuralComparer<InteractiveMapData>())
             .IsRequired();
 
         builder.ToTable("interactives");
-    }
-
-    /// <summary>
-    /// Serializes an array of <see cref="InteractiveMapData"/> into an array of long values.
-    /// </summary>
-    /// <param name="mapsData">The array of <see cref="InteractiveMapData"/> to serialize.</param>
-    /// <returns>An array of long values representing the serialized map data.</returns>
-    private static long[] SerializeMapsData(InteractiveMapData[] mapsData)
-    {
-        var newMapsData = new long[mapsData.Length];
-
-        for (var i = 0; i < mapsData.Length; i++)
-            newMapsData[i] = mapsData[i].Data;
-
-        return newMapsData;
-    }
-
-    /// <summary>
-    /// Deserializes an array of long values into an array of <see cref="InteractiveMapData"/>.
-    /// </summary>
-    /// <param name="mapsData">The array of long values to deserialize.</param>
-    /// <returns>An array of <see cref="InteractiveMapData"/> representing the deserialized map data.</returns>
-    private static InteractiveMapData[] DeserializeMapsData(long[] mapsData)
-    {
-        var newMapsData = new InteractiveMapData[mapsData.Length];
-
-        for (var i = 0; i < mapsData.Length; i++)
-            newMapsData[i] = new InteractiveMapData { Data = mapsData[i] };
-
-        return newMapsData;
     }
 }
