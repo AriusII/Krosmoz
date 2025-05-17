@@ -30,7 +30,7 @@ public sealed class MapRecord
 
     public required int MerchantsMax { get; init; }
 
-    public required int SpawnDisabled { get; init; }
+    public required bool SpawnDisabled { get; init; }
 
     public required short[] RedCells { get; init; }
 
