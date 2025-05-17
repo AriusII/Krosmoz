@@ -5,7 +5,7 @@
 using Krosmoz.Serialization.Repository;
 using Krosmoz.Servers.AuthServer.Database;
 using Krosmoz.Servers.GameServer.Database;
-using Krosmoz.Tools.Database.Base;
+using Krosmoz.Tools.Database.Synchronizers.Base;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;

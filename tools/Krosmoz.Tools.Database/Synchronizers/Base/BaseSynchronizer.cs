@@ -6,7 +6,7 @@ using Krosmoz.Serialization.Repository;
 using Krosmoz.Servers.AuthServer.Database;
 using Krosmoz.Servers.GameServer.Database;
 
-namespace Krosmoz.Tools.Database.Base;
+namespace Krosmoz.Tools.Database.Synchronizers.Base;
 
 /// <summary>
 /// Represents a base class for synchronizing data between the datacenter repository

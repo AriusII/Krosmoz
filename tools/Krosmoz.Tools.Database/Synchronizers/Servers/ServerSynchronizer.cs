@@ -7,10 +7,10 @@ using Krosmoz.Protocol.Enums;
 using Krosmoz.Protocol.Enums.Custom;
 using Krosmoz.Serialization.I18N;
 using Krosmoz.Servers.AuthServer.Database.Models.Servers;
-using Krosmoz.Tools.Database.Base;
+using Krosmoz.Tools.Database.Synchronizers.Base;
 using Microsoft.EntityFrameworkCore;
 
-namespace Krosmoz.Tools.Database.Servers;
+namespace Krosmoz.Tools.Database.Synchronizers.Servers;
 
 /// <summary>
 /// Represents a synchronizer for server data, responsible for synchronizing
