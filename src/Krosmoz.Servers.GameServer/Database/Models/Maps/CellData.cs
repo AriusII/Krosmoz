@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 namespace Krosmoz.Servers.GameServer.Database.Models.Maps;
 
 [StructLayout(LayoutKind.Explicit)]
-public sealed class CellData
+public struct CellData
 {
     [FieldOffset(0)]
     public short Id;
