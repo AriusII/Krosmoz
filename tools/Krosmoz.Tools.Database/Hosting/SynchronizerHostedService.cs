@@ -4,6 +4,7 @@
 
 using Krosmoz.Serialization.Repository;
 using Krosmoz.Servers.AuthServer.Database;
+using Krosmoz.Servers.GameServer.Database;
 using Krosmoz.Tools.Database.Base;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
@@ -17,6 +18,7 @@ namespace Krosmoz.Tools.Database.Hosting;
 public sealed class SynchronizerHostedService : BackgroundService
 {
     private readonly IDbContextFactory<AuthDbContext> _authDbContextFactory;
+    private readonly IDbContextFactory<GameDbContext> _gameDbContextFactory;
     private readonly IDatacenterRepository _datacenterRepository;
     private readonly ILoggerFactory _loggerFactory;
     private readonly IHostApplicationLifetime _lifetime;
@@ -26,18 +28,21 @@ public sealed class SynchronizerHostedService : BackgroundService
     /// Initializes a new instance of the <see cref="SynchronizerHostedService"/> class.
     /// </summary>
     /// <param name="authDbContextFactory">The factory for creating instances of <see cref="AuthDbContext"/>.</param>
+    /// <param name="gameDbContextFactory">The factory for creating instances of <see cref="GameDbContext"/>.</param>
     /// <param name="datacenterRepository">The repository for accessing datacenter data.</param>
     /// <param name="loggerFactory">The factory for creating logger instances.</param>
     /// <param name="lifetime">The application lifetime manager.</param>
     /// <param name="synchronizers">The collection of synchronizers to execute.</param>
     public SynchronizerHostedService(
         IDbContextFactory<AuthDbContext> authDbContextFactory,
+        IDbContextFactory<GameDbContext> gameDbContextFactory,
         IDatacenterRepository datacenterRepository,
         ILoggerFactory loggerFactory,
         IHostApplicationLifetime lifetime,
         IEnumerable<BaseSynchronizer> synchronizers)
     {
         _authDbContextFactory = authDbContextFactory;
+        _gameDbContextFactory = gameDbContextFactory;
         _datacenterRepository = datacenterRepository;
         _loggerFactory = loggerFactory;
         _synchronizers = synchronizers;
@@ -56,6 +61,8 @@ public sealed class SynchronizerHostedService : BackgroundService
             var synchronizerName = synchronizer.GetType().Name;
 
             synchronizer.AuthDbContext = await _authDbContextFactory.CreateDbContextAsync(cancellationToken);
+            synchronizer.GameDbContext = await _gameDbContextFactory.CreateDbContextAsync(cancellationToken);
+
             synchronizer.DatacenterRepository = _datacenterRepository;
 
             var logger = _loggerFactory.CreateLogger(synchronizerName);
@@ -75,6 +82,7 @@ public sealed class SynchronizerHostedService : BackgroundService
             finally
             {
                 await synchronizer.AuthDbContext.DisposeAsync();
+                await synchronizer.GameDbContext.DisposeAsync();
             }
         }
 
