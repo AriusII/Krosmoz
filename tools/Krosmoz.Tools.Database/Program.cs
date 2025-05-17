@@ -6,6 +6,7 @@ using Krosmoz.Servers.AuthServer.Database;
 using Krosmoz.Servers.GameServer.Database;
 using Krosmoz.Tools.Database.Hosting;
 using Krosmoz.Tools.Database.Synchronizers.Base;
+using Krosmoz.Tools.Database.Synchronizers.Maps;
 using Krosmoz.Tools.Database.Synchronizers.Servers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +22,7 @@ await Host.CreateDefaultBuilder(args)
             .AddSingleton<IDatacenterObjectFactory, DatacenterObjectFactory>()
             .AddSingleton<IDatacenterRepository, DatacenterRepository>()
             .AddSingleton<BaseSynchronizer, ServerSynchronizer>()
+            .AddSingleton<BaseSynchronizer, MapSynchronizer>()
             .AddHostedService<SynchronizerHostedService>();
     })
     .RunConsoleAsync();
