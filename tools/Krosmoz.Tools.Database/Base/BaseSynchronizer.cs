@@ -4,6 +4,7 @@
 
 using Krosmoz.Serialization.Repository;
 using Krosmoz.Servers.AuthServer.Database;
+using Krosmoz.Servers.GameServer.Database;
 
 namespace Krosmoz.Tools.Database.Base;
 
@@ -24,6 +25,12 @@ public abstract class BaseSynchronizer
     /// This property is required and must be initialized before use.
     /// </summary>
     public AuthDbContext AuthDbContext { get; set; } = null!;
+
+    /// <summary>
+    /// Gets or sets the database context for the game server.
+    /// This property is required and must be initialized before use.
+    /// </summary>
+    public GameDbContext GameDbContext { get; set; } = null!;
 
     /// <summary>
     /// Synchronizes data asynchronously using the provided cancellation token.
