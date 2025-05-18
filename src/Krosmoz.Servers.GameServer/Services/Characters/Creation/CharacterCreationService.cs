@@ -127,17 +127,18 @@ public sealed partial class CharacterCreationService : ICharacterCreationService
 
         var characterRecord = _characterFactory.CreateCharacterRecord(name, session.Account, breedId, breed, head.Id, sex, actorLook);
 
+        await _characterRepository.AddCharacterAsync(characterRecord, session.ConnectionClosed);
+
         var newAccountCharacter = new AccountCharacter { AccountId = session.Account.Id, ServerId = _gameService.ServerId, CharacterId = characterRecord.Id };
+
+        session.Account.Characters.Add(newAccountCharacter);
 
         if (!await _ipcService.CreateCharacterAsync(newAccountCharacter, session.ConnectionClosed))
         {
             await SendCharacterCreationResultAsync(session, CharacterCreationResults.ErrNotAllowed);
+            await _characterRepository.RemoveCharacterAsync(characterRecord, session.ConnectionClosed);
             return;
         }
-
-        session.Account.Characters.Add(newAccountCharacter);
-
-        await _characterRepository.AddCharacterAsync(characterRecord, session.ConnectionClosed);
 
         await SendCharacterCreationResultAsync(session, CharacterCreationResults.Ok);
 
