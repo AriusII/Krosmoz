@@ -123,4 +123,41 @@ public sealed class AccountController : ControllerBase
 
         return Ok();
     }
+
+    /// <summary>
+    /// Deletes a character associated with a specific account on a given server.
+    /// </summary>
+    /// <param name="serverId">The ID of the server where the character is located.</param>
+    /// <param name="accountId">The ID of the account to which the character belongs.</param>
+    /// <param name="characterId">The ID of the character to be deleted.</param>
+    /// <returns>
+    /// An <see cref="IActionResult"/> indicating the result of the operation:
+    /// - 200 OK if the character is successfully deleted.
+    /// - 400 Bad Request if any of the input parameters are invalid.
+    /// - 404 Not Found if the account or character with the specified IDs does not exist.
+    /// </returns>
+    [HttpPost("character/delete/{serverId}/{accountId:int}/{characterId:long}")]
+    [ActionName("DeleteCharacter")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteCharacterAsync(short serverId, int accountId, long characterId)
+    {
+        if (serverId <= 0 || accountId <= 0 || characterId <= 0)
+            return BadRequest("Invalid server ID, account ID, or character ID.");
+
+        var account = await _accountRepository.GetAccountByIdAsync(accountId, HttpContext.RequestAborted);
+
+        if (account is null)
+            return NotFound($"Account with ID {accountId} not found.");
+
+        var characterToRemove = account.Characters.FirstOrDefault(c => c.ServerId == serverId && c.CharacterId == characterId);
+
+        if (characterToRemove is null)
+            return NotFound($"Character with ID {characterId} not found on server {serverId} for account {accountId}.");
+
+        await _accountRepository.RemoveCharacterAsync(account, characterToRemove, HttpContext.RequestAborted);
+
+        return Ok();
+    }
 }
