@@ -27,7 +27,7 @@ public sealed class CharacterRecord
 
     public required bool Sex { get; set; }
 
-    public required ulong Position { get; set; }
+    public required CharacterPosition Position { get; set; }
 
     public required PlayerStatus Status { get; set; }
 
@@ -39,7 +39,7 @@ public sealed class CharacterRecord
 
     public required List<SpellIds> Spells { get; set; }
 
-    public required DateTime CreatedAt { get; set; }
+    public required DateTime CreatedAt { get; init; }
 
     public required DateTime UpdatedAt { get; set; }
 
