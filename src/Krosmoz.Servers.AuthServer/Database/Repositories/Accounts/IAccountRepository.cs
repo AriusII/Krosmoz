@@ -12,6 +12,16 @@ namespace Krosmoz.Servers.AuthServer.Database.Repositories.Accounts;
 public interface IAccountRepository
 {
     /// <summary>
+    /// Retrieves an account record by its ID asynchronously.
+    /// </summary>
+    /// <param name="id">The unique identifier of the account to retrieve.</param>
+    /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+    /// <returns>
+    /// A task that represents the asynchronous operation. The task result contains the account record if found, or null if not found.
+    /// </returns>
+    Task<AccountRecord?> GetAccountByIdAsync(int id, CancellationToken cancellationToken);
+
+    /// <summary>
     /// Retrieves an account record by its username.
     /// </summary>
     /// <param name="username">The username of the account to retrieve.</param>
