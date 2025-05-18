@@ -3,6 +3,7 @@
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
 using Krosmoz.Servers.AuthServer.Database.Models.Accounts;
+using Krosmoz.Servers.AuthServer.Database.Models.Servers;
 
 namespace Krosmoz.Servers.AuthServer.Database.Repositories.Accounts;
 
@@ -70,4 +71,13 @@ public interface IAccountRepository
     /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
     /// <returns>A task that represents the asynchronous operation.</returns>
     Task UpdateAccountAsync(AccountRecord account, CancellationToken cancellationToken);
+
+    /// <summary>
+    /// Removes a character associated with the specified account asynchronously.
+    /// </summary>
+    /// <param name="account">The account record from which the character will be removed.</param>
+    /// <param name="character">The character record to remove.</param>
+    /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+    /// <returns>A task that represents the asynchronous operation.</returns>
+    Task RemoveCharacterAsync(AccountRecord account, ServerCharacterRecord character, CancellationToken cancellationToken);
 }
