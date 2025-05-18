@@ -4,7 +4,7 @@
 
 using Krosmoz.Servers.GameServer.Network.Transport;
 
-namespace Krosmoz.Servers.GameServer.Services.Character.Selection;
+namespace Krosmoz.Servers.GameServer.Services.Characters.Selection;
 
 /// <summary>
 /// Defines the contract for a service that handles character selection functionality.

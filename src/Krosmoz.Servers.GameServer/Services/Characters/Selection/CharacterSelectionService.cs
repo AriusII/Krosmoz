@@ -10,7 +10,7 @@ using Krosmoz.Servers.GameServer.Models.Accounts;
 using Krosmoz.Servers.GameServer.Network.Transport;
 using Krosmoz.Servers.GameServer.Services.Game;
 
-namespace Krosmoz.Servers.GameServer.Services.Character.Selection;
+namespace Krosmoz.Servers.GameServer.Services.Characters.Selection;
 
 /// <summary>
 /// Provides functionality for character selection, including sending the list of available characters to a game session.

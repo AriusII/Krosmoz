@@ -15,8 +15,8 @@ using Krosmoz.Servers.GameServer.Factories.Characters;
 using Krosmoz.Servers.GameServer.Models.Accounts;
 using Krosmoz.Servers.GameServer.Models.Appearances;
 using Krosmoz.Servers.GameServer.Network.Transport;
-using Krosmoz.Servers.GameServer.Services.Character.Selection;
 using Krosmoz.Servers.GameServer.Services.Characters.Creation.NameGeneration;
+using Krosmoz.Servers.GameServer.Services.Characters.Selection;
 using Krosmoz.Servers.GameServer.Services.Game;
 using Krosmoz.Servers.GameServer.Services.Ipc;
 
