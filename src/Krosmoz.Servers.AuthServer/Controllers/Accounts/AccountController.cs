@@ -3,6 +3,7 @@
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
 using Krosmoz.Servers.AuthServer.Database.Models.Accounts;
+using Krosmoz.Servers.AuthServer.Database.Models.Servers;
 using Krosmoz.Servers.AuthServer.Database.Repositories.Accounts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,32 +26,6 @@ public sealed class AccountController : ControllerBase
     public AccountController(IAccountRepository accountRepository)
     {
         _accountRepository = accountRepository;
-    }
-
-    /// <summary>
-    /// Retrieves an account by its username.
-    /// </summary>
-    /// <param name="username">The username of the account to retrieve.</param>
-    /// <returns>
-    /// An <see cref="IActionResult"/> containing the account record if found,
-    /// or an appropriate error response if not found or invalid input is provided.
-    /// </returns>
-    [HttpGet("search/username/{username}")]
-    [ActionName("GetAccountByUsername")]
-    [ProducesResponseType(typeof(AccountRecord), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> GetAccountByUsernameAsync(string username)
-    {
-        if (string.IsNullOrEmpty(username))
-            return BadRequest("Username cannot be null or empty.");
-
-        var account = await _accountRepository.GetAccountByUsernameAsync(username, HttpContext.RequestAborted);
-
-        if (account is null)
-            return NotFound($"Account with username {username} not found.");
-
-        return Ok(account);
     }
 
     /// <summary>
@@ -108,5 +83,44 @@ public sealed class AccountController : ControllerBase
             return Unauthorized("Invalid password.");
 
         return Ok(account);
+    }
+
+    /// <summary>
+    /// Creates a new character for a specified account on a given server.
+    /// </summary>
+    /// <param name="serverId">The ID of the server where the character will be created.</param>
+    /// <param name="accountId">The ID of the account to which the character will belong.</param>
+    /// <param name="characterId">The ID of the character to be created.</param>
+    /// <returns>
+    /// An <see cref="IActionResult"/> indicating the result of the operation:
+    /// - 200 OK if the character is successfully created.
+    /// - 400 Bad Request if any of the input parameters are invalid.
+    /// - 404 Not Found if the account with the specified ID does not exist.
+    /// </returns>
+    [HttpPost("character/create/{serverId}/{accountId:int}/{characterId:long}")]
+    [ActionName("CreateCharacter")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> CreateCharacterAsync(short serverId, int accountId, long characterId)
+    {
+        if (serverId <= 0 || accountId <= 0 || characterId <= 0)
+            return BadRequest("Invalid server ID, account ID, or character ID.");
+
+        var account = await _accountRepository.GetAccountByIdAsync(accountId, HttpContext.RequestAborted);
+
+        if (account is null)
+            return NotFound($"Account with ID {accountId} not found.");
+
+        account.Characters.Add(new ServerCharacterRecord
+        {
+            AccountId = accountId,
+            ServerId = serverId,
+            CharacterId = characterId
+        });
+
+        await _accountRepository.UpdateAccountAsync(account, HttpContext.RequestAborted);
+
+        return Ok();
     }
 }
