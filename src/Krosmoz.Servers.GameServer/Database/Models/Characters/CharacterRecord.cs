@@ -4,7 +4,6 @@
 
 using Krosmoz.Protocol.Enums;
 using Krosmoz.Protocol.Enums.Custom;
-using Krosmoz.Protocol.Types.Game.Character.Status;
 using Krosmoz.Servers.GameServer.Models.Appearances;
 
 namespace Krosmoz.Servers.GameServer.Database.Models.Characters;
@@ -29,7 +28,7 @@ public sealed class CharacterRecord
 
     public required CharacterPosition Position { get; set; }
 
-    public required PlayerStatus Status { get; set; }
+    public required PlayerStatuses Status { get; set; }
 
     public required ActorLook Look { get; set; }
 
