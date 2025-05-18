@@ -27,6 +27,8 @@ public sealed class CharacterRecord
 
     public required bool Sex { get; set; }
 
+    public required ulong Position { get; set; }
+
     public required PlayerStatus Status { get; set; }
 
     public required ActorLook Look { get; set; }
