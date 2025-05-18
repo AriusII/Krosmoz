@@ -10,8 +10,10 @@ using Krosmoz.Serialization.D2O.Abstractions;
 using Krosmoz.Serialization.Repository;
 using Krosmoz.Servers.GameServer.Database;
 using Krosmoz.Servers.GameServer.Network.Transport;
+using Krosmoz.Servers.GameServer.Services.Authentication;
 using Krosmoz.Servers.GameServer.Services.Breeds;
 using Krosmoz.Servers.GameServer.Services.Game;
+using Krosmoz.Servers.GameServer.Services.Ipc;
 using Krosmoz.Servers.GameServer.Services.OptionalFeatures;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,6 +35,8 @@ await Host.CreateDefaultBuilder(args)
             .AddSingleton<IBreedService, BreedService>()
             .AddSingleton<IOptionalFeatureService, OptionalFeatureService>()
             .AddSingleton<IGameService, GameService>()
+            .AddSingleton<IIpcService, IpcService>()
+            .AddSingleton<IAuthenticationService, AuthenticationService>()
             .AddHostedServiceAsSingleton<GameServer>();
     })
     .RunConsoleAsync();
