@@ -2,6 +2,9 @@
 // Krosmoz licenses this file to you under the MIT license.
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
+using Krosmoz.Protocol.Enums.Custom;
+using Krosmoz.Servers.GameServer.Database.Models.Characters;
+
 namespace Krosmoz.Servers.GameServer.Services.Breeds;
 
 /// <summary>
@@ -20,4 +23,11 @@ public interface IBreedService
     /// </summary>
     /// <returns>A short containing the flags for playable breeds.</returns>
     short GetPlayableBreedsFlags();
+
+    /// <summary>
+    /// Retrieves the spawn position for a character of the specified breed.
+    /// </summary>
+    /// <param name="breed">The breed identifier for which to retrieve the spawn position.</param>
+    /// <returns>A <see cref="CharacterPosition"/> object representing the spawn position for the specified breed.</returns>
+    CharacterPosition GetSpawnPosition(BreedIds breed);
 }
