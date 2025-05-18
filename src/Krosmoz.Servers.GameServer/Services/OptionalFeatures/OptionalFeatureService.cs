@@ -12,7 +12,7 @@ namespace Krosmoz.Servers.GameServer.Services.OptionalFeatures;
 /// </summary>
 public sealed class OptionalFeatureService : IOptionalFeatureService
 {
-    private readonly IConfiguration _configuration;
+    private readonly OptionalFeatureIds[] _features;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="OptionalFeatureService"/> class.
@@ -20,7 +20,7 @@ public sealed class OptionalFeatureService : IOptionalFeatureService
     /// <param name="configuration">The configuration instance used to retrieve enabled optional features.</param>
     public OptionalFeatureService(IConfiguration configuration)
     {
-        _configuration = configuration;
+        _features = configuration.GetRequiredSection("OptionalFeatures").Get<OptionalFeatureIds[]>()!;
     }
 
     /// <summary>
@@ -31,7 +31,7 @@ public sealed class OptionalFeatureService : IOptionalFeatureService
     /// </returns>
     public IEnumerable<OptionalFeatureIds> GetEnabledFeatures()
     {
-        return _configuration.GetValue<OptionalFeatureIds[]>("OptionalFeatures")!;
+        return _features;
     }
 
     /// <summary>
@@ -43,6 +43,6 @@ public sealed class OptionalFeatureService : IOptionalFeatureService
     /// </returns>
     public bool IsFeatureEnabled(OptionalFeatureIds featureId)
     {
-        return _configuration.GetValue<OptionalFeatureIds[]>("OptionalFeatures")!.Contains(featureId);
+        return _features.Contains(featureId);
     }
 }
