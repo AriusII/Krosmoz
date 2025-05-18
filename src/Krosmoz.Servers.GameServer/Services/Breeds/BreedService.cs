@@ -25,9 +25,9 @@ public sealed class BreedService : IBreedService
     /// <param name="configuration">The configuration instance to retrieve breed settings.</param>
     public BreedService(IConfiguration configuration)
     {
-        _visibleBreeds = configuration.GetValue<PlayableBreeds[]>("VisibleBreeds")!;
-        _playableBreeds = configuration.GetValue<PlayableBreeds[]>("PlayableBreeds")!;
-        _spawnPositions = configuration.GetValue<Dictionary<BreedIds, CharacterPosition>>("SpawnBreedPositions")!.ToFrozenDictionary();
+        _visibleBreeds = configuration.GetRequiredSection("VisibleBreeds").Get<PlayableBreeds[]>()!;
+        _playableBreeds = configuration.GetRequiredSection("PlayableBreeds").Get<PlayableBreeds[]>()!;
+        _spawnPositions = configuration.GetRequiredSection("SpawnBreedPositions").Get<Dictionary<BreedIds, CharacterPosition>>()!.ToFrozenDictionary();
     }
 
     /// <summary>
