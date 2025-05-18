@@ -20,6 +20,7 @@ public sealed class CharacterDeletionService : ICharacterDeletionService
 {
     private readonly ICharacterRepository _characterRepository;
     private readonly ICharacterSelectionService _characterSelectionService;
+    private readonly IIpcService _ipcService;
     private readonly long _maxExperienceToDeleteCharacterWithoutSecretQuestion;
 
     /// <summary>
@@ -27,11 +28,13 @@ public sealed class CharacterDeletionService : ICharacterDeletionService
     /// </summary>
     /// <param name="characterRepository">The repository for accessing character data.</param>
     /// <param name="characterSelectionService">The service for managing character selection.</param>
+    /// <param name="ipcService">The IPC service for inter-process communication.</param>
     /// <param name="configuration">The configuration settings for the application.</param>
-    public CharacterDeletionService(ICharacterRepository characterRepository, ICharacterSelectionService characterSelectionService, IConfiguration configuration)
+    public CharacterDeletionService(ICharacterRepository characterRepository, ICharacterSelectionService characterSelectionService, IIpcService ipcService, IConfiguration configuration)
     {
         _characterRepository = characterRepository;
         _characterSelectionService = characterSelectionService;
+        _ipcService = ipcService;
         _maxExperienceToDeleteCharacterWithoutSecretQuestion = configuration.GetValue<long>("MaxExperienceToDeleteCharacterWithoutSecretQuestion");
     }
 
@@ -63,6 +66,12 @@ public sealed class CharacterDeletionService : ICharacterDeletionService
         if (characterRecord.Experience >= _maxExperienceToDeleteCharacterWithoutSecretQuestion && !string.Equals(secretAnswerHash, $"{characterId}~{session.Account.SecretAnswer}".ToMd5()))
         {
             await SendCharacterDeletionErrorAsync(session, CharacterDeletionErrors.DelErrBadSecretAnswer);
+            return;
+        }
+
+        if (!await _ipcService.DeleteCharacterAsync(serverCharacterToRemove, session.ConnectionClosed))
+        {
+            await SendCharacterDeletionErrorAsync(session, CharacterDeletionErrors.DelErrNoReason);
             return;
         }
 
