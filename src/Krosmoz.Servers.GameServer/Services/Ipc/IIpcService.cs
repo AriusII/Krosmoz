@@ -33,4 +33,15 @@ public interface IIpcService
     /// whether the character was successfully created.
     /// </returns>
     Task<bool> CreateCharacterAsync(AccountCharacter character, CancellationToken cancellationToken);
+
+    /// <summary>
+    /// Deletes a character asynchronously.
+    /// </summary>
+    /// <param name="character">The character information to be deleted.</param>
+    /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+    /// <returns>
+    /// A task that represents the asynchronous operation. The task result is a boolean indicating
+    /// whether the character was successfully deleted.
+    /// </returns>
+    Task<bool> DeleteCharacterAsync(AccountCharacter character, CancellationToken cancellationToken);
 }

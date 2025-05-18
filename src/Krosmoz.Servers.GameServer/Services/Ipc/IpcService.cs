@@ -18,6 +18,11 @@ public sealed class IpcService : IIpcService, IDisposable
     private readonly HttpClient _http;
     private readonly ILogger<IpcService> _logger;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="IpcService"/> class.
+    /// </summary>
+    /// <param name="configuration">The configuration object containing IPC host settings.</param>
+    /// <param name="logger">The logger instance for logging errors and information.</param>
     public IpcService(IConfiguration configuration, ILogger<IpcService> logger)
     {
         _http = new HttpClient { BaseAddress = new Uri(configuration["IpcHost"]!) };
@@ -72,6 +77,34 @@ public sealed class IpcService : IIpcService, IDisposable
         return false;
     }
 
+    /// <summary>
+    /// Deletes a character asynchronously.
+    /// </summary>
+    /// <param name="character">The character information to be deleted.</param>
+    /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+    /// <returns>
+    /// A task that represents the asynchronous operation. The task result is a boolean indicating
+    /// whether the character was successfully deleted.
+    /// </returns>
+    public async Task<bool> DeleteCharacterAsync(AccountCharacter character, CancellationToken cancellationToken)
+    {
+        try
+        {
+            using var response = await _http.PostAsync($"api/account/character/delete/{character.ServerId}/{character.AccountId}/{character.CharacterId}", null, cancellationToken);
+
+            return response.IsSuccessStatusCode;
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Error while removing character from Ipc");
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Disposes the resources used by the <see cref="IpcService"/> instance.
+    /// </summary>
     public void Dispose()
     {
         _http.Dispose();
