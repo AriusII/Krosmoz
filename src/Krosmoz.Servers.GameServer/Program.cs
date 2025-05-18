@@ -1,9 +1,11 @@
 ﻿
 using Krosmoz.Core.Extensions;
+using Krosmoz.Core.Network.Dispatcher;
 using Krosmoz.Core.Network.Factory;
 using Krosmoz.Core.Network.Framing;
 using Krosmoz.Core.Network.Transport;
 using Krosmoz.Core.Scheduling;
+using Krosmoz.Core.Services;
 using Krosmoz.Protocol.Datacenter;
 using Krosmoz.Protocol.Messages;
 using Krosmoz.Serialization.D2O.Abstractions;
@@ -37,6 +39,8 @@ await Host.CreateDefaultBuilder(args)
             .AddSingleton<IGameService, GameService>()
             .AddSingleton<IIpcService, IpcService>()
             .AddSingleton<IAuthenticationService, AuthenticationService>()
-            .AddHostedServiceAsSingleton<GameServer>();
+            .AddHostedServiceAsSingleton<GameServer>()
+            .AddMessageHandlers()
+            .AddInitializableServices();
     })
     .RunConsoleAsync();
