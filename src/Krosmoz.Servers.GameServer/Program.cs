@@ -11,6 +11,7 @@ using Krosmoz.Protocol.Messages;
 using Krosmoz.Serialization.D2O.Abstractions;
 using Krosmoz.Serialization.Repository;
 using Krosmoz.Servers.GameServer.Database;
+using Krosmoz.Servers.GameServer.Factories.Characters;
 using Krosmoz.Servers.GameServer.Network.Transport;
 using Krosmoz.Servers.GameServer.Services.Authentication;
 using Krosmoz.Servers.GameServer.Services.Breeds;
@@ -39,6 +40,7 @@ await Host.CreateDefaultBuilder(args)
             .AddSingleton<IGameService, GameService>()
             .AddSingleton<IIpcService, IpcService>()
             .AddSingleton<IAuthenticationService, AuthenticationService>()
+            .AddSingleton<ICharacterFactory, CharacterFactory>()
             .AddHostedServiceAsSingleton<GameServer>()
             .AddMessageHandlers()
             .AddInitializableServices();
