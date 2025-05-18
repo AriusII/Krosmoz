@@ -2,9 +2,10 @@
 // Krosmoz licenses this file to you under the MIT license.
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
-using System.Net;
+using System.Text.Json.Serialization;
 using Krosmoz.Protocol.Enums;
 using Krosmoz.Serialization.I18N;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Krosmoz.Servers.GameServer.Models.Accounts;
 
@@ -16,8 +17,10 @@ public sealed class Account
 
     public required string Password { get; set; }
 
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public required GameHierarchies Hierarchy { get; set; }
 
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public required I18NLanguages Language { get; set; }
 
     public required string SecretQuestion { get; set; }
@@ -34,12 +37,11 @@ public sealed class Account
 
     public required string MacAddress { get; set; }
 
-    public required IPAddress IpAddress { get; set; }
-
     public required string Ticket { get; set; }
 
     public DateTime? SubscriptionExpireAt { get; set; }
 
+    [JsonIgnore]
     public bool HasRights =>
         Hierarchy >= GameHierarchies.Moderator;
 }
