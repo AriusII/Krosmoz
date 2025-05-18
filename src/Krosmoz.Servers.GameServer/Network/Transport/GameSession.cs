@@ -7,6 +7,7 @@ using Krosmoz.Core.Network.Dispatcher;
 using Krosmoz.Core.Network.Factory;
 using Krosmoz.Core.Network.Framing;
 using Krosmoz.Core.Network.Transport;
+using Krosmoz.Servers.GameServer.Models.Accounts;
 using Microsoft.Extensions.Logging;
 
 namespace Krosmoz.Servers.GameServer.Network.Transport;
@@ -17,6 +18,11 @@ namespace Krosmoz.Servers.GameServer.Network.Transport;
 /// </summary>
 public sealed class GameSession : TcpSession
 {
+    /// <summary>
+    /// Gets or sets the account associated with this game session.
+    /// </summary>
+    public Account Account { get; set; }
+
     /// <summary>
     /// Initializes a new instance of the <see cref="GameSession"/> class.
     /// </summary>
@@ -35,5 +41,6 @@ public sealed class GameSession : TcpSession
         ILogger<TcpSession> logger)
         : base(socket, messageDecoder, messageEncoder, messageDispatcher, messageFactory, logger)
     {
+        Account = null!;
     }
 }
