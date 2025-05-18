@@ -8,7 +8,7 @@ using Krosmoz.Serialization.I18N;
 
 namespace Krosmoz.Servers.GameServer.Models.Accounts;
 
-public sealed class AccountRecord
+public sealed class Account
 {
     public int Id { get; init; }
 
