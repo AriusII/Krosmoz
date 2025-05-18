@@ -116,7 +116,7 @@ public sealed class ServerService : IServerService
         Debug.Assert(server.Port is not null);
         Debug.Assert(!string.IsNullOrEmpty(session.Account.Ticket));
 
-        var charactersCount = session.Account.Characters.Count(x => x.ServerId == server.Id);
+        var charactersCount = session.Account.Characters.Count(x => x.ServerId == server.Id && !x.DeletedAt.HasValue);
 
         await session.SendAsync(new SelectedServerDataMessage
         {
@@ -155,7 +155,7 @@ public sealed class ServerService : IServerService
     /// <returns>A <see cref="GameServerInformations"/> object containing the server details.</returns>
     private static GameServerInformations GetGameServerInformations(ServerRecord server, AccountRecord account)
     {
-        var charactersCount = account.Characters.Count(x => x.ServerId == server.Id);
+        var charactersCount = account.Characters.Count(x => x.ServerId == server.Id && !x.DeletedAt.HasValue);
 
         Debug.Assert(server.OpenedAt is not null);
 
