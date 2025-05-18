@@ -2,10 +2,10 @@
 // Krosmoz licenses this file to you under the MIT license.
 // See the license here https://github.com/AerafalGit/Krosmoz/blob/main/LICENSE.
 
+using Krosmoz.Protocol.Datacenter.Breeds;
 using Krosmoz.Protocol.Enums;
 using Krosmoz.Protocol.Enums.Custom;
 using Krosmoz.Servers.GameServer.Database.Models.Characters;
-using Krosmoz.Servers.GameServer.Database.Repositories.Breeds;
 using Krosmoz.Servers.GameServer.Models.Accounts;
 using Krosmoz.Servers.GameServer.Models.Appearances;
 using Krosmoz.Servers.GameServer.Services.Breeds;
@@ -19,17 +19,14 @@ namespace Krosmoz.Servers.GameServer.Factories.Characters;
 public sealed class CharacterFactory : ICharacterFactory
 {
     private readonly IBreedService _breedService;
-    private readonly IBreedRepository _breedRepository;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="CharacterFactory"/> class.
     /// </summary>
     /// <param name="breedService">Service for retrieving breed-related data.</param>
-    /// <param name="breedRepository">Repository for accessing breed data.</param>
-    public CharacterFactory(IBreedService breedService, IBreedRepository breedRepository)
+    public CharacterFactory(IBreedService breedService)
     {
         _breedService = breedService;
-        _breedRepository = breedRepository;
     }
 
     /// <summary>
@@ -38,15 +35,16 @@ public sealed class CharacterFactory : ICharacterFactory
     /// <param name="name">The name of the character to create.</param>
     /// <param name="account">The account associated with the character.</param>
     /// <param name="breedId">The breed ID of the character.</param>
+    /// <param name="breed">The breed data for the character.</param>
     /// <param name="headId">The ID of the character's head appearance.</param>
     /// <param name="sex">The sex of the character.</param>
     /// <param name="actorLook">The visual appearance of the character.</param>
     /// <returns>A new <see cref="CharacterRecord"/> representing the created character.</returns>
-    public CharacterRecord CreateCharacterRecord(string name, Account account, BreedIds breedId, int headId, bool sex, ActorLook actorLook)
+    public CharacterRecord CreateCharacterRecord(string name, Account account, BreedIds breedId, Breed breed, int headId, bool sex, ActorLook actorLook)
     {
         var position = _breedService.GetSpawnPosition(breedId);
 
-        var breedSpells = _breedRepository.GetStartSpellIds(breedId);
+        var breedSpells = breed.BreedSpellsId.Select(static x => (SpellIds)x);
 
         return new CharacterRecord
         {
