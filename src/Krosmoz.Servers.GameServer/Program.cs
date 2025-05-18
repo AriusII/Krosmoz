@@ -18,6 +18,7 @@ using Krosmoz.Servers.GameServer.Services.Authentication;
 using Krosmoz.Servers.GameServer.Services.Breeds;
 using Krosmoz.Servers.GameServer.Services.Characters.Creation;
 using Krosmoz.Servers.GameServer.Services.Characters.Creation.NameGeneration;
+using Krosmoz.Servers.GameServer.Services.Characters.Deletion;
 using Krosmoz.Servers.GameServer.Services.Characters.Selection;
 using Krosmoz.Servers.GameServer.Services.Game;
 using Krosmoz.Servers.GameServer.Services.Ipc;
@@ -49,6 +50,7 @@ await Host.CreateDefaultBuilder(args)
             .AddSingleton<ICharacterCreationService, CharacterCreationService>()
             .AddSingleton<ICharacterRepository, CharacterRepository>()
             .AddSingleton<ICharacterSelectionService, CharacterSelectionService>()
+            .AddSingleton<ICharacterDeletionService, CharacterDeletionService>()
             .AddHostedServiceAsSingleton<GameServer>()
             .AddMessageHandlers()
             .AddInitializableServices();
