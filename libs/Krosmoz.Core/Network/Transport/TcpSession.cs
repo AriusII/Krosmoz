@@ -133,9 +133,9 @@ public abstract class TcpSession : IAsyncDisposable
         {
             // ignore
         }
-        catch (Exception)
+        catch (Exception e)
         {
-            // ignore
+            _logger.LogError(e, "Session {SessionName} error: {Message}", this, e.Message);
         }
     }
 
