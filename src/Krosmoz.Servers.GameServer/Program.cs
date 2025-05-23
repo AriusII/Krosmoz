@@ -1,11 +1,11 @@
-﻿
-using Krosmoz.Core.Extensions;
+﻿using Krosmoz.Core.Extensions;
 using Krosmoz.Core.Network.Dispatcher;
 using Krosmoz.Core.Network.Factory;
 using Krosmoz.Core.Network.Framing;
 using Krosmoz.Core.Network.Transport;
 using Krosmoz.Core.Scheduling;
 using Krosmoz.Core.Services;
+using Krosmoz.Infrastructure.ServiceDefaults;
 using Krosmoz.Protocol.Datacenter;
 using Krosmoz.Protocol.Messages;
 using Krosmoz.Serialization.D2O.Abstractions;
@@ -27,32 +27,35 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-await Host.CreateDefaultBuilder(args)
-    .ConfigureLogging(static logging => logging.UseSerilog())
-    .ConfigureServices(static (context, services) =>
-    {
-        services
-            .Configure<TcpServerOptions>(context.Configuration.GetSection("Server"))
-            .AddDbContext<GameDbContext>(context.Configuration.GetConnectionString("Game"))
-            .AddTransient<DofusMessageDecoder>()
-            .AddTransient<DofusMessageEncoder>()
-            .AddTransient<IScheduler, Scheduler>()
-            .AddSingleton<IMessageFactory, MessageFactory>()
-            .AddSingleton<IDatacenterObjectFactory, DatacenterObjectFactory>()
-            .AddSingleton<IDatacenterRepository, DatacenterRepository>()
-            .AddSingleton<IBreedService, BreedService>()
-            .AddSingleton<IOptionalFeatureService, OptionalFeatureService>()
-            .AddSingleton<IGameService, GameService>()
-            .AddSingleton<IIpcService, IpcService>()
-            .AddSingleton<IAuthenticationService, AuthenticationService>()
-            .AddSingleton<ICharacterFactory, CharacterFactory>()
-            .AddSingleton<ICharacterNameGenerationService, CharacterNameGenerationService>()
-            .AddSingleton<ICharacterCreationService, CharacterCreationService>()
-            .AddSingleton<ICharacterRepository, CharacterRepository>()
-            .AddSingleton<ICharacterSelectionService, CharacterSelectionService>()
-            .AddSingleton<ICharacterDeletionService, CharacterDeletionService>()
-            .AddHostedServiceAsSingleton<GameServer>()
-            .AddMessageHandlers()
-            .AddInitializableServices();
-    })
-    .RunConsoleAsync();
+var builder = Host.CreateApplicationBuilder(args);
+
+builder.AddServiceDefaults()
+    .AddNpgsqlDataSource("Game");
+
+builder.Logging.UseSerilog();
+
+builder.Services
+    .Configure<TcpServerOptions>(builder.Configuration.GetSection("Server"))
+    .AddDbContext<GameDbContext>(builder.Configuration.GetConnectionString("game"))
+    .AddTransient<DofusMessageDecoder>()
+    .AddTransient<DofusMessageEncoder>()
+    .AddTransient<IScheduler, Scheduler>()
+    .AddSingleton<IMessageFactory, MessageFactory>()
+    .AddSingleton<IDatacenterObjectFactory, DatacenterObjectFactory>()
+    .AddSingleton<IDatacenterRepository, DatacenterRepository>()
+    .AddSingleton<IBreedService, BreedService>()
+    .AddSingleton<IOptionalFeatureService, OptionalFeatureService>()
+    .AddSingleton<IGameService, GameService>()
+    .AddSingleton<IIpcService, IpcService>()
+    .AddSingleton<IAuthenticationService, AuthenticationService>()
+    .AddSingleton<ICharacterFactory, CharacterFactory>()
+    .AddSingleton<ICharacterNameGenerationService, CharacterNameGenerationService>()
+    .AddSingleton<ICharacterCreationService, CharacterCreationService>()
+    .AddSingleton<ICharacterRepository, CharacterRepository>()
+    .AddSingleton<ICharacterSelectionService, CharacterSelectionService>()
+    .AddSingleton<ICharacterDeletionService, CharacterDeletionService>()
+    .AddHostedServiceAsSingleton<GameServer>()
+    .AddMessageHandlers()
+    .AddInitializableServices();
+
+builder.Build().Run();

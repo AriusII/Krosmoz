@@ -8,8 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\libs\Krosmoz.Protocol\Krosmoz.Protocol.csproj" />
-    <ProjectReference Include="..\..\libs\Krosmoz.SourceGeneration\Krosmoz.SourceGeneration.csproj" ReferenceOutputAssembly="false" OutputItemType="Analyzer" />
+    <ProjectReference Include="..\..\infrastructure\Krosmoz.Infrastructure.ServiceDefaults\Krosmoz.Infrastructure.ServiceDefaults.csproj"/>
+    <ProjectReference Include="..\..\libs\Krosmoz.Protocol\Krosmoz.Protocol.csproj"/>
+    <ProjectReference Include="..\..\libs\Krosmoz.SourceGeneration\Krosmoz.SourceGeneration.csproj" ReferenceOutputAssembly="false" OutputItemType="Analyzer"/>
   </ItemGroup>
 
   <ItemGroup>

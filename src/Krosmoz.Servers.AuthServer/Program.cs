@@ -5,6 +5,7 @@ using Krosmoz.Core.Network.Framing;
 using Krosmoz.Core.Network.Transport;
 using Krosmoz.Core.Scheduling;
 using Krosmoz.Core.Services;
+using Krosmoz.Infrastructure.ServiceDefaults;
 using Krosmoz.Protocol.Datacenter;
 using Krosmoz.Protocol.Messages;
 using Krosmoz.Serialization.D2O.Abstractions;
@@ -18,10 +19,14 @@ using Krosmoz.Servers.AuthServer.Services.Servers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Logging.UseSerilog();
+
+builder.AddServiceDefaults()
+    .AddNpgsqlDataSource("Auth");
 
 builder.Services
     .Configure<TcpServerOptions>(builder.Configuration.GetSection("Server"))
